@@ -8,7 +8,7 @@ type Series = Record<WeatherVar, (number | null)[]>;
 
 /** API variable names -> our short keys. Sunshine goes from seconds to hours. */
 export function toSeries(raw: RawYear): Series {
-  const col = (name: string) => raw[name] ?? raw.dates.map(() => null);
+  const col = (name: string) => raw.values[name] ?? raw.dates.map(() => null);
   return {
     tmax: col('temperature_2m_max'),
     tmin: col('temperature_2m_min'),

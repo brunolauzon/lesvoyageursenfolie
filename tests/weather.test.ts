@@ -43,11 +43,13 @@ describe('dates', () => {
 describe('aggregate', () => {
   const year = (offset: number): RawYear => ({
     dates: ['2020-01-16', '2020-01-17'],
-    temperature_2m_max: [25 + offset, 27 + offset],
-    temperature_2m_min: [20, 21],
-    precipitation_sum: [0, 5 * offset],
-    sunshine_duration: [36000, 10800], // 10 h and 3 h
-    sea_surface_temperature: [null, null],
+    values: {
+      temperature_2m_max: [25 + offset, 27 + offset],
+      temperature_2m_min: [20, 21],
+      precipitation_sum: [0, 5 * offset],
+      sunshine_duration: [36000, 10800], // 10 h and 3 h
+      sea_surface_temperature: [null, null],
+    },
   });
   const { daily, summary } = aggregate({ a: year(0), b: year(2) }, ['01-16', '01-17'], ['01-16', '01-17']);
 

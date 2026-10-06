@@ -1,0 +1,21 @@
+---
+import TravelBars from './TravelBars.astro';
+import { doorToDoor } from '../lib/travel';
+import { loadTravel } from '../lib/data';
+import { t } from '../lib/i18n';
+import type { Trip } from '../schema/trip';
+
+interface Props { resorts: { slug: string; name: string }[]; trip: Trip }
+const { resorts, trip } = Astro.props;
+const rows = resorts.flatMap((r) => {
+  const travel = loadTravel(r.slug);
+  return travel ? [{ slug: r.slug, name: r.name, d: doorToDoor(travel, trip.travel), estimated: travel.flight.estimated || travel.transfer.estimated }] : [];
+});
+---
+{rows.length > 0 && (
+  <section class="section" aria-labelledby="travel-h">
+    <h2 id="travel-h">{t('travel.compareHeading')}</h2>
+    <p class="muted">{t('travel.intro')}</p>
+    <TravelBars rows={rows} link />
+  </section>
+)}

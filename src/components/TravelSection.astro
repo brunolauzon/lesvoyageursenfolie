@@ -1,0 +1,48 @@
+---
+import TravelBars from './TravelBars.astro';
+import { doorToDoor, formatDuration } from '../lib/travel';
+import { formatNumber, formatMoney } from '../lib/format';
+import { t } from '../lib/i18n';
+import type { Travel } from '../schema/travel';
+import type { Trip } from '../schema/trip';
+
+interface Props { travel: Travel | null; trip: Trip; slug: string; name: string }
+const { travel, trip, slug, name } = Astro.props;
+const d = travel ? doorToDoor(travel, trip.travel) : null;
+const tzText = !travel ? '?' : travel.timezone.diffHours === 0 ? t('travel.sameTime') : travel.timezone.diffHours > 0
+  ? t('travel.ahead', { h: formatNumber(travel.timezone.diffHours, 1) }) : t('travel.behind', { h: formatNumber(-travel.timezone.diffHours, 1) });
+const stops = !travel ? '' : travel.flight.stops === 0 ? t('travel.stops0') : travel.flight.stops === 1 ? t('travel.stops1') : t('travel.stopsN', { n: travel.flight.stops });
+const sourceLabel = !travel ? '' : { curated: t('travel.sourceCurated'), amadeus: t('travel.sourceAmadeus'), estimate: t('travel.sourceEstimate') }[travel.flight.source];
+---
+<section class="section" aria-labelledby={`travel-${slug}`}>
+  <h2 id={`travel-${slug}`}>{t('travel.heading')}</h2>
+  {travel && d ? (
+    <>
+      <p class="muted">{t('travel.intro')}</p>
+      <TravelBars rows={[{ slug, name, d, estimated: travel.flight.estimated || travel.transfer.estimated }]} />
+      <dl class="facts">
+        <dt>{t('travel.total')}</dt><dd><strong>{formatDuration(d.total)}</strong></dd>
+        <dt>{t('travel.flight')}</dt>
+        <dd>
+          {formatDuration(travel.flight.minutes)} · {stops} · <span class="muted">{sourceLabel}</span>
+          {travel.flight.estimated && <> <span class="badge" title={t('travel.estimateTitle')}>{t('travel.estimate')}</span></>}
+          {travel.flight.carriers.length > 0 && <div class="muted small">{t('travel.carriers', { list: travel.flight.carriers.join(', ') })}</div>}
+          {travel.flight.note && <div class="muted small">{travel.flight.note}</div>}
+        </dd>
+        <dt>{t('travel.transfer')}</dt>
+        <dd>
+          {formatDuration(d.transfer)} · {formatNumber(travel.transfer.km, 1)} km
+          {travel.transfer.estimated && <> <span class="badge" title={t('travel.estimateTitle')}>{t('travel.estimate')}</span></>}
+          <div class="muted small">{t('travel.transferNote', { pct: trip.travel.transfer_margin_pct })}</div>
+        </dd>
+        <dt>{t('travel.airport')}</dt>
+        <dd>
+          {travel.airport.iata} · {travel.airport.name}
+          <div class="muted small">{t('travel.airportDistance', { km: formatNumber(travel.airport.distanceToResortKm, 0) })}{travel.airport.choice === 'override' && ` · ${t('travel.airportOverride')}`}</div>
+        </dd>
+        <dt>{t('travel.timezone')}</dt><dd>{tzText}</dd>
+        {travel.flight.priceCad != null && <><dt>{t('travel.price')}</dt><dd>{formatMoney(travel.flight.priceCad, trip.currency)}</dd></>}
+      </dl>
+    </>
+  ) : <p class="muted">?</p>}
+</section>

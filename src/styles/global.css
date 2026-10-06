@@ -143,3 +143,21 @@ abbr[title] { text-decoration: none; border-bottom: 1px dotted var(--muted); cur
 #ov-precip:checked ~ .ov-panels [data-metric="precip"],
 #ov-sunshine_h:checked ~ .ov-panels [data-metric="sunshine_h"],
 #ov-sst:checked ~ .ov-panels [data-metric="sst"] { display: block; }
+
+/* ---- travel ---- */
+:root { --seg-home: #8a99a8; --seg-checkin: #94a3b8; --seg-flight: #0b6e8a; --seg-arrival: #64748b; --seg-transfer: #c2410c; }
+@media (prefers-color-scheme: dark) { :root { --seg-home: #64748b; --seg-checkin: #64748b; --seg-flight: #38a3c2; --seg-arrival: #8392a5; --seg-transfer: #fb923c; } }
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.badge { display: inline-block; font-size: .72rem; font-weight: 600; padding: .05rem .45rem; border-radius: 999px; border: 1px solid var(--muted); color: var(--muted); vertical-align: middle; }
+.swatch { display: inline-block; width: 14px; height: 14px; border-radius: 3px; }
+.seg-home { background: var(--seg-home); } .seg-checkin { background: var(--seg-checkin); } .seg-flight { background: var(--seg-flight); }
+.seg-arrival { background: var(--seg-arrival); } .seg-transfer { background: var(--seg-transfer); }
+.travel-bars { list-style: none; margin: 0; padding: 0; display: grid; gap: .9rem; counter-reset: rank; }
+.travel-bars > li { counter-increment: rank; }
+.tb-head { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.tb-head > :first-child::before { content: counter(rank) ". "; color: var(--muted); }
+.tb-track { background: var(--surface); border: 1px solid var(--border); border-radius: 6px; padding: 3px; }
+.tb-bar { display: flex; height: 1.8rem; gap: 2px; min-width: 4px; }
+.seg { display: flex; align-items: center; justify-content: center; overflow: hidden; font-size: .75rem; color: #fff; border-radius: 3px; white-space: nowrap; min-width: 2px; }
+.seg-checkin, .seg-arrival, .seg-home { color: #0b1620; } .seg-flight, .seg-transfer { color: #fff; }
+@media (prefers-color-scheme: dark) { .seg-flight, .seg-transfer { color: #06141a; } .seg-checkin, .seg-arrival, .seg-home { color: #06141a; } }

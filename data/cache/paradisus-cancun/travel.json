@@ -1,0 +1,36 @@
+{
+  "fetchedAt": "2026-10-06T13:31:39.593Z",
+  "fingerprint": "[\"21.084\",\"-86.772\",null,\"2027-01-16\",\"2027-01-23\",2,false,\"703fb2cd\"]",
+  "airport": {
+    "iata": "CUN",
+    "name": "Cancún International Airport",
+    "lat": 21.040817,
+    "lon": -86.87347,
+    "country": "MX",
+    "municipality": "Cancún",
+    "distanceToResortKm": 11.5,
+    "choice": "nearest-with-flights"
+  },
+  "flight": {
+    "minutes": 290,
+    "stops": 0,
+    "carriers": ["Air Canada", "Air Transat", "WestJet"],
+    "source": "curated",
+    "estimated": false,
+    "greatCircleKm": 2969,
+    "priceCad": null,
+    "note": "Aggregators disagree (4 h 49 to 5 h 50); 4 h 50 is the commonly reported average. Verify before booking.",
+    "sourceUrl": "https://www.flightsfrom.com/YUL-CUN"
+  },
+  "transfer": {
+    "minutes": 21,
+    "km": 17.2,
+    "estimated": false,
+    "source": "osrm"
+  },
+  "timezone": {
+    "name": "America/Cancun",
+    "originName": "America/Toronto",
+    "diffHours": 0
+  }
+}

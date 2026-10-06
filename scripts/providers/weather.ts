@@ -55,8 +55,8 @@ async function fetchYear(lat: number, lon: number, year: number, w: { start: str
     await httpJson(`https://archive-api.open-meteo.com/v1/archive?${query({ ...base, daily: ARCHIVE_VARS.join(',') })}`, { ttlMs: TTL_MS }),
   );
   const dates = archive.daily.time;
-  const raw = { dates } as RawYear;
-  for (const v of ARCHIVE_VARS) raw[v] = archive.daily[v] ?? dates.map(() => null);
+  const raw: RawYear = { dates, values: {} };
+  for (const v of ARCHIVE_VARS) raw.values[v] = archive.daily[v] ?? dates.map(() => null);
 
   // ERA5 has no UV: borrow it from the historical forecast archive where it exists.
   if (year >= UV_FROM_YEAR) {
@@ -64,7 +64,7 @@ async function fetchYear(lat: number, lon: number, year: number, w: { start: str
       const uv = DailyResponse.parse(
         await httpJson(`https://historical-forecast-api.open-meteo.com/v1/forecast?${query({ ...base, daily: 'uv_index_max' })}`, { ttlMs: TTL_MS }),
       );
-      raw.uv_index_max = uv.daily.uv_index_max ?? raw.uv_index_max!;
+      raw.values.uv_index_max = uv.daily.uv_index_max ?? raw.values.uv_index_max!;
     } catch (err) {
       console.warn(`[weather] UV unavailable for ${year}: ${err instanceof Error ? err.message : err}`);
     }
@@ -75,9 +75,9 @@ async function fetchYear(lat: number, lon: number, year: number, w: { start: str
     const marine = MarineResponse.parse(
       await httpJson(`https://marine-api.open-meteo.com/v1/marine?${query({ ...base, hourly: 'sea_surface_temperature' })}`, { ttlMs: TTL_MS }),
     );
-    raw.sea_surface_temperature = dailyMeanOfHourly(dates, marine.hourly.time, marine.hourly.sea_surface_temperature);
+    raw.values.sea_surface_temperature = dailyMeanOfHourly(dates, marine.hourly.time, marine.hourly.sea_surface_temperature);
   } catch {
-    raw.sea_surface_temperature = dates.map(() => null);
+    raw.values.sea_surface_temperature = dates.map(() => null);
   }
   return { raw, timezone: archive.timezone };
 }

@@ -1,0 +1,36 @@
+{
+  "fetchedAt": "2026-10-06T13:31:39.348Z",
+  "fingerprint": "[\"18.723\",\"-68.460\",null,\"2027-01-16\",\"2027-01-23\",2,false,\"703fb2cd\"]",
+  "airport": {
+    "iata": "PUJ",
+    "name": "Punta Cana International Airport",
+    "lat": 18.567093,
+    "lon": -68.364558,
+    "country": "DO",
+    "municipality": "Punta Cana",
+    "distanceToResortKm": 20,
+    "choice": "nearest-with-flights"
+  },
+  "flight": {
+    "minutes": 265,
+    "stops": 0,
+    "carriers": ["Air Transat"],
+    "source": "curated",
+    "estimated": false,
+    "greatCircleKm": 3032,
+    "priceCad": null,
+    "note": "Air Transat 4 h 25 (A321)",
+    "sourceUrl": "https://www.flightsfrom.com/YUL-PUJ"
+  },
+  "transfer": {
+    "minutes": 25,
+    "km": 26.8,
+    "estimated": false,
+    "source": "osrm"
+  },
+  "timezone": {
+    "name": "America/Santo_Domingo",
+    "originName": "America/Toronto",
+    "diffHours": 1
+  }
+}

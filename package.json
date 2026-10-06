@@ -12,6 +12,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "fetch": "tsx scripts/fetch-resort-data.ts",
+    "update-airports": "tsx scripts/update-airports.ts",
     "check": "tsx scripts/validate-data.ts && astro check",
     "test": "vitest run"
   },

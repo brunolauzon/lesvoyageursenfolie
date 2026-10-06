@@ -3,7 +3,7 @@ import { z } from 'zod';
 const series = z.array(z.number().nullable());
 
 /** One year of the window, as returned by the APIs (units kept: sunshine in seconds). */
-export const RawYearSchema = z.object({ dates: z.array(z.string()) }).catchall(series);
+export const RawYearSchema = z.object({ dates: z.array(z.string()), values: z.record(z.string(), series) });
 
 export const StatSchema = z.object({
   mean: z.number().nullable(),

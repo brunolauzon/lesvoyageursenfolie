@@ -1,0 +1,36 @@
+{
+  "fetchedAt": "2026-10-06T13:31:38.255Z",
+  "fingerprint": "[\"23.197\",\"-81.160\",null,\"2027-01-16\",\"2027-01-23\",2,false,\"703fb2cd\"]",
+  "airport": {
+    "iata": "VRA",
+    "name": "Juan Gualberto Gomez International Airport",
+    "lat": 23.034401,
+    "lon": -81.435303,
+    "country": "CU",
+    "municipality": "Matanzas",
+    "distanceToResortKm": 33.4,
+    "choice": "nearest-with-flights"
+  },
+  "flight": {
+    "minutes": 230,
+    "stops": 0,
+    "carriers": ["Air Transat", "Air Canada"],
+    "source": "curated",
+    "estimated": false,
+    "greatCircleKm": 2590,
+    "priceCad": null,
+    "note": "Air Transat 3 h 50, Air Canada 3 h 55 on published schedules",
+    "sourceUrl": "https://flights.idealo.com/route/Montreal-Pierre-Elliott-Trudeau-International-YUL/Varadero-VRA/"
+  },
+  "transfer": {
+    "minutes": 41,
+    "km": 38.9,
+    "estimated": false,
+    "source": "osrm"
+  },
+  "timezone": {
+    "name": "America/Havana",
+    "originName": "America/Toronto",
+    "diffHours": 0
+  }
+}

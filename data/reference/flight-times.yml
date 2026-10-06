@@ -1,0 +1,21 @@
+# Nonstop block times from YUL, in minutes. Hand-maintained; the build never overwrites it.
+# Add a line per destination airport. `checked` = date you last verified it against a schedule.
+# A destination listed here is preferred as the arrival airport when it is within 150 km of the resort.
+- airport: VRA
+  minutes: 230
+  carriers: [Air Transat, Air Canada]
+  note: "Air Transat 3 h 50, Air Canada 3 h 55 on published schedules"
+  source: https://flights.idealo.com/route/Montreal-Pierre-Elliott-Trudeau-International-YUL/Varadero-VRA/
+  checked: 2026-10-06
+- airport: PUJ
+  minutes: 265
+  carriers: [Air Transat]
+  note: "Air Transat 4 h 25 (A321)"
+  source: https://www.flightsfrom.com/YUL-PUJ
+  checked: 2026-10-06
+- airport: CUN
+  minutes: 290
+  carriers: [Air Canada, Air Transat, WestJet]
+  note: "Aggregators disagree (4 h 49 to 5 h 50); 4 h 50 is the commonly reported average. Verify before booking."
+  source: https://www.flightsfrom.com/YUL-CUN
+  checked: 2026-10-06

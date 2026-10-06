@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import WeatherSection from '../../components/WeatherSection.astro';
-import { loadMeta, loadResortInputs, loadWeather } from '../../lib/data';
+import TravelSection from '../../components/TravelSection.astro';
+import { loadMeta, loadResortInputs, loadTrip, loadTravel, loadWeather } from '../../lib/data';
 import { t } from '../../lib/i18n';
 import { url } from '../../lib/url';
 
@@ -12,6 +13,8 @@ export function getStaticPaths() {
 const { resort } = Astro.props;
 const resolved = loadMeta(resort.slug)?.resolved ?? null;
 const weather = loadWeather(resort.slug);
+const trip = loadTrip();
+const travel = loadTravel(resort.slug);
 const rows = [
   { label: t('resort.officialName'), value: resolved?.name },
   { label: t('resort.address'), value: resolved?.address },
@@ -36,5 +39,6 @@ const rows = [
         : <abbr title="Donnée manquante">{t('resort.unknown')}</abbr>}
     </dd>
   </dl>
+  <TravelSection travel={travel} trip={trip} slug={resort.slug} name={resort.name} />
   <WeatherSection weather={weather} slug={resort.slug} />
 </Base>

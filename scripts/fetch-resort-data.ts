@@ -14,6 +14,7 @@ import { writeCacheJson } from './lib/cache';
 import { configureHttp } from './lib/http';
 import type { CacheProvider, ProviderCtx } from './lib/provider';
 import { writeReport } from './lib/report';
+import { travelProvider } from './providers/travel';
 import { weatherProvider } from './providers/weather';
 import { TTL_DAYS, isFresh } from './lib/ttl';
 import { ResolveError, hashInput, resolveResort } from './providers/resolve';
@@ -34,7 +35,7 @@ function readPrevious(slug: string): Meta | null {
   }
 }
 
-const PROVIDERS: CacheProvider<any>[] = [weatherProvider];
+const PROVIDERS: CacheProvider<any>[] = [weatherProvider, travelProvider];
 
 function readCache<T extends { fetchedAt: string; fingerprint: string }>(slug: string, p: CacheProvider<T>): T | null {
   const file = join(cacheRoot, slug, p.file);

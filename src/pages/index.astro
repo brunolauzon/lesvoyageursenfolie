@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import TravelCompare from '../components/TravelCompare.astro';
 import OverlayChart from '../components/OverlayChart.astro';
 import { loadTrip, loadResortInputs, loadWeather } from '../lib/data';
 import { formatDate } from '../lib/format';
@@ -28,5 +29,6 @@ const resorts = loadResortInputs();
       </li>
     ))}
   </ul>
+  <TravelCompare resorts={resorts} trip={trip} />
   <OverlayChart resorts={resorts.map((r) => ({ slug: r.slug, name: r.name, weather: loadWeather(r.slug) }))} />
 </Base>
