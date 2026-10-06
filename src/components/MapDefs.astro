@@ -1,0 +1,17 @@
+---
+import type { Scene } from '../lib/geo';
+
+interface Props {
+  scene: Scene;
+}
+const { scene } = Astro.props;
+---
+
+<!-- Land layers drawn once per page; the route map and the locator minimaps reuse them with <use>. -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <defs>
+    <path id="map-grat" d={scene.graticule}></path>
+    <path id="map-land" d={scene.land}></path>
+    {scene.highlights.map((h) => <path id={h.id} d={h.path}></path>)}
+  </defs>
+</svg>

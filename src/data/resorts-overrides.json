@@ -1,0 +1,140 @@
+{
+  "_aide": "Corrections manuelles optionnelles, appliquées par-dessus les données automatiques. Clé = id du resort (ex. \"riu-palace-aruba\") ou nom exact. Voir README.md. Les clés commençant par _ sont ignorées.",
+  "riu-palace-costa-mujeres": {
+    "etat": {
+      "ouvertureAnnee": 2018,
+      "ouvertureMois": 11,
+      "renovationAnnee": null,
+      "renovationMois": null,
+      "renovationNote": null,
+      "note": "Construit récemment : aucune rénovation depuis l’ouverture.",
+      "sources": [
+        {
+          "label": "Riu : l’ouverture est prévue le 17 novembre 2018",
+          "url": "https://www.riu.com/blog/en/we-proudly-present-our-next-hotel-in-mexico-the-riu-palace-costa-mujeres/"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SJSB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SJFE.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SUMB-2.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  "riu-playacar": {
+    "etat": {
+      "ouvertureAnnee": 2000,
+      "ouvertureMois": null,
+      "renovationAnnee": 2015,
+      "renovationMois": 10,
+      "renovationNote": "Tout refait : 396 chambres, lobby, restaurants, piscines, spa.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Hotel Online : réouverture après rénovation de 32 M$",
+          "url": "https://www.hotel-online.com/news/riu-playacar-on-mexicos-riviera-maya-to-reopen-following-32-million"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/DDSB-room-riu-playacar.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/SUSB-3-room-riu-playacar.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/DDSN-room-riu-playacar.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  "riu-palace-tropical-bay-negril": {
+    "etat": {
+      "ouvertureAnnee": 2001,
+      "ouvertureMois": null,
+      "renovationAnnee": 2018,
+      "renovationMois": 10,
+      "renovationNote": "Chambres refaites, 52 chambres neuves, piscine et bâtiment principal.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Caribbean Journal : réouverture le 20 octobre 2018",
+          "url": "https://www.caribjournal.com/2018/10/13/riu-reopening-tropical-bay-all-inclusive-in-negril/"
+        },
+        {
+          "label": "Hosteltur : inauguré en 2001",
+          "url": "https://www.hosteltur.com/109697_reabre-el-riu-palace-tropical-bay-de-jamaica-tras-una-inversion-de-35-m.html"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SJSB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SUMB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SJLF.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  "riu-negril-negril": {
+    "etat": {
+      "ouvertureAnnee": 2002,
+      "ouvertureMois": null,
+      "renovationAnnee": 2024,
+      "renovationMois": 12,
+      "renovationNote": "600 chambres refaites, 28 avec accès piscine, 3 restaurants neufs.",
+      "note": "Année d’ouverture : 2002 selon Riu, 2004 selon d’autres sources.",
+      "sources": [
+        {
+          "label": "Travelweek : réouverture en décembre 2024",
+          "url": "https://www.travelweek.ca/news/riu-negril-reopens-following-extensive-renovations/"
+        },
+        {
+          "label": "Travelweek : Riu en Jamaïque depuis 2001, Riu Negril un an plus tard",
+          "url": "https://www.travelweek.ca/news/riu-celebrates-20-years-in-jamaica/"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBJF_2.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBSM.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBMF.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  "riu-palace-bavaro": {
+    "etat": {
+      "ouvertureAnnee": 2011,
+      "ouvertureMois": 12,
+      "renovationAnnee": 2024,
+      "renovationMois": 9,
+      "renovationNote": "Décor refait, zone famille et Elite Club. Chambres : à confirmer.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Travel Market Report : réouverture en septembre 2024",
+          "url": "https://travelmarketreport.com/destinations/articles/riu-palace-bavaro-in-punta-cana-reopens-after-refurb"
+        },
+        {
+          "label": "Hotel Executive : ouverture en décembre 2011",
+          "url": "https://www.hotelexecutive.com/newswire/38112/riu-palace-bavaro-opens-in-punta-cana"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SJEB-room-hotel-riu-palace-bavaro.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SJPE-room-hotel-riu-palace-bavaro.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SUJE-room-hotel-riu-palace-bavaro.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  }
+}

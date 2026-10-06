@@ -1,0 +1,81 @@
+---
+// "How recent is the hotel?" One line per resort on a shared time axis, freshest first:
+// a hollow dot for the opening, a yellow dot for the last renovation, and how long ago it was at departure.
+import type { Resort } from '../lib/resorts';
+import { agoLabel, chipLabel, freshnessOf, TRIP_YEAR } from '../lib/age';
+import { href } from '../lib/format';
+
+interface Props {
+  resorts: Resort[];
+}
+const rows = Astro.props.resorts
+  .map((r) => ({ r, f: freshnessOf(r) }))
+  .filter((x): x is { r: Resort; f: NonNullable<typeof x.f> } => x.f != null)
+  .sort((a, b) => a.f.age - b.f.age);
+
+const first = Math.min(...rows.map((x) => x.f.open ?? x.f.lastYear));
+const minY = first - 1;
+const span = 2027 - minY;
+const pct = (year: number) => 2 + ((year - minY) / span) * 96;
+const ticks = [2000, 2005, 2010, 2015, 2020, 2025].filter((t) => t > minY);
+---
+
+{rows.length > 0 && (
+  <div class="mt-10">
+    <h3 class="h-sub">Récent ou à rafraîchir ?</h3>
+    <p class="t-small mt-2 max-w-[70ch] text-muted">Un hôtel rénové récemment a en général des chambres plus jolies. Du plus récent au plus ancien, à la date du départ.</p>
+
+    <ol class="mt-6 space-y-3" aria-label="Âge et rénovations des resorts">
+      {rows.map(({ r, f }, n) => (
+        <li class:list={['band grid items-center gap-x-8 gap-y-2 py-6 lg:grid-cols-[minmax(12rem,16rem)_1fr_minmax(11rem,14rem)]', n % 2 === 1 && 'band-alt']}>
+          <div class="min-w-0">
+            <a href={href(`hotel/${r.id}/`)} class="h-sub text-ink no-underline hover:underline">{r.nom}</a>
+          </div>
+
+          <div class="relative h-14" role="img" aria-label={`${f.open != null ? `Ouvert en ${f.open}. ` : ''}${f.renovated != null ? `Rénové en ${f.renovated}.` : 'Jamais rénové depuis.'}`}>
+            {ticks.map((t) => <span aria-hidden="true" class="absolute top-0 bottom-0 border-l border-dashed border-line" style={`left:${pct(t)}%`}></span>)}
+            <span aria-hidden="true" class="absolute top-4 h-0.5 bg-ink/30" style={`left:${pct(f.open ?? f.lastYear)}%;width:${pct(TRIP_YEAR) - pct(f.open ?? f.lastYear)}%`}></span>
+            {f.open != null && (
+              <span class="absolute top-0 -translate-x-1/2 text-center" style={`left:${pct(f.open)}%`}>
+                <span class="mx-auto block size-3.5 translate-y-[9px] rounded-full border-2 border-ink bg-bg"></span>
+                <span class="t-tiny mt-3 block whitespace-nowrap text-muted">{f.open}</span>
+              </span>
+            )}
+            {f.renovated != null && (
+              <span class="absolute top-0 -translate-x-1/2 text-center" style={`left:${pct(f.renovated)}%`}>
+                <span class="mx-auto block size-5 translate-y-[6px] rounded-full bg-sun"></span>
+                <span class="t-tiny mt-2 block whitespace-nowrap font-bold text-sun">{f.renovated}</span>
+              </span>
+            )}
+          </div>
+
+          <div>
+            <p class:list={['figure-num text-[1.7rem]', f.label === 'Très récent' ? 'text-sun' : 'text-ink']}>{chipLabel(f)}</p>
+            <p class="t-small text-muted">{f.label}, {agoLabel(f.age)}</p>
+            {f.works && <p class="t-small mt-2 text-ink">{f.works}</p>}
+          </div>
+
+          {r.chambres?.photos?.length ? (
+            <ul class="mt-2 grid grid-cols-3 gap-2 lg:col-span-3 lg:gap-3" aria-label={`Photos de chambres, ${r.nom}`}>
+              {r.chambres.photos.map((src, i) => (
+                <li>
+                  <a href={src} target="_blank" rel="noopener noreferrer" class="relative block overflow-hidden rounded-lg bg-panel">
+                    <img src={src} alt={`Chambre ${i + 1} du ${r.nom}, photo du resort`} loading="lazy" decoding="async" class="aspect-[3/2] w-full object-cover transition-transform duration-300 hover:scale-[1.03]" />
+                    <span class="t-tiny absolute bottom-2 left-2 rounded-full bg-black/65 px-2.5 py-0.5 font-bold text-white">{r.nom}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </li>
+      ))}
+    </ol>
+
+    <p class="t-small mt-3 flex flex-wrap gap-x-6 gap-y-1 text-muted">
+      <span class="inline-flex items-center gap-2"><span class="inline-block size-3.5 rounded-full border-2 border-ink"></span>Ouverture</span>
+      <span class="inline-flex items-center gap-2"><span class="inline-block size-4 rounded-full bg-sun"></span>Dernière grande rénovation</span>
+      <span>Très récent : 3 ans ou moins. Récent : 6 ans ou moins.</span>
+    </p>
+    <p class="t-tiny mt-2 max-w-[75ch] text-muted">Photos des chambres : site officiel de chaque resort (Riu Hotels &amp; Resorts). Ce sont des photos de promotion : la catégorie de chambre montrée peut être plus haut de gamme que celle réservée. Cliquez pour agrandir.</p>
+  </div>
+)}

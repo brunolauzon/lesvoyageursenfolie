@@ -1,0 +1,3 @@
+{
+  "_aide": "Optionnel : pages web que l'IA doit lire pour un resort, par exemple { \"riu-negril\": [\"https://…\"] }. Une adresse de site (sans chemin) suffit : le script cherche alors la page du resort dans le plan du site. Sans entrée, il cherche tout seul (OpenStreetMap, Wikipédia, site de la même marque)."
+}

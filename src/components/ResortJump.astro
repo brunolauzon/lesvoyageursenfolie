@@ -1,0 +1,41 @@
+---
+import type { Resort } from '../lib/resorts';
+
+interface Props {
+  resorts: Resort[];
+}
+const { resorts } = Astro.props;
+---
+
+<nav aria-label="Aller à un resort" class="no-print sticky top-(--nav-h) z-30 -mx-6 mb-10 border-b border-line bg-bg/90 px-6 py-3 backdrop-blur-md">
+  <ul class="flex gap-2 overflow-x-auto pb-1 [scrollbar-width:none]">
+    {resorts.map((r) => (
+      <li class="shrink-0">
+        <a href={`#resort-${r.id}`} data-jump={r.id} class="chip no-underline aria-[current=true]:border-ink aria-[current=true]:bg-ink aria-[current=true]:text-bg">
+          {r.nom}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
+
+<script>
+  // Marks the chip of the resort panel currently in view, so you always know which hotel you are reading.
+  const chips = new Map<string, HTMLElement>();
+  document.querySelectorAll<HTMLElement>('[data-jump]').forEach((c) => chips.set(c.dataset.jump!, c));
+  const blocks = document.querySelectorAll<HTMLElement>('[data-resort-block]');
+  if (chips.size && blocks.length) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const id = (e.target as HTMLElement).dataset.resort!;
+          chips.forEach((chip, key) => (key === id ? chip.setAttribute('aria-current', 'true') : chip.removeAttribute('aria-current')));
+          chips.get(id)?.scrollIntoView({ block: 'nearest', inline: 'center' });
+        }
+      },
+      { rootMargin: '-30% 0px -60% 0px' },
+    );
+    blocks.forEach((b) => io.observe(b));
+  }
+</script>

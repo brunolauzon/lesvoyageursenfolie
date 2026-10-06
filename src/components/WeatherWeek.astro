@@ -1,0 +1,15 @@
+---
+import type { Resort } from '../lib/resorts';
+import WeatherStrip from './WeatherStrip.astro';
+import WeatherLegend from './WeatherLegend.astro';
+
+interface Props {
+  resort: Resort;
+}
+const { resort } = Astro.props;
+---
+
+<div>
+  <div class="max-w-2xl"><WeatherStrip resort={resort} /></div>
+  <WeatherLegend />
+</div>

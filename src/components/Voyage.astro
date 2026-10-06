@@ -1,0 +1,78 @@
+---
+import { Car, Plane } from 'lucide-react';
+import type { Scene } from '../lib/geo';
+import { duration, href } from '../lib/format';
+import RouteMap from './RouteMap.astro';
+
+interface Props {
+  scene: Scene;
+}
+const { scene } = Astro.props;
+---
+
+<section id="voyage" aria-labelledby="voyage-titre" class="mx-auto w-[min(1600px,100%-3rem)] pt-24 md:pt-32">
+  <h2 id="voyage-titre" class="h-section">Le voyage</h2>
+  <p class="t-lead mt-4 text-muted">Tous les vols partent de Montréal.</p>
+
+  <div data-route-map class="mt-10 grid grid-cols-[minmax(0,1fr)] items-start gap-10 xl:grid-cols-[minmax(0,7fr)_minmax(0,4fr)]">
+    <ul class="space-y-3" aria-label="Destinations">
+      {scene.clusters.map((c, n) => {
+        const total = c.flightMin != null && c.transferMin != null ? c.flightMin + c.transferMin : null;
+        return (
+          <li data-cluster={c.key} tabindex="0" class:list={['map-cluster band grid gap-x-8 gap-y-4 py-7 outline-offset-4 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-center', n % 2 === 1 && 'band-alt']}>
+            <div class="min-w-0">
+              <p class="t-small text-muted">{c.country ?? 'Pays à confirmer'}</p>
+              <p class="h-sub mt-1">{c.label}</p>
+              <p class="t-small mt-1 text-muted">
+                {c.resorts.map((r, i) => (
+                  <>
+                    {i > 0 && ', '}
+                    <a href={href(`hotel/${r.id}/`)} class="link">{r.nom}</a>
+                  </>
+                ))}
+              </p>
+              {c.direct != null && <p class="t-small mt-2 text-ink">{c.direct ? 'Vol direct' : 'Avec escale'}</p>}
+            </div>
+
+            <dl class="grid grid-cols-3 gap-4">
+              <div>
+                <dt class="t-small text-muted">Total</dt>
+                <dd class="figure-num mt-1 text-[clamp(2.8rem,5vw,4rem)] text-sun">{total != null ? duration(total) : '–'}</dd>
+              </div>
+              <div>
+                <dt class="t-small inline-flex items-center gap-1.5 text-muted"><Plane size={16} aria-hidden="true" />Avion</dt>
+                <dd class="figure-num mt-1 text-[clamp(2.2rem,3.8vw,3.1rem)]">{c.flightMin != null ? duration(c.flightMin) : '–'}</dd>
+              </div>
+              <div>
+                <dt class="t-small inline-flex items-center gap-1.5 text-muted"><Car size={16} aria-hidden="true" />Route</dt>
+                <dd class="figure-num mt-1 text-[clamp(2.2rem,3.8vw,3.1rem)]">{c.transferMin != null ? duration(c.transferMin) : '–'}</dd>
+              </div>
+            </dl>
+          </li>
+        );
+      })}
+    </ul>
+
+    <figure class="mx-auto w-full max-w-xl overflow-hidden rounded-xl xl:max-w-none">
+      <RouteMap scene={scene} />
+    </figure>
+  </div>
+</section>
+
+<script>
+  // Hovering or focusing a destination (map or list) dims the others and thickens its route.
+  document.querySelectorAll<HTMLElement>('[data-route-map]').forEach((root) => {
+    const items = root.querySelectorAll<HTMLElement>('[data-cluster]');
+    const set = (key: string | null) =>
+      items.forEach((el) => {
+        el.classList.toggle('is-dim', key !== null && el.dataset.cluster !== key);
+        el.classList.toggle('is-active', key !== null && el.dataset.cluster === key);
+      });
+    items.forEach((el) => {
+      el.addEventListener('mouseenter', () => set(el.dataset.cluster ?? null));
+      el.addEventListener('mouseleave', () => set(null));
+      el.addEventListener('focusin', () => set(el.dataset.cluster ?? null));
+      el.addEventListener('focusout', () => set(null));
+    });
+  });
+</script>

@@ -1,0 +1,122 @@
+{
+  "nom": "Montréal",
+  "lat": 45.4706,
+  "lon": -73.7408,
+  "meteo": {
+    "tempMaxC": -6,
+    "tempMinC": -13,
+    "annees": [
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "parJour": [
+      {
+        "date": "01-16",
+        "tempMaxC": -8.8,
+        "tempMaxBasC": -14.5,
+        "tempMaxHautC": -3.6,
+        "tempMinC": -15.4,
+        "tempMinBasC": -23.8,
+        "tempMinHautC": -9,
+        "precipMm": 0.6,
+        "probabilitePluiePct": 20,
+        "couvertureNuageusePct": 65,
+        "heuresSoleil": 3.2
+      },
+      {
+        "date": "01-17",
+        "tempMaxC": -4.3,
+        "tempMaxBasC": -8.7,
+        "tempMaxHautC": -1.4,
+        "tempMinC": -12.3,
+        "tempMinBasC": -15.2,
+        "tempMinHautC": -7.8,
+        "precipMm": 3.6,
+        "probabilitePluiePct": 40,
+        "couvertureNuageusePct": 81,
+        "heuresSoleil": 1.7
+      },
+      {
+        "date": "01-18",
+        "tempMaxC": -1.7,
+        "tempMaxBasC": -6,
+        "tempMaxHautC": 2.8,
+        "tempMinC": -8.3,
+        "tempMinBasC": -16.9,
+        "tempMinHautC": -1.3,
+        "precipMm": 1.4,
+        "probabilitePluiePct": 40,
+        "couvertureNuageusePct": 66,
+        "heuresSoleil": 3.1
+      },
+      {
+        "date": "01-19",
+        "tempMaxC": -3.2,
+        "tempMaxBasC": -11.2,
+        "tempMaxHautC": 0.4,
+        "tempMinC": -12.7,
+        "tempMinBasC": -18.5,
+        "tempMinHautC": -5.1,
+        "precipMm": 2,
+        "probabilitePluiePct": 60,
+        "couvertureNuageusePct": 82,
+        "heuresSoleil": 1.7
+      },
+      {
+        "date": "01-20",
+        "tempMaxC": -7.1,
+        "tempMaxBasC": -11.5,
+        "tempMaxHautC": -1.5,
+        "tempMinC": -14.9,
+        "tempMinBasC": -18.5,
+        "tempMinHautC": -4.3,
+        "precipMm": 2.4,
+        "probabilitePluiePct": 20,
+        "couvertureNuageusePct": 62,
+        "heuresSoleil": 3.5
+      },
+      {
+        "date": "01-21",
+        "tempMaxC": -9.6,
+        "tempMaxBasC": -18.8,
+        "tempMaxHautC": -0.9,
+        "tempMinC": -15.9,
+        "tempMinBasC": -23.5,
+        "tempMinHautC": -7.3,
+        "precipMm": 0.5,
+        "probabilitePluiePct": 20,
+        "couvertureNuageusePct": 47,
+        "heuresSoleil": 4.9
+      },
+      {
+        "date": "01-22",
+        "tempMaxC": -5.9,
+        "tempMaxBasC": -15.3,
+        "tempMaxHautC": 0.2,
+        "tempMinC": -13,
+        "tempMinBasC": -26.2,
+        "tempMinHautC": -2.6,
+        "precipMm": 1.1,
+        "probabilitePluiePct": 60,
+        "couvertureNuageusePct": 76,
+        "heuresSoleil": 2.2
+      },
+      {
+        "date": "01-23",
+        "tempMaxC": -4.1,
+        "tempMaxBasC": -8.4,
+        "tempMaxHautC": 1,
+        "tempMinC": -12.1,
+        "tempMinBasC": -17.4,
+        "tempMinHautC": -3.5,
+        "precipMm": 0.7,
+        "probabilitePluiePct": 20,
+        "couvertureNuageusePct": 84,
+        "heuresSoleil": 1.5
+      }
+    ]
+  }
+}

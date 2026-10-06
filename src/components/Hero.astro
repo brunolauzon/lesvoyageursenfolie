@@ -1,0 +1,39 @@
+---
+import { TRIP } from '../lib/format';
+import type { Resort } from '../lib/resorts';
+import { countryOf } from '../lib/resorts';
+
+interface Props {
+  resorts: Resort[];
+}
+const { resorts } = Astro.props;
+const countries = new Set(resorts.map(countryOf).filter(Boolean)).size;
+const n = resorts.length;
+---
+
+<section class="mx-auto w-[min(1600px,100%-3rem)] pt-12 pb-6 md:pt-20">
+  <div>
+      <p class="t-small text-muted">Départ de Montréal-Trudeau, {TRIP.label}</p>
+      <h1 class="mt-5 text-balance">
+        <span class="h-hero-wide block">Vacances en Famille</span>
+        <span class="h-hero-tall mt-2 block">2027&nbsp;: Départ de&nbsp;YUL</span>
+      </h1>
+      <p class="t-lead mt-8 text-muted">
+        {n} resort{n > 1 ? 's' : ''} tout inclus dans {countries} pays. Le trajet, la météo et ce qu’il y a sur place, resort par resort.
+      </p>
+      <p class="no-print t-small mt-8 flex flex-wrap items-center gap-x-6 gap-y-2">
+        <a href="#chiffres" class="link t-strong">Voir les chiffres clés</a>
+        <span id="countdown" data-target={`${TRIP.start}T00:00:00`} class="text-muted">Départ le 16 janvier 2027</span>
+      </p>
+  </div>
+</section>
+
+<script>
+  const el = document.getElementById('countdown');
+  if (el?.dataset.target) {
+    const days = Math.ceil((new Date(el.dataset.target).getTime() - Date.now()) / 86_400_000);
+    if (days > 1) el.textContent = `Départ dans ${days} jours`;
+    else if (days === 1) el.textContent = 'Départ demain';
+    else if (days === 0) el.textContent = 'Départ aujourd’hui';
+  }
+</script>

@@ -1,0 +1,42 @@
+---
+import { TreePalm } from 'lucide-react';
+import type { Resort } from '../lib/resorts';
+
+interface Props {
+  resort: Resort;
+  /** Tailwind aspect classes for the photo frame. */
+  frame?: string;
+  eager?: boolean;
+}
+const { resort, frame = 'aspect-[4/3]', eager = false } = Astro.props;
+const photos = resort.galerie.length ? resort.galerie : resort.image ? [{ url: resort.image, credit: '', source: '' }] : [];
+---
+
+<figure>
+  {photos.length === 0 ? (
+    <div class={`flex items-center justify-center rounded-lg bg-ink/10 text-muted ${frame}`}>
+      <TreePalm size={44} aria-hidden="true" />
+      <span class="sr-only">Aucune photo disponible</span>
+    </div>
+  ) : (
+    <ul class="gallery-strip flex snap-x snap-mandatory overflow-x-auto rounded-lg [scrollbar-width:none]">
+      {photos.map((p, idx) => (
+        <li class="w-full shrink-0 snap-center">
+          <div class={`overflow-hidden bg-ink/10 ${frame}`}>
+            <img
+              src={p.url}
+              alt={`${resort.nom}${photos.length > 1 ? `, photo ${idx + 1} sur ${photos.length}` : ''}`}
+              loading={eager && idx === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              referrerpolicy="no-referrer"
+              class="size-full object-cover"
+            />
+          </div>
+        </li>
+      ))}
+    </ul>
+  )}
+  <figcaption class="t-tiny mt-2 text-muted">
+    {resort.imageGenerique && photos.length > 0 ? 'Photos de la destination, pas du resort. ' : ''}{photos.length > 1 ? `${photos.length} photos, faites glisser. ` : ''}{photos[0]?.credit ?? ''}
+  </figcaption>
+</figure>

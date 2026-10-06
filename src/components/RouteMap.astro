@@ -1,0 +1,57 @@
+---
+import { MAP, type Scene } from '../lib/geo';
+
+interface Props {
+  scene: Scene;
+}
+const { scene } = Astro.props;
+const { clusters, origin } = scene;
+---
+
+<svg viewBox={`0 0 ${MAP.W} ${MAP.H}`} class="map-svg" role="img" aria-labelledby="route-title route-desc">
+  <title id="route-title">Carte du voyage depuis Montréal</title>
+  <desc id="route-desc">
+    Routes aériennes depuis YUL vers {clusters.map((c) => `${c.label}${c.country ? `, ${c.country}` : ''}`).join(' ; ')}.
+  </desc>
+  <use href="#map-grat" class="map-grat"></use>
+  <use href="#map-land" class="map-land"></use>
+  {scene.highlights.map((h) => <use href={`#${h.id}`} class="map-hi"></use>)}
+
+  {scene.seas.map((s) => <text x={s.x} y={s.y} text-anchor="middle" class="map-sea-label">{s.label}</text>)}
+
+  {clusters.map((c) => c.arc && <path d={c.arc} class="map-arc map-cluster" data-cluster={c.key}></path>)}
+
+  {clusters.map((c) => (
+    <g class="map-cluster" data-cluster={c.key}>
+      <circle cx={c.ax} cy={c.ay} r="6.5" class="map-airport"></circle>
+      {c.pins.map((p) => (
+        <a href={`#${p.id}`}>
+          <title>{p.nom}</title>
+          <circle cx={p.x} cy={p.y} r="6" class="map-pin"></circle>
+        </a>
+      ))}
+    </g>
+  ))}
+
+  {origin.visible ? (
+    <g>
+      <circle cx={origin.x} cy={origin.y} r="8" class="map-origin"></circle>
+      <text x={origin.x - 16} y={origin.y + 5} text-anchor="end" class="map-label">Montréal</text>
+    </g>
+  ) : (
+    <g transform={`translate(${MAP.W / 2} 30)`}>
+      <rect x="-165" y="-17" width="330" height="34" rx="17" class="map-tag"></rect>
+      <text x="0" y="5" text-anchor="middle" class="map-tag-text">Les vols partent de Montréal, plus au nord</text>
+    </g>
+  )}
+
+  {clusters.map((c) => {
+    const end = c.labelAnchor === 'end';
+    return (
+      <g class="map-cluster" data-cluster={c.key}>
+        <text x={c.ax + (end ? -16 : 16)} y={c.ay - 2} text-anchor={end ? 'end' : 'start'} class="map-label">{c.label}</text>
+        <text x={c.ax + (end ? -16 : 16)} y={c.ay + 15} text-anchor={end ? 'end' : 'start'} class="map-sublabel">{c.sublabel}</text>
+      </g>
+    );
+  })}
+</svg>

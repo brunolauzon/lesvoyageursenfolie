@@ -1,66 +1,215 @@
 ---
-import { rank } from '../lib/compare';
-import { buildSections } from '../lib/rows';
-import { t } from '../lib/i18n';
-import { url } from '../lib/url';
-import type { ResortView } from '../lib/resorts';
-import type { Trip } from '../schema/trip';
+import { Check } from 'lucide-react';
+import { cityOf, countryOf, orderByCountry, type Resort } from '../lib/resorts';
+import { duration, href, num } from '../lib/format';
+import { agoLabel, chipLabel, freshnessOf } from '../lib/age';
+import HotelAge from './HotelAge.astro';
 
-interface Props { views: ResortView[]; trip: Trip }
-const { views, trip } = Astro.props;
-const sections = buildSections(views, trip);
+interface Props {
+  resorts: Resort[];
+}
+const { resorts } = Astro.props;
+
+// Columns run left to right, grouped by country (A to Z); see orderByCountry in lib/resorts.ts.
+const ordered = orderByCountry(resorts);
+
+// Up to 8 resorts the columns share the full width on wide screens (no inner scrollbars) and the header
+// sticks to the page. Beyond that, or on narrower screens, the matrix scrolls inside its frame instead.
+const fitsWide = ordered.length <= 8;
+const tableMinWidth = `calc(13rem + ${ordered.length} * 10rem)`;
+// A slightly stronger divider marks where a new country starts.
+const edge = (i: number) => (i > 0 && countryOf(ordered[i]) !== countryOf(ordered[i - 1]) ? 'border-l-2 border-ink/30' : 'border-l');
+
+type Kind = 'text' | 'num' | 'bool' | 'image';
+interface Row {
+  label: string;
+  help?: string;
+  kind: Kind;
+  get: (r: Resort) => string | number | boolean | null | undefined;
+  fmt?: (v: number) => string;
+  /** A "best" value (yellow) only exists on rows where lower or higher is clearly better. */
+  best?: 'min' | 'max';
+  /** Small line under the value. */
+  sub?: (r: Resort) => string | null;
+  /** Field name, to show where a value was read. */
+  field?: string;
+  yes?: string;
+  no?: string;
+  /** Text shown instead of "À confirmer" when the resort is known but has nothing to report (e.g. never renovated). */
+  empty?: (r: Resort) => string | null;
+  /** Long free text: smaller type. */
+  small?: boolean;
+}
+
+const stars = (v: number) => `${v.toFixed(1).replace('.', ',')}/5`;
+const inf = (r: Resort) => r.infrastructures;
+const wx = (r: Resort) => r.meteoHistoriqueJanvier16;
+const tr = (r: Resort) => r.logistiqueTransport;
+
+const fr = new Intl.DateTimeFormat('fr-CA', { month: 'long', year: 'numeric' });
+const monthYear = (year?: number | null, month?: number | null) => (year == null ? null : month ? fr.format(new Date(Date.UTC(year, month - 1, 15))) : String(year));
+const fresh = (r: Resort) => freshnessOf(r);
+
+const groups: { title: string; rows: Row[] }[] = [
+  {
+    title: 'L’essentiel',
+    rows: [
+      { label: 'Catégorie', kind: 'num', get: (r) => r.etoiles, fmt: (v) => `${v} étoiles`, field: 'etoiles' },
+      { label: 'Note des voyageurs', help: 'Note TripAdvisor, sur 5', kind: 'num', get: (r) => r.noteGenerale, fmt: stars, best: 'max', field: 'noteGenerale', sub: (r) => (r.nombreAvis != null ? `${num(r.nombreAvis)} avis` : null) },
+    ],
+  },
+  {
+    title: 'L’état de l’hôtel',
+    rows: [
+      { label: 'Une chambre', help: 'Photo du site officiel du resort', kind: 'image', get: (r) => r.chambres?.photos?.[0] },
+      {
+        label: 'Dernier coup de neuf',
+        help: 'Depuis l’ouverture ou la dernière rénovation, au moment du départ',
+        kind: 'num',
+        get: (r) => fresh(r)?.age,
+        fmt: agoLabel,
+        best: 'min',
+        sub: (r) => {
+          const f = fresh(r);
+          return f ? `${chipLabel(f)} · ${f.label.toLowerCase()}` : null;
+        },
+      },
+      { label: 'Ouverture', kind: 'num', get: (r) => r.etat?.ouvertureAnnee, fmt: (v) => String(v), best: 'max', sub: (r) => monthYear(r.etat?.ouvertureAnnee, r.etat?.ouvertureMois), },
+      {
+        label: 'Dernière rénovation',
+        kind: 'num',
+        get: (r) => r.etat?.renovationAnnee,
+        fmt: (v) => String(v),
+        best: 'max',
+        sub: (r) => monthYear(r.etat?.renovationAnnee, r.etat?.renovationMois),
+        empty: (r) => (r.etat ? 'Aucune depuis l’ouverture' : null),
+      },
+      { label: 'Ce qui a été refait', kind: 'text', small: true, get: (r) => r.etat?.renovationNote, empty: (r) => (r.etat ? 'Rien à signaler' : null) },
+    ],
+  },
+  {
+    title: 'Le voyage depuis Montréal',
+    rows: [
+      { label: 'Aéroport d’arrivée', kind: 'text', get: (r) => tr(r)?.aeroportArrivee },
+      { label: 'Avion', help: 'Estimé d’après la distance', kind: 'num', get: (r) => tr(r)?.dureeVolMinutes, fmt: duration, best: 'min' },
+      { label: 'Route jusqu’au resort', help: 'En voiture, depuis l’aéroport', kind: 'num', get: (r) => tr(r)?.tempsTransfertMinutes, fmt: duration, best: 'min' },
+      { label: 'Trajet total', help: 'Avion et route, sans les attentes', kind: 'num', get: (r) => tr(r)?.tempsTrajetTotalMinutes, fmt: duration, best: 'min' },
+      { label: 'Avion sans escale', help: 'Données anciennes : à confirmer', kind: 'bool', get: (r) => tr(r)?.volDirect, yes: 'Oui, probable', no: 'Non répertorié' },
+    ],
+  },
+  {
+    title: 'La météo, du 16 au 23 janvier',
+    rows: [
+      { label: 'Chaleur du jour', help: 'Moyenne des 5 dernières années', kind: 'num', get: (r) => wx(r)?.tempMaxC, fmt: (v) => `${v} °C`, best: 'max' },
+      { label: 'Jours de pluie', help: 'Même légère', kind: 'num', get: (r) => wx(r)?.probabilitePluiePct, fmt: (v) => `${v} %`, best: 'min' },
+    ],
+  },
+  {
+    title: 'Sur place',
+    rows: [
+      { label: 'Piscines', kind: 'num', get: (r) => inf(r).nombrePiscines, fmt: (v) => num(v), best: 'max', field: 'nombrePiscines' },
+      { label: 'Restaurants', kind: 'num', get: (r) => inf(r).nombreRestaurants, fmt: (v) => num(v), best: 'max', field: 'nombreRestaurants' },
+      { label: 'Bars', kind: 'num', get: (r) => inf(r).nombreBars, fmt: (v) => num(v), best: 'max', field: 'nombreBars' },
+      { label: 'Club enfants', kind: 'bool', get: (r) => inf(r).clubEnfants, field: 'clubEnfants' },
+      { label: 'Parc aquatique', kind: 'bool', get: (r) => inf(r).parcAquatique, field: 'parcAquatique' },
+      { label: 'Spa', kind: 'bool', get: (r) => inf(r).spaSurPlace, field: 'spaSurPlace' },
+      { label: 'Repas à la chambre, 24 h sur 24', kind: 'bool', get: (r) => inf(r).serviceChambre24h, field: 'serviceChambre24h' },
+      { label: 'Wi-Fi', kind: 'text', get: (r) => inf(r).qualiteWifi, field: 'qualiteWifi' },
+      { label: 'Plage', kind: 'text', get: (r) => inf(r).qualitePlage, field: 'qualitePlage' },
+    ],
+  },
+];
+
+const known = (v: unknown) => v !== null && v !== undefined;
+const hasData = (row: Row) => ordered.some((r) => known(row.get(r)));
+// Rows with no value for any resort would be a wall of empty cells: list them once below the table.
+const visibleGroups = groups.map((g) => ({ ...g, rows: g.rows.filter(hasData) })).filter((g) => g.rows.length > 0);
+const missingRows = groups.flatMap((g) => g.rows).filter((row) => !hasData(row));
+
+// A "best" value only means something when at least two resorts have one and they differ.
+function bestValue(row: Row): number | null {
+  if (!row.best || row.kind !== 'num') return null;
+  const values = ordered.map((r) => row.get(r)).filter((v): v is number => typeof v === 'number');
+  if (values.length < 2 || Math.min(...values) === Math.max(...values)) return null;
+  return row.best === 'min' ? Math.min(...values) : Math.max(...values);
+}
+
+// A row where every resort shows the same value tells you nothing: the "differences only" switch hides it.
+const sameAcross = (row: Row) => new Set(ordered.map((r) => JSON.stringify(row.get(r) ?? null))).size <= 1;
+// How many rows each resort wins (the yellow values), for the line under its name.
+const wins = ordered.map((r) => visibleGroups.flatMap((g) => g.rows).filter((row) => {
+  const b = bestValue(row);
+  return b !== null && row.get(r) === b;
+}).length);
 ---
-<section class="section" aria-labelledby="cmp-h">
-  <h2 id="cmp-h">{t('compare.heading')}</h2>
-  <div class="cmp-controls">
-    <label class="check"><input type="checkbox" id="diff-toggle" /> {t('compare.onlyDiff')}</label>
-    <p class="muted small legend-inline">{t('compare.legend')}
-      <span class="mark mark-best">✔ {t('compare.legendBest')}</span>
-      <span class="mark mark-worst">✖ {t('compare.legendWorst')}</span>
-    </p>
+
+<section id="comparatif" aria-labelledby="comparatif-titre" class="mx-auto w-[min(1600px,100%-3rem)] pt-24 md:pt-32">
+  <h2 id="comparatif-titre" class="h-section">Le comparatif</h2>
+  <p class="t-lead mt-4 text-muted">Les resorts côte à côte, regroupés par pays. En jaune : la meilleure valeur de la ligne.</p>
+
+  <HotelAge resorts={resorts} />
+
+  <div class="no-print mt-12 flex flex-wrap items-center justify-between gap-4">
+    <h3 class="h-sub">Tout en détail</h3>
+    <label class="t-small inline-flex cursor-pointer items-center gap-2.5 text-ink">
+      <input id="diff-only" type="checkbox" class="size-5 accent-[var(--color-sun)]" />
+      Voir seulement ce qui change d’un resort à l’autre
+    </label>
   </div>
-  <div id="removed" class="removed" hidden><span class="small muted">{t('compare.removed')}</span> <span id="removed-list"></span></div>
-  <p class="muted small">{t('compare.share')}</p>
-  <div class="cmp-wrap" tabindex="0" role="region" aria-label={t('compare.heading')}>
-    <table class="cmp" id="cmp-table">
+
+  <div class:list={['print-scroll relative mt-10 max-h-[80vh] overflow-auto', fitsWide && 'xl:max-h-none xl:overflow-x-clip xl:overflow-y-visible']} tabindex="0" role="region" aria-label="Tableau comparatif des resorts, défilable">
+    <table class:list={['w-full table-fixed border-separate border-spacing-0 text-left min-w-(--table-min)', fitsWide && 'xl:min-w-0']} style={`--table-min:${tableMinWidth}`}>
       <thead>
         <tr>
-          <th scope="col" class="corner">{t('compare.corner')}</th>
-          {views.map((v) => (
-            <th scope="col" data-slug={v.entry.slug}>
-              <div class="cmp-photo">
-                {v.facts.photos[0] ? <img src={v.facts.photos[0].url} alt="" width="160" height="100" loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <span class="ph" aria-hidden="true">🏝</span>}
-              </div>
-              <a href={url(`resorts/${v.entry.slug}/`)} class="cmp-name">{v.entry.name}</a>
-              <div class="cmp-ctrl" data-ctrl></div>
+          <th scope="col" class:list={['sticky top-0 left-0 z-30 w-52 border-b border-line bg-bg p-4 align-bottom', fitsWide && 'xl:top-(--nav-h)']}><span class="sr-only">Critère</span></th>
+          {ordered.map((r, i) => (
+            <th scope="col" class:list={['sticky top-0 z-20 border-b border-line bg-bg p-4 align-bottom', fitsWide && 'xl:top-(--nav-h)', edge(i)]}>
+              <span class="t-small block font-normal text-muted">{countryOf(r) ?? 'Pays à confirmer'}</span>
+              <a href={href(`hotel/${r.id}/`)} class="h-sub mt-1 block text-ink no-underline hover:underline">{r.nom}</a>
+              {cityOf(r) && <span class="t-small font-normal text-muted">{cityOf(r)}</span>}
+              {fresh(r) && <span class:list={['t-small mt-2 inline-block rounded-full border px-2.5 py-0.5 font-bold', fresh(r)!.label === 'Très récent' ? 'border-sun text-sun' : 'border-line text-ink']}>{chipLabel(fresh(r)!)}</span>}
+              {wins[i] > 0 && <span class="t-tiny mt-1.5 block font-normal text-muted">Meilleur sur {wins[i]} ligne{wins[i] > 1 ? 's' : ''}</span>}
             </th>
           ))}
         </tr>
       </thead>
-      {sections.map((sec) => (
-        <tbody data-section={sec.key}>
-          <tr class="group-row">
-            <th colspan={views.length + 1} scope="colgroup">
-              <button type="button" class="group-btn" aria-expanded="true" data-toggle={sec.key} aria-label={t('compare.toggleSection', { name: sec.label })}>
-                <span class="chev" aria-hidden="true">▾</span> {sec.label}
-              </button>
-            </th>
+      {visibleGroups.map((g) => (
+        <tbody>
+          <tr data-group-head>
+            <th scope="colgroup" colspan={ordered.length + 1} class="t-strong sticky left-0 bg-bg px-4 pt-9 pb-3 text-left">{g.title}</th>
           </tr>
-          {sec.rows.map((row) => {
-            const r = rank(row.cells.map((c) => c.score), row.dir);
+          {g.rows.map((row) => {
+            const best = bestValue(row);
             return (
-              <tr data-row={row.id} data-dir={row.dir ?? ''}>
-                <th scope="row">{row.label}</th>
-                {row.cells.map((c, i) => (
-                  <td data-slug={views[i]!.entry.slug} data-score={c.score ?? ''} data-sig={c.sig} class:list={[{ best: r.best.has(i), worst: r.worst.has(i) }]} title={c.title}>
-                    {c.missing ? <abbr title={t('badge.missing')}>?</abbr> : <span class="val">{c.text}</span>}
-                    {c.badge === 'override' && <span class="badge b-hand" title={t('badge.override')}><span aria-hidden="true">✎</span><span class="sr-only">{t('badge.override')}</span></span>}
-                    {c.badge === 'verify' && <span class="badge b-verify">{t('badge.verify')}</span>}
-                    {c.badge === 'estimate' && <span class="badge b-verify">{t('badge.estimate')}</span>}
-                    <span class="mark mark-best" hidden={!r.best.has(i)}><span aria-hidden="true">✔</span><span class="sr-only">{t('badge.best')}</span></span>
-                    <span class="mark mark-worst" hidden={!r.worst.has(i)}><span aria-hidden="true">✖</span><span class="sr-only">{t('badge.worst')}</span></span>
-                  </td>
-                ))}
+              <tr class="hover:bg-ink/[0.04]" data-same={sameAcross(row) ? '' : undefined}>
+                <th scope="row" class="sticky left-0 z-10 border-t border-line bg-bg p-4 text-left font-normal">
+                  <span class="block">{row.label}</span>
+                  {row.help && <span class="t-small block text-muted">{row.help}</span>}
+                </th>
+                {ordered.map((r, i) => {
+                  const v = row.get(r);
+                  const isBest = best !== null && v === best;
+                  const from = row.field ? r.meta.champsIA?.[row.field] : undefined;
+                  return (
+                    <td class:list={['border-t border-line p-4 align-top', i % 2 === 1 && 'bg-ink/[0.045]', edge(i)]} title={from ? `${from.methode === 'regle' ? 'Lu sur le site du resort' : 'Trouvé par IA, à vérifier'} : ${from.quote}` : undefined}>
+                      {!known(v) ? (
+                        <span class="t-small text-faint">{row.empty?.(r) ?? (r.meta.sourceOfficielle ? 'Non précisé' : 'À confirmer')}</span>
+                      ) : row.kind === 'image' ? (
+                        <a href={href(`hotel/${r.id}/`)} class="block overflow-hidden rounded-md"><img src={String(v)} alt={`Une chambre du ${r.nom}`} loading="lazy" decoding="async" class="aspect-[3/2] w-full object-cover" /></a>
+                      ) : row.kind === 'bool' ? (
+                        v ? <span class="inline-flex items-center gap-1.5"><Check size={16} aria-hidden="true" />{row.yes ?? 'Oui'}</span> : <span class="text-muted">{row.no ?? 'Non'}</span>
+                      ) : (
+                        <span class:list={[row.kind === 'num' ? 'figure-num text-[1.55rem]' : '', row.small && 't-small', isBest && 'text-sun']}>
+                          {row.kind === 'num' && row.fmt ? row.fmt(v as number) : String(v)}
+                        </span>
+                      )}
+                      {known(v) && row.sub?.(r) && <span class="t-small block text-muted">{row.sub(r)}</span>}
+                      {from && from.methode !== 'regle' && (
+                        <a href={from.url} target="_blank" rel="noopener noreferrer" class="t-tiny mt-1.5 block text-faint underline decoration-line underline-offset-2 hover:text-ink">Trouvé par IA, à vérifier</a>
+                      )}
+                    </td>
+                  );
+                })}
               </tr>
             );
           })}
@@ -68,4 +217,29 @@ const sections = buildSections(views, trip);
       ))}
     </table>
   </div>
+
+  <p class="t-small mt-6 max-w-[70ch] text-muted">
+    Les valeurs viennent de la page officielle de chaque resort (passez la souris sur une valeur pour voir la phrase d’origine). « Non précisé » : le resort n’en parle pas.
+  </p>
+
+  {missingRows.length > 0 && (
+    <p class="t-small mt-6 max-w-[70ch] text-muted">
+      Aucun resort n’indique : {missingRows.map((row) => row.label.toLowerCase()).join(', ')}.
+    </p>
+  )}
 </section>
+
+<script>
+  // "Differences only": hide the rows where every resort shows the same value, and the headings left empty.
+  const box = document.getElementById('diff-only') as HTMLInputElement | null;
+  const apply = () => {
+    const only = box?.checked ?? false;
+    document.querySelectorAll<HTMLElement>('#comparatif tbody').forEach((body) => {
+      const rows = [...body.querySelectorAll<HTMLElement>('tr:not([data-group-head])')];
+      rows.forEach((tr) => (tr.hidden = only && tr.hasAttribute('data-same')));
+      const head = body.querySelector<HTMLElement>('[data-group-head]');
+      if (head) head.hidden = rows.length > 0 && rows.every((tr) => tr.hidden);
+    });
+  };
+  box?.addEventListener('change', apply);
+</script>

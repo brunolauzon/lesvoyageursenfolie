@@ -1,0 +1,162 @@
+---
+import { ArrowLeft, Star } from 'lucide-react';
+import Layout from '../../layouts/Layout.astro';
+import Gallery from '../../components/Gallery.astro';
+import AmenityBadges from '../../components/AmenityBadges.astro';
+import TravelTimeline from '../../components/TravelTimeline.astro';
+import WeatherCard from '../../components/WeatherCard.astro';
+import DetailMap from '../../components/DetailMap.astro';
+import { Check, Minus } from 'lucide-react';
+import { getResorts, orderByCountry, countryOf, cityOf, type Resort } from '../../lib/resorts';
+import { dateFr, duration, href, num } from '../../lib/format';
+import { INFRA_LABELS, rainLabel, summaryOf, tempLabel } from '../../lib/plain';
+import { agoLabel, chipLabel, freshnessOf } from '../../lib/age';
+
+export async function getStaticPaths() {
+  const resorts = orderByCountry(await getResorts());
+  return resorts.map((resort, i) => ({
+    params: { id: resort.id },
+    props: { resort, prev: resorts[i - 1] ?? null, next: resorts[i + 1] ?? null },
+  }));
+}
+
+interface Props {
+  resort: Resort;
+  prev: Resort | null;
+  next: Resort | null;
+}
+const { resort, prev, next } = Astro.props;
+const country = countryOf(resort);
+const t = resort.logistiqueTransport;
+const m = resort.meteoHistoriqueJanvier16;
+const c = resort.coordonnees;
+const mapUrl = c ? `https://www.openstreetmap.org/?mlat=${c.lat}&mlon=${c.lon}#map=14/${c.lat}/${c.lon}` : null;
+const fresh = freshnessOf(resort);
+const ai = Object.entries(resort.meta.champsIA ?? {});
+---
+
+<Layout title={`${resort.nom} | Vacances en Famille 2027`} description={`Fiche détaillée : ${resort.nom}, ${resort.destination ?? ''}. Trajet depuis YUL, météo de janvier, infrastructures.`} updatedAt={dateFr(resort.meta.enrichedAt)}>
+  <main class="mx-auto w-[min(1280px,100%-3rem)] pt-10">
+    <a href={href('/')} class="link t-strong no-print inline-flex items-center gap-2"><ArrowLeft size={18} aria-hidden="true" />Retour au comparatif</a>
+
+    <header class="mt-10">
+      <p class="t-small text-muted">{cityOf(resort) ? `${cityOf(resort)}, ` : ''}{country ?? 'Pays à confirmer'}</p>
+      <h1 class="h-hero-tall mt-3 text-[clamp(2.8rem,7vw,5.5rem)] text-balance">{resort.nom}</h1>
+      {resort.noteGenerale != null && (
+        <p class="t-small mt-4 flex flex-wrap items-center gap-x-2 text-muted">
+          <Star size={16} fill="currentColor" className="text-sun" aria-hidden="true" />
+          <span class="t-strong text-ink">{resort.noteGenerale.toFixed(1).replace('.', ',')}/5</span>
+          {resort.nombreAvis != null && <span>sur {num(resort.nombreAvis)} avis TripAdvisor</span>}
+          {resort.etoiles != null && <span>, {resort.etoiles} étoiles</span>}
+        </p>
+      )}
+      {summaryOf(resort) && <p class="t-lead mt-5 text-muted">{summaryOf(resort)}</p>}
+    </header>
+
+    <div class="mt-14 grid grid-cols-[minmax(0,1fr)] gap-12 xl:grid-cols-[minmax(0,7fr)_minmax(0,5fr)]">
+      <Gallery resort={resort} frame="aspect-[16/10]" eager />
+
+      <div class="space-y-9">
+        <dl class="grid grid-cols-3 gap-x-5">
+          <div>
+            <dt class="t-small text-muted">Trajet</dt>
+            <dd class="figure-num mt-1 text-[clamp(2rem,3.6vw,3rem)]">{duration(t?.tempsTrajetTotalMinutes)}</dd>
+          </div>
+          <div>
+            <dt class="t-small text-muted">Chaleur</dt>
+            <dd class="figure-num mt-1 text-[clamp(2rem,3.6vw,3rem)]">{m?.tempMaxC != null ? `${m.tempMaxC}°` : '?'}</dd>
+            <dd class="t-small text-muted">{tempLabel(m?.tempMaxC)?.toLowerCase()}</dd>
+          </div>
+          <div>
+            <dt class="t-small text-muted">Pluie</dt>
+            <dd class="figure-num mt-1 text-[clamp(2rem,3.6vw,3rem)]">{num(m?.probabilitePluiePct, '%')}</dd>
+            <dd class="t-small text-muted">{rainLabel(m?.probabilitePluiePct)?.toLowerCase()}</dd>
+          </div>
+        </dl>
+
+        {fresh && (
+          <div class="avoid-break border-y border-line py-6">
+            <h2 class="h-sub mb-3">L’hôtel est-il récent ?</h2>
+            <p class:list={['figure-num text-[clamp(2rem,3.6vw,3rem)]', fresh.label === 'Très récent' ? 'text-sun' : 'text-ink']}>{chipLabel(fresh)}</p>
+            <p class="t-small mt-1 text-muted">{fresh.label}, {agoLabel(fresh.age)}.{fresh.open != null && fresh.lastKind === 'renovation' ? ` Ouvert en ${fresh.open}.` : ''}</p>
+            {fresh.works && <p class="t-small mt-3 text-ink">{fresh.works}</p>}
+            {fresh.note && <p class="t-small mt-1 text-muted">{fresh.note}</p>}
+            {resort.chambres?.photos?.length ? (
+              <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Photos de chambres">
+                {resort.chambres.photos.map((src, i) => (
+                  <li>
+                    <a href={src} target="_blank" rel="noopener noreferrer" class="block overflow-hidden rounded-lg bg-panel">
+                      <img src={src} alt={`Chambre ${i + 1} du ${resort.nom}`} loading="lazy" decoding="async" class="aspect-[3/2] w-full object-cover" />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+            {resort.chambres?.photos?.length ? <p class="t-tiny mt-2 text-muted">Photos : {resort.chambres.credit}. <a href={resort.chambres.source} target="_blank" rel="noopener noreferrer" class="link">Page du resort</a>. Photos de promotion : la catégorie montrée peut différer de celle réservée.</p> : null}
+            {resort.etat?.sources?.length ? (
+              <p class="t-tiny mt-3 text-muted">Sources : {resort.etat.sources.map((src, i) => <>{i > 0 && ', '}<a href={src.url} target="_blank" rel="noopener noreferrer" class="link">{src.label}</a></>)}</p>
+            ) : null}
+          </div>
+        )}
+
+        <div class="grid gap-8 sm:grid-cols-2">
+          <div>
+            <h2 class="h-sub mb-3">Points forts</h2>
+            {resort.pointsForts.length ? (
+              <ul class="t-small space-y-2.5">{resort.pointsForts.map((p) => <li class="flex gap-2.5"><Check size={16} className="mt-1 shrink-0 text-muted" aria-hidden="true" />{p}</li>)}</ul>
+            ) : <p class="t-small text-muted">À confirmer</p>}
+          </div>
+          <div>
+            <h2 class="h-sub mb-3">Points faibles</h2>
+            {resort.pointsFaibles.length ? (
+              <ul class="t-small space-y-2.5">{resort.pointsFaibles.map((p) => <li class="flex gap-2.5"><Minus size={16} className="mt-1 shrink-0 text-muted" aria-hidden="true" />{p}</li>)}</ul>
+            ) : <p class="t-small text-muted">Aucun relevé</p>}
+          </div>
+        </div>
+
+        <div>
+          <h2 class="h-sub mb-3">Sur place</h2>
+          <AmenityBadges resort={resort} />
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24 grid grid-cols-[minmax(0,1fr)] gap-16 xl:grid-cols-[minmax(0,4fr)_minmax(0,7fr)]">
+      <TravelTimeline resort={resort} />
+      <WeatherCard resort={resort} openYears />
+    </div>
+
+    <div class="mt-24"><DetailMap resort={resort} /></div>
+
+    <section class="avoid-break mt-24 max-w-[75ch]" aria-labelledby="sources-titre">
+      <h2 id="sources-titre" class="h-section text-[clamp(2rem,3.6vw,3rem)]">D’où viennent ces données</h2>
+      <p class="t-small mt-4 text-muted">Mises à jour le {dateFr(resort.meta.enrichedAt)}. Sources : {resort.meta.sources.join(', ') || 'aucune'}.</p>
+      {ai.length > 0 && (
+        <div class="mt-6">
+          <p class="t-strong">Lu sur le site du resort</p>
+          <p class="t-small text-muted">Chaque valeur vient de la page du resort. Quand une IA locale l’a trouvée, c’est écrit et la phrase exacte est donnée : à vérifier.</p>
+          <ul class="t-small mt-3 space-y-2 text-muted">
+            {ai.map(([field, f]) => (
+              <li><strong class="text-ink">{INFRA_LABELS[field] ?? field}</strong>{f.methode === 'ia' ? ' (trouvé par IA, à vérifier)' : ''} : {f.quote} <a href={f.url} target="_blank" rel="noopener noreferrer" class="link">source</a></li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {resort.meta.champsManuels.length > 0 && <p class="t-small mt-4 text-muted">Corrigé à la main : {resort.meta.champsManuels.join(', ')}.</p>}
+      {resort.meta.avertissements.length > 0 && (
+        <ul class="t-small mt-4 list-disc space-y-1.5 pl-5 text-muted">{resort.meta.avertissements.map((w) => <li>{w}</li>)}</ul>
+      )}
+      <p class="no-print t-small mt-6 flex flex-wrap gap-x-6 gap-y-2">
+        {resort.siteOfficiel && <a class="link" href={resort.siteOfficiel} rel="noopener noreferrer" target="_blank">Site officiel</a>}
+        {resort.lienTripadvisor && <a class="link" href={resort.lienTripadvisor} rel="noopener noreferrer" target="_blank">TripAdvisor</a>}
+        {resort.lienWikipedia && <a class="link" href={resort.lienWikipedia} rel="noopener noreferrer" target="_blank">Wikipédia</a>}
+        {mapUrl && <a class="link" href={mapUrl} rel="noopener noreferrer" target="_blank">Voir sur OpenStreetMap</a>}
+      </p>
+    </section>
+
+    <nav class="no-print mt-20 flex flex-wrap justify-between gap-4 border-t border-line pt-8" aria-label="Autres resorts">
+      {prev ? <a href={href(`hotel/${prev.id}/`)} class="link t-strong">Précédent : {prev.nom}</a> : <span></span>}
+      {next ? <a href={href(`hotel/${next.id}/`)} class="link t-strong">Suivant : {next.nom}</a> : <span></span>}
+    </nav>
+  </main>
+</Layout>

@@ -1,0 +1,49 @@
+---
+import type { Resort } from '../lib/resorts';
+import { href } from '../lib/format';
+import { winners } from '../lib/plain';
+
+interface Props {
+  resorts: Resort[];
+}
+const { resorts } = Astro.props;
+const rows = winners(resorts);
+const hasWeb = resorts.some((r) => Object.keys(r.meta.champsIA ?? {}).length > 0);
+---
+
+<section id="chiffres" aria-labelledby="chiffres-titre" class="mx-auto w-[min(1600px,100%-3rem)] pt-24 md:pt-32">
+  <h2 id="chiffres-titre" class="h-section">Les chiffres clés</h2>
+  <p class="t-lead mt-4 text-muted">La meilleure valeur pour chaque critère. À égalité, tous les resorts sont nommés.</p>
+
+  {rows.length === 0 ? (
+    <p class="mt-10 text-muted">Il faut au moins deux resorts avec des chiffres différents pour comparer.</p>
+  ) : (
+    <dl class="mt-10 divide-y divide-line border-y border-line">
+      {rows.map((t) => (
+        <div class="grid gap-x-10 gap-y-2 py-5 md:grid-cols-[minmax(0,3fr)_minmax(0,6fr)_minmax(0,3fr)] md:items-center">
+          <dt>
+            <span class="t-strong">{t.title}</span>
+            <span class="t-small block text-muted">{t.help}</span>
+          </dt>
+          <dd class="flex flex-wrap gap-x-6 gap-y-1">
+            {t.resorts.slice(0, 4).map((r) => <a href={href(`hotel/${r.id}/`)} class="link">{r.nom}</a>)}
+            {t.resorts.length > 4 && <span class="t-small text-muted">et {t.resorts.length - 4} autres à égalité</span>}
+          </dd>
+          <dd class="figure-num text-[2.3rem] text-sun md:text-right">{t.value}</dd>
+        </div>
+      ))}
+    </dl>
+  )}
+
+  <details class="mt-8 max-w-[70ch]">
+    <summary class="t-small cursor-pointer list-none text-muted hover:text-ink [&::-webkit-details-marker]:hidden"><span class="link">Comment lire ces chiffres</span></summary>
+    <ul class="t-small mt-4 space-y-3 text-muted">
+      <li><strong class="text-ink">Des estimations.</strong> Les durées viennent des distances. La météo est la moyenne de la même semaine sur 5 ans, pas une prévision.</li>
+      <li>
+        <strong class="text-ink">« À confirmer » veut dire « pas trouvé ».</strong> « Non précisé » veut dire que le site du resort n’en parle pas.
+        {hasWeb && <> Les valeurs lues sur le site du resort portent un lien vers leur source.</>}
+      </li>
+      <li><strong class="text-ink">Les mots de la météo.</strong> Doux sous 25 °C, chaud de 25 à 27, très chaud dès 28. Plutôt sec jusqu’à 1 jour de pluie sur 4, quelques averses jusqu’à presque la moitié des jours.</li>
+    </ul>
+  </details>
+</section>

@@ -1,0 +1,55 @@
+---
+import type { Resort } from '../lib/resorts';
+import { href } from '../lib/format';
+import { likelyWet, weekOf } from '../lib/weather';
+import WeatherStrip from './WeatherStrip.astro';
+import WeatherLegend from './WeatherLegend.astro';
+
+interface Props {
+  resorts: Resort[];
+}
+const { resorts } = Astro.props;
+const rows = resorts.map((r) => ({ r, days: weekOf(r) })).filter((x) => x.days.length > 0);
+
+// One shared temperature scale so the lines can be compared from one resort to the next.
+const temps = rows.flatMap((x) => x.days.map((d) => d.max).filter((v): v is number => v != null));
+const lo = temps.length ? Math.floor(Math.min(...temps) - 1) : 0;
+const hi = temps.length ? Math.ceil(Math.max(...temps) + 1) : 8;
+
+const plans = rows.map(({ r, days }) => {
+  const t = days.map((d) => d.max).filter((v): v is number => v != null);
+  const min = t.length ? Math.round(Math.min(...t)) : null;
+  const max = t.length ? Math.round(Math.max(...t)) : null;
+  const wet = days.filter(likelyWet).length;
+  const some = days.filter((d) => (d.rainYears ?? 0) > 0).length;
+  const rain =
+    wet > 0
+      ? `Pluie probable ${wet} jour${wet > 1 ? 's' : ''} sur ${days.length}`
+      : some > 0
+        ? `Surtout sec, une averse reste possible`
+        : 'Sec, aucune pluie ces années-là';
+  return { r, min, max, wet, rain };
+});
+---
+
+{rows.length > 0 && (
+  <section id="meteo" aria-labelledby="meteo-titre" class="mx-auto w-[min(1600px,100%-3rem)] pt-24 md:pt-32">
+    <h2 id="meteo-titre" class="h-section">La météo de la semaine</h2>
+    <p class="t-lead mt-4 text-muted"><strong class="text-ink">Ce n’est pas une prévision.</strong> Chaque graphique montre ce qui s’est le plus souvent passé du 16 au 23 janvier ces 5 dernières années.</p>
+
+    <ol class="mt-10 space-y-3" aria-label="Le temps probable, resort par resort">
+      {plans.map((p, n) => (
+        <li class:list={['band grid items-center gap-x-10 gap-y-3 py-8 lg:grid-cols-[minmax(13rem,18rem)_1fr]', n % 2 === 1 && 'band-alt']}>
+          <div class="min-w-0">
+            <a href={href(`hotel/${p.r.id}/`)} class="h-sub text-ink no-underline hover:underline">{p.r.nom}</a>
+            <p class="figure-num mt-1 text-[2rem] text-sun">{p.min == null ? '' : p.min === p.max ? `${p.max}°` : `${p.min}° à ${p.max}°`}</p>
+            <p class:list={['t-small mt-1', p.wet > 0 ? 'font-bold text-rain' : 'text-muted']}>{p.rain}</p>
+          </div>
+          <div class="mx-auto w-full max-w-3xl lg:max-w-none"><WeatherStrip resort={p.r} lo={lo} hi={hi} /></div>
+        </li>
+      ))}
+    </ol>
+
+    <WeatherLegend />
+  </section>
+)}

@@ -1,0 +1,48 @@
+---
+import type { Resort } from '../lib/resorts';
+import { AIRPORT_BUFFER, duration } from '../lib/format';
+
+interface Props {
+  resort: Resort;
+}
+const { resort } = Astro.props;
+const t = resort.logistiqueTransport;
+const total = t?.tempsTrajetTotalMinutes ?? null;
+const doorToDoor = total != null ? total + AIRPORT_BUFFER.departMin + AIRPORT_BUFFER.arriveeMin : null;
+const direct = t?.volDirect === true ? 'sans escale, probable' : t?.volDirect === false ? 'escale possible' : 'escale à confirmer';
+
+// A real sequence, so the steps are numbered.
+const steps = t
+  ? [
+      { title: 'Arriver à YUL', detail: `environ ${duration(AIRPORT_BUFFER.departMin)} avant le décollage` },
+      { title: `Voler vers ${t.aeroportArrivee?.split(' ')[0] ?? '?'}`, detail: `${duration(t.dureeVolMinutes)}, ${direct}` },
+      { title: 'Passer la douane et récupérer les bagages', detail: `environ ${duration(AIRPORT_BUFFER.arriveeMin)}` },
+      { title: 'Rouler jusqu’au resort', detail: `${duration(t.tempsTransfertMinutes)}, ${t.distanceTransfertKm ?? '?'} km` },
+      { title: 'Arriver au resort', detail: doorToDoor != null ? `environ ${duration(doorToDoor)} après avoir quitté la maison` : '' },
+    ]
+  : [];
+---
+
+<section aria-labelledby="trajet-titre">
+  <h2 id="trajet-titre" class="h-section text-[clamp(2rem,3.6vw,3rem)]">Le voyage depuis Montréal</h2>
+  {!t ? (
+    <p class="mt-4 text-muted">Trajet indisponible : aucun aéroport identifié pour ce resort.</p>
+  ) : (
+    <>
+      <p class="mt-4"><span class="figure-num text-[3rem]">{duration(total)}</span> <span class="t-small text-muted">d’avion et de route, sans les attentes à l’aéroport</span></p>
+      <ol class="mt-6 max-w-[60ch]">
+        {steps.map((s, i) => (
+          <li class="relative flex gap-4 pb-6 last:pb-0">
+            {i < steps.length - 1 && <span aria-hidden="true" class="absolute top-9 bottom-0 left-[15px] w-px bg-line"></span>}
+            <span class="figure-num relative z-10 flex size-8 shrink-0 items-center justify-center rounded-full bg-ink/12 text-[1.1rem] leading-none">{i + 1}</span>
+            <div class="min-w-0 pt-0.5">
+              <p class="t-strong">{s.title}</p>
+              <p class="t-small text-muted">{s.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="t-small mt-6 max-w-[60ch] text-muted">L’avion est estimé d’après la distance ({t.distanceVolKm ? `environ ${t.distanceVolKm} km` : 'distance à confirmer'}). Les vols sans escale viennent de données anciennes : à confirmer avec les compagnies.</p>
+    </>
+  )}
+</section>

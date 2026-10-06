@@ -1,0 +1,79 @@
+---
+import { Moon, Sun, Menu, Printer } from 'lucide-react';
+import { href } from '../lib/format';
+
+const links = [
+  { label: 'Chiffres clés', to: '#chiffres' },
+  { label: 'Le voyage', to: '#voyage' },
+  { label: 'Le comparatif', to: '#comparatif' },
+  { label: 'La météo', to: '#meteo' },
+  { label: 'Les resorts', to: '#resorts' },
+];
+const home = href('/');
+---
+
+<header data-nav class="no-print sticky top-0 z-40 border-b border-line bg-bg/90 backdrop-blur-md">
+  <nav class="mx-auto flex w-[min(1600px,100%-3rem)] items-center justify-between gap-4 py-3" aria-label="Navigation principale">
+    <a href={home} class="font-display text-[1.45rem] leading-none font-black tracking-tight text-ink no-underline [font-stretch:70%]">Les Voyageurs en Folie</a>
+
+    <ul class="t-small hidden items-center gap-1 xl:flex">
+      {links.map((l) => <li><a href={`${home}${l.to}`} class="rounded-full px-3.5 py-2 text-muted no-underline hover:text-ink">{l.label}</a></li>)}
+    </ul>
+
+    <div class="flex items-center gap-2">
+      <button type="button" data-theme-toggle class="btn btn-ghost size-11 min-h-0! p-0!" aria-pressed="true" title="Passer en mode clair">
+        <Sun size={18} className="hidden dark:block" aria-hidden="true" />
+        <Moon size={18} className="dark:hidden" aria-hidden="true" />
+        <span class="sr-only" data-theme-label>Passer en mode clair</span>
+      </button>
+      <button type="button" data-print class="btn btn-ghost hidden min-h-10! px-4! py-1.5! xl:inline-flex"><Printer size={16} aria-hidden="true" />Exporter en PDF</button>
+      <details class="relative xl:hidden">
+        <summary class="btn btn-ghost size-11 list-none min-h-0! p-0! [&::-webkit-details-marker]:hidden" aria-label="Menu"><Menu size={20} aria-hidden="true" /></summary>
+        <div class="panel absolute right-0 mt-2 flex w-60 flex-col p-2">
+          {links.map((l) => <a href={`${home}${l.to}`} class="rounded-lg px-3 py-2.5 text-ink no-underline hover:bg-ink/10">{l.label}</a>)}
+          <button type="button" data-print class="btn btn-ghost mt-2"><Printer size={16} aria-hidden="true" />Exporter en PDF</button>
+        </div>
+      </details>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const KEY = 'vacances2027:theme';
+  const root = document.documentElement;
+
+  function applyThemeUi() {
+    const dark = root.dataset.theme !== 'light';
+    const label = dark ? 'Passer en mode clair' : 'Passer en mode sombre';
+    document.querySelectorAll<HTMLElement>('[data-theme-toggle]').forEach((b) => {
+      b.setAttribute('aria-pressed', String(dark));
+      b.title = label;
+    });
+    document.querySelectorAll('[data-theme-label]').forEach((l) => (l.textContent = label));
+    document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute('content', dark ? '#131315' : '#fff6e6');
+  }
+
+  document.querySelectorAll('[data-theme-toggle]').forEach((b) =>
+    b.addEventListener('click', () => {
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      try {
+        localStorage.setItem(KEY, next);
+      } catch {
+        /* private mode: the choice lasts for this page view only */
+      }
+      applyThemeUi();
+    }),
+  );
+  applyThemeUi();
+
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  const publishNavHeight = () => nav && root.style.setProperty('--nav-h', `${nav.offsetHeight}px`);
+  publishNavHeight();
+  addEventListener('resize', publishNavHeight);
+
+  document.querySelectorAll('[data-print]').forEach((b) => b.addEventListener('click', () => window.print()));
+
+  // Close the mobile menu after picking a section.
+  document.querySelectorAll('details a').forEach((a) => a.addEventListener('click', () => a.closest('details')?.removeAttribute('open')));
+</script>

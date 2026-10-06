@@ -1,0 +1,91 @@
+---
+import { AIRPORTS } from '../../scripts/data/airports.js';
+import { duration } from '../lib/format';
+import type { Resort } from '../lib/resorts';
+
+interface Props {
+  resort: Resort;
+}
+const { resort } = Astro.props;
+const c = resort.coordonnees;
+const t = resort.logistiqueTransport;
+const code = t?.aeroportArrivee?.match(/^[A-Z]{3}/)?.[0];
+const airport = code ? AIRPORTS.find((a) => a.code === code) : undefined;
+const approximate = c?.precision !== 'exact';
+---
+
+{c && (
+  <section class="no-print" aria-labelledby="carte-titre">
+    <h2 id="carte-titre" class="h-section text-[clamp(2rem,3.6vw,3rem)]">Où se trouve le resort ?</h2>
+    <p class="t-small mt-3 max-w-[70ch] text-muted">
+      {airport && t?.distanceTransfertKm != null
+        ? `Aéroport ${airport.code} (${airport.ville}) : ${t.distanceTransfertKm} km par la route, environ ${duration(t.tempsTransfertMinutes)}. `
+        : ''}
+      {approximate ? 'Position approximative : coordonnées de la destination, pas du resort. ' : ''}
+      Cliquez sur la carte pour activer le zoom à la molette.
+    </p>
+    <div
+      data-detail-map
+      data-name={resort.nom}
+      data-lat={c.lat}
+      data-lon={c.lon}
+      data-approx={approximate ? '1' : ''}
+      data-airport-name={airport ? `${airport.code}, ${airport.ville}` : ''}
+      data-airport-lat={airport?.lat ?? ''}
+      data-airport-lon={airport?.lon ?? ''}
+      class="mt-6 h-[420px] w-full overflow-hidden rounded-xl bg-panel"
+      role="region"
+      aria-label={`Carte interactive : ${resort.nom}`}
+    >
+      <noscript><p class="p-6 text-muted">La carte interactive nécessite JavaScript.</p></noscript>
+    </div>
+  </section>
+)}
+
+<script>
+  import 'leaflet/dist/leaflet.css';
+  import L from 'leaflet';
+
+  function init(el: HTMLElement) {
+    const lat = Number(el.dataset.lat);
+    const lon = Number(el.dataset.lon);
+    const map = L.map(el, { scrollWheelZoom: false }).setView([lat, lon], 12);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a>',
+    }).addTo(map);
+    map.on('click', () => map.scrollWheelZoom.enable());
+
+    const dot = (cls: string, size: number) => L.divIcon({ className: '', html: `<span class="${cls}"></span>`, iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
+    const bounds = L.latLngBounds([[lat, lon]]);
+
+    if (el.dataset.approx) L.circle([lat, lon], { radius: 3000, color: 'currentColor', weight: 1, dashArray: '4 6', fillOpacity: 0.05 }).addTo(map);
+    L.marker([lat, lon], { icon: dot('lm-pin', 22), title: el.dataset.name })
+      .bindTooltip(el.dataset.name ?? '', { permanent: true, direction: 'top', offset: [0, -14], className: 'lm-tag' })
+      .addTo(map);
+
+    if (el.dataset.airportLat) {
+      const a: [number, number] = [Number(el.dataset.airportLat), Number(el.dataset.airportLon)];
+      bounds.extend(a);
+      L.polyline([a, [lat, lon]], { color: '#8f9bd0', weight: 3, dashArray: '2 8', lineCap: 'round' }).addTo(map);
+      L.marker(a, { icon: dot('lm-airport', 18), title: el.dataset.airportName })
+        .bindTooltip(el.dataset.airportName ?? '', { permanent: true, direction: 'bottom', offset: [0, 12], className: 'lm-tag' })
+        .addTo(map);
+      map.fitBounds(bounds, { padding: [60, 60], maxZoom: 13 });
+    }
+  }
+
+  // Load tiles only when the map scrolls into view.
+  document.querySelectorAll<HTMLElement>('[data-detail-map]').forEach((el) => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          init(el);
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    io.observe(el);
+  });
+</script>

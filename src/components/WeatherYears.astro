@@ -1,0 +1,56 @@
+---
+import type { Resort } from '../lib/resorts';
+import { COND, tint, weekOf } from '../lib/weather';
+
+interface Props {
+  resort: Resort;
+}
+const { resort } = Astro.props;
+const days = weekOf(resort);
+const years = [...new Set(days.flatMap((d) => d.years.map((y) => y.annee)))].sort((a, b) => b - a);
+const cell = (d: (typeof days)[number], annee: number) => d.years.find((y) => y.annee === annee);
+---
+
+{years.length > 0 && (
+  <div class="relative overflow-x-auto" role="region" aria-label="Le temps qu'il a fait ces mêmes jours, année par année" tabindex="0">
+    <table class="w-full min-w-[34rem] table-fixed border-separate border-spacing-1 text-center">
+      <thead>
+        <tr>
+          <th class="w-14"></th>
+          {days.map((d) => <th scope="col" class="t-small font-normal text-muted">{d.weekday} {d.num}</th>)}
+        </tr>
+      </thead>
+      <tbody>
+        {years.map((annee) => (
+          <tr>
+            <th scope="row" class="t-strong text-ink">{annee}</th>
+            {days.map((d) => {
+              const y = cell(d, annee);
+              const c = y?.cond ? COND[y.cond] : null;
+              return (
+                <td
+                  class:list={['rounded-md p-1.5', tint(y?.cond ?? null)]}
+                  title={y && c ? `${d.weekdayLong} ${d.num} janvier ${annee} : ${c.label.toLowerCase()}, ${y.max}° le jour, ${y.mm ?? 0} mm de pluie` : ''}
+                >
+                  {c && y ? (
+                    <>
+                      <c.Icon size={20} strokeWidth={1.75} className={`mx-auto ${c.color}`} aria-hidden="true" />
+                      <span class="t-small block">{y.max != null ? `${Math.round(y.max)}°` : ''}</span>
+                      <span class="sr-only">{c.label}</span>
+                    </>
+                  ) : '–'}
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <ul class="t-small mt-2 flex flex-wrap gap-x-5 gap-y-1 text-muted" aria-label="Légende">
+      {(Object.keys(COND) as (keyof typeof COND)[]).map((k) => {
+        const Icon = COND[k].Icon;
+        return <li class="inline-flex items-center gap-1.5"><Icon size={16} strokeWidth={1.75} aria-hidden="true" />{COND[k].label}</li>;
+      })}
+    </ul>
+  </div>
+)}

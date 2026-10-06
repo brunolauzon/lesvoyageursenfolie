@@ -1,0 +1,55 @@
+---
+import '../styles/global.css';
+import NavBar from '../components/NavBar.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  updatedAt?: string;
+}
+
+const { title, description = 'Comparateur de resorts tout inclus pour les vacances en famille de janvier 2027, départ de Montréal-Trudeau (YUL).', updatedAt } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr-CA" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#131315" />
+    <meta name="color-scheme" content="dark light" />
+    <script is:inline>
+      // Runs before first paint. Dark is the default; only an explicit "light" choice changes it.
+      (function () {
+        var theme = 'dark';
+        try { if (localStorage.getItem('vacances2027:theme') === 'light') theme = 'light'; } catch (e) {}
+        document.documentElement.dataset.theme = theme;
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.content = theme === 'dark' ? '#131315' : '#fff6e6';
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/favicon.svg`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=Atkinson+Hyperlegible+Next:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body id="top">
+    <NavBar />
+    <slot />
+
+    <footer class="mx-auto mt-28 w-[min(1600px,100%-3rem)] pb-14">
+      <div class="border-t border-line pt-6">
+        <p class="t-small max-w-[70ch] text-muted">
+          Sources : Open-Meteo, OpenStreetMap, OSRM, OpenFlights, Wikipédia et les sites des resorts. Les durées, les transferts et la météo sont des estimations : vérifiez avant de réserver.
+          {updatedAt && <> Données mises à jour le {updatedAt}.</>}
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

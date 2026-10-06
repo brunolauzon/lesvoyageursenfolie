@@ -1,0 +1,32 @@
+---
+import { Umbrella, Droplets, Baby, Waves, Utensils, Wine, Wifi, Sparkles, BedDouble } from 'lucide-react';
+import type { Resort } from '../lib/resorts';
+
+interface Props {
+  resort: Resort;
+}
+const i = Astro.props.resort.infrastructures;
+
+// Only confirmed facts are listed; what is missing is summarised in one plain sentence.
+const items = [
+  i.qualitePlage && { Icon: Umbrella, text: `Plage : ${i.qualitePlage}` },
+  i.nombrePiscines != null && { Icon: Droplets, text: `${i.nombrePiscines} piscine${i.nombrePiscines > 1 ? 's' : ''}` },
+  i.clubEnfants && { Icon: Baby, text: 'Club enfants' },
+  i.parcAquatique && { Icon: Waves, text: 'Parc aquatique' },
+  i.nombreRestaurants != null && { Icon: Utensils, text: `${i.nombreRestaurants} restaurants` },
+  i.nombreBars != null && { Icon: Wine, text: `${i.nombreBars} bars` },
+  i.qualiteWifi && { Icon: Wifi, text: `Wi-Fi ${i.qualiteWifi}` },
+  i.spaSurPlace && { Icon: Sparkles, text: 'Spa' },
+  i.serviceChambre24h && { Icon: BedDouble, text: 'Repas à la chambre, 24 h sur 24' },
+].filter(Boolean) as { Icon: any; text: string }[];
+const unknown = Object.values(i).filter((v) => v == null).length;
+---
+
+<div>
+  {items.length > 0 && (
+    <ul class="flex flex-wrap gap-2" aria-label="Sur place">
+      {items.map(({ Icon, text }) => <li class="chip"><Icon size={16} aria-hidden="true" />{text}</li>)}
+    </ul>
+  )}
+  {unknown > 0 && <p class="t-small mt-3 text-muted">{items.length ? `${unknown} autre${unknown > 1 ? 's' : ''} information${unknown > 1 ? 's' : ''} à confirmer.` : 'Infrastructures à confirmer.'}</p>}
+</div>

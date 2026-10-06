@@ -1,0 +1,15 @@
+---
+import { COND } from '../lib/weather';
+const kinds = Object.keys(COND) as (keyof typeof COND)[];
+---
+
+<div class="t-small mt-6 space-y-3 text-muted" aria-label="Comment lire les graphiques">
+  <p><strong class="text-ink">Comment lire :</strong> en haut le ciel le plus fréquent ces jours-là, au milieu la température du jour, en bas la chance de pluie.</p>
+  <ul class="flex flex-wrap gap-x-5 gap-y-1" aria-label="Symboles du ciel">
+    {kinds.map((k) => {
+      const Icon = COND[k].Icon;
+      return <li class="inline-flex items-center gap-1.5"><Icon size={18} strokeWidth={1.75} class={COND[k].color} aria-hidden="true" />{COND[k].label}</li>;
+    })}
+  </ul>
+  <p><span class="mr-2 inline-block h-4 w-3 translate-y-0.5 rounded-sm bg-rain"></span>La chance de pluie est le nombre d’années, sur les 5 dernières, où il a plu ce jour-là (1 mm ou plus). <strong class="text-rain">60 %</strong> veut dire 3 années sur 5. Dès 50 %, le chiffre est en gras.</p>
+</div>

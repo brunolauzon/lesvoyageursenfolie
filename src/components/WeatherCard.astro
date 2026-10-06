@@ -1,0 +1,90 @@
+---
+import type { Resort } from '../lib/resorts';
+import { rainLabel, tempLabel } from '../lib/plain';
+import { weekOf } from '../lib/weather';
+import WeatherWeek from './WeatherWeek.astro';
+import WeatherYears from './WeatherYears.astro';
+
+interface Props {
+  resort: Resort;
+  /** Show the year-by-year grid already open (resort page). */
+  openYears?: boolean;
+}
+const { resort, openYears = false } = Astro.props;
+const m = resort.meteoHistoriqueJanvier16;
+const days = weekOf(resort).filter((d) => d.max != null && d.min != null);
+const years = m?.annees?.length ? `${m.annees[0]}–${m.annees[m.annees.length - 1]}` : '';
+
+// Range chart: for each day, a bar from the lowest to the highest value seen in the past years,
+// one dot per year, and the average as a line. Built at compile time as inline SVG.
+const W = 640;
+const H = 270;
+const pad = { l: 40, r: 16, t: 16, b: 42 };
+const all = days.flatMap((d) => [d.minLow ?? d.min, d.maxHigh ?? d.max].filter((v): v is number => typeof v === 'number'));
+const lo = all.length ? Math.floor((Math.min(...all) - 1) / 2) * 2 : 0;
+const hi = all.length ? Math.ceil((Math.max(...all) + 1) / 2) * 2 : 1;
+const x = (i: number) => pad.l + (days.length > 1 ? (i * (W - pad.l - pad.r)) / (days.length - 1) : 0);
+const y = (t: number) => pad.t + ((hi - t) / (hi - lo)) * (H - pad.t - pad.b);
+const step = hi - lo > 14 ? 4 : 2;
+const ticks: number[] = [];
+for (let t = Math.ceil(lo / step) * step; t <= hi; t += step) ticks.push(t);
+const line = (get: (d: (typeof days)[number]) => number | null) =>
+  days.map((d, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(get(d) as number).toFixed(1)}`).join(' ');
+const jitter = [-6, -3, 0, 3, 6];
+---
+
+<section aria-labelledby="meteo-fiche-titre" class="avoid-break">
+  <h2 id="meteo-fiche-titre" class="h-section text-[clamp(2rem,3.6vw,3rem)]">Le temps possible</h2>
+  {m && m.tempMaxC != null && <p class="h-name mt-3 text-sun">{tempLabel(m.tempMaxC)}{rainLabel(m.probabilitePluiePct) ? `, ${rainLabel(m.probabilitePluiePct)?.toLowerCase()}` : ''}</p>}
+
+  {!m || days.length === 0 ? (
+    <p class="mt-4 text-muted">Météo indisponible pour ce resort.</p>
+  ) : (
+    <>
+      <p class="t-small mt-3 max-w-[70ch] text-muted"><strong class="text-ink">Ce n’est pas une prévision.</strong> Voici ce qui s’est passé à ces dates en {years}. Les vraies prévisions arrivent environ 2 semaines avant le départ.</p>
+
+      <div class="mt-8"><WeatherWeek resort={resort} /></div>
+
+      <details open={openYears} class="group mt-8">
+        <summary class="t-strong cursor-pointer list-none text-ink [&::-webkit-details-marker]:hidden"><span class="link">Voir la marge et chaque année</span></summary>
+
+        <div class="mt-6">
+          <p class="t-small max-w-[70ch] text-muted">Chaque point est une année passée. La barre va de la valeur la plus basse à la plus haute, le trait est la moyenne.</p>
+          <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={`Températures possibles du 16 au 23 janvier : de ${Math.min(...days.map((d) => d.minLow ?? d.min!))} à ${Math.max(...days.map((d) => d.maxHigh ?? d.max!))} °C`} class="mt-3 h-auto w-full max-w-3xl">
+            {ticks.map((t) => (
+              <g>
+                <line x1={pad.l} x2={W - pad.r} y1={y(t)} y2={y(t)} class="stroke-line" stroke-dasharray="3 4" />
+                <text x={pad.l - 8} y={y(t) + 4} text-anchor="end" class="fill-faint text-[12px]">{t}°</text>
+              </g>
+            ))}
+            {days.map((d, i) => (
+              <g>
+                <title>{`${d.weekdayLong} ${d.num} janvier : jour ${d.maxLow}° à ${d.maxHigh}° (moyenne ${Math.round(d.max!)}°), nuit ${d.minLow}° à ${d.minHigh}° (moyenne ${Math.round(d.min!)}°)`}</title>
+                {d.maxLow != null && d.maxHigh != null && <rect x={x(i) - 11} y={y(d.maxHigh)} width="22" height={Math.max(y(d.maxLow) - y(d.maxHigh), 4)} rx="11" class="fill-sun/25" />}
+                {d.minLow != null && d.minHigh != null && <rect x={x(i) - 11} y={y(d.minHigh)} width="22" height={Math.max(y(d.minLow) - y(d.minHigh), 4)} rx="11" class="fill-rain/25" />}
+                {d.years.map((yr, k) => (
+                  <>
+                    {yr.max != null && <circle cx={x(i) + jitter[k % 5]} cy={y(yr.max)} r="2.6" class="fill-sun" />}
+                    {yr.min != null && <circle cx={x(i) + jitter[k % 5]} cy={y(yr.min)} r="2.6" class="fill-rain" />}
+                  </>
+                ))}
+                <text x={x(i)} y={H - 20} text-anchor="middle" class="fill-faint text-[12px]">{d.weekday}</text>
+                <text x={x(i)} y={H - 6} text-anchor="middle" class="fill-ink text-[13px] font-bold">{d.num}</text>
+              </g>
+            ))}
+            <path d={line((d) => d.max)} fill="none" class="stroke-sun" stroke-width="2.25" stroke-linejoin="round" stroke-linecap="round" />
+            <path d={line((d) => d.min)} fill="none" class="stroke-rain" stroke-width="2.25" stroke-dasharray="1 5" stroke-linejoin="round" stroke-linecap="round" />
+          </svg>
+          <p class="t-small mt-1 flex flex-wrap gap-x-5 text-muted">
+            <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-full bg-sun"></span>jour</span>
+            <span class="inline-flex items-center gap-1.5"><span class="inline-block size-2.5 rounded-full bg-rain"></span>nuit</span>
+          </p>
+        </div>
+
+        <div class="mt-8"><WeatherYears resort={resort} /></div>
+      </details>
+
+      <p class="t-tiny mt-6 text-muted">Données Open-Meteo pour le lieu {resort.coordonnees?.precision === 'exact' ? 'du resort' : 'de la destination (approximatif)'}. Un jour de pluie compte dès 1 mm, même légère.</p>
+    </>
+  )}
+</section>

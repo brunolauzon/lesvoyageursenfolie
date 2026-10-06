@@ -1,0 +1,2931 @@
+[
+  {
+    "id": "riu-palace-costa-mujeres",
+    "nom": "Riu Palace Costa Mujeres",
+    "destination": "Costa Mujeres, Mexique",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Riu_Palace_Costa_Mujeres_-_02.jpg/1920px-Riu_Palace_Costa_Mujeres_-_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageGenerique": false,
+    "galerie": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Riu_Palace_Costa_Mujeres_-_02.jpg/1920px-Riu_Palace_Costa_Mujeres_-_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Riu_Palace_Costa_Mujeres_-_09.jpg/1920px-Riu_Palace_Costa_Mujeres_-_09.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Riu_Palace_Costa_Mujeres_-_06.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Riu_Palace_Costa_Mujeres_-_11.jpg/1920px-Riu_Palace_Costa_Mujeres_-_11.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      }
+    ],
+    "noteGenerale": 4.4,
+    "nombreAvis": 4984,
+    "siteOfficiel": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+    "lienWikipedia": null,
+    "pointsForts": [
+      "Chaud en janvier : de 22 à 27 °C",
+      "Vol sans escale possible depuis Montréal (à confirmer)",
+      "Vol court : environ 4 h 10",
+      "Parc aquatique sur place"
+    ],
+    "pointsFaibles": [
+      "Pluie fréquente en janvier : 65 % des jours"
+    ],
+    "logistiqueTransport": {
+      "aeroportDepart": "YUL (Montréal-Trudeau)",
+      "aeroportArrivee": "CUN (Cancún)",
+      "dureeVol": "4h 10m (Vol direct, à confirmer)",
+      "dureeVolMinutes": 250,
+      "distanceVolKm": 2970,
+      "volDirect": true,
+      "tempsTransfertResort": "40 min (route)",
+      "tempsTransfertMinutes": 40,
+      "distanceTransfertKm": 36,
+      "tempsTrajetTotalMinutes": 290,
+      "estimationVol": true
+    },
+    "meteoHistoriqueJanvier16": {
+      "tempMaxC": 27,
+      "tempMinC": 22,
+      "probabilitePluiePct": 65,
+      "heuresSoleilParJour": 4.8,
+      "couvertureNuageusePct": 57,
+      "annees": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "parJour": [
+        {
+          "date": "01-16",
+          "tempMaxC": 26.4,
+          "tempMaxBasC": 22.9,
+          "tempMaxHautC": 29.3,
+          "tempMinC": 20.5,
+          "tempMinBasC": 18.3,
+          "tempMinHautC": 23.2,
+          "precipMm": 4.4,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 56,
+          "heuresSoleil": 4.8
+        },
+        {
+          "date": "01-17",
+          "tempMaxC": 26.1,
+          "tempMaxBasC": 23,
+          "tempMaxHautC": 30,
+          "tempMinC": 20.7,
+          "tempMinBasC": 17,
+          "tempMinHautC": 23,
+          "precipMm": 2.5,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 61,
+          "heuresSoleil": 4.3
+        },
+        {
+          "date": "01-18",
+          "tempMaxC": 27.4,
+          "tempMaxBasC": 24.1,
+          "tempMaxHautC": 29.3,
+          "tempMinC": 20.8,
+          "tempMinBasC": 16,
+          "tempMinHautC": 23.8,
+          "precipMm": 1.1,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 49,
+          "heuresSoleil": 5.6
+        },
+        {
+          "date": "01-19",
+          "tempMaxC": 27.3,
+          "tempMaxBasC": 24.1,
+          "tempMaxHautC": 30.9,
+          "tempMinC": 21.9,
+          "tempMinBasC": 19.2,
+          "tempMinHautC": 25.2,
+          "precipMm": 2.7,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 57,
+          "heuresSoleil": 4.8
+        },
+        {
+          "date": "01-20",
+          "tempMaxC": 26.4,
+          "tempMaxBasC": 24,
+          "tempMaxHautC": 28.2,
+          "tempMinC": 22.5,
+          "tempMinBasC": 20.4,
+          "tempMinHautC": 24.4,
+          "precipMm": 3.6,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 60,
+          "heuresSoleil": 4.4
+        },
+        {
+          "date": "01-21",
+          "tempMaxC": 26.5,
+          "tempMaxBasC": 24.9,
+          "tempMaxHautC": 27.4,
+          "tempMinC": 22.6,
+          "tempMinBasC": 21.3,
+          "tempMinHautC": 24.3,
+          "precipMm": 1.9,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 57,
+          "heuresSoleil": 4.7
+        },
+        {
+          "date": "01-22",
+          "tempMaxC": 26.5,
+          "tempMaxBasC": 23.4,
+          "tempMaxHautC": 28.3,
+          "tempMinC": 22.2,
+          "tempMinBasC": 20.3,
+          "tempMinHautC": 24.3,
+          "precipMm": 10.8,
+          "probabilitePluiePct": 100,
+          "couvertureNuageusePct": 65,
+          "heuresSoleil": 3.9
+        },
+        {
+          "date": "01-23",
+          "tempMaxC": 25.8,
+          "tempMaxBasC": 22.4,
+          "tempMaxHautC": 27.6,
+          "tempMinC": 22,
+          "tempMinBasC": 19.5,
+          "tempMinHautC": 23.8,
+          "precipMm": 2.1,
+          "probabilitePluiePct": 100,
+          "couvertureNuageusePct": 48,
+          "heuresSoleil": 5.8
+        }
+      ],
+      "parAnnee": [
+        {
+          "annee": 2022,
+          "jours": [
+            {
+              "tempMaxC": 22.9,
+              "tempMinC": 18.6,
+              "precipMm": 6.9,
+              "nuagesPct": 59
+            },
+            {
+              "tempMaxC": 23,
+              "tempMinC": 17,
+              "precipMm": 0,
+              "nuagesPct": 73
+            },
+            {
+              "tempMaxC": 24.1,
+              "tempMinC": 16,
+              "precipMm": 2,
+              "nuagesPct": 41
+            },
+            {
+              "tempMaxC": 25.4,
+              "tempMinC": 20.3,
+              "precipMm": 3.3,
+              "nuagesPct": 53
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 22.7,
+              "precipMm": 1,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 26.6,
+              "tempMinC": 21.3,
+              "precipMm": 0.9,
+              "nuagesPct": 43
+            },
+            {
+              "tempMaxC": 26.5,
+              "tempMinC": 20.3,
+              "precipMm": 30.5,
+              "nuagesPct": 54
+            },
+            {
+              "tempMaxC": 25.1,
+              "tempMinC": 21.8,
+              "precipMm": 2.7,
+              "nuagesPct": 34
+            }
+          ]
+        },
+        {
+          "annee": 2023,
+          "jours": [
+            {
+              "tempMaxC": 25.9,
+              "tempMinC": 20.7,
+              "precipMm": 0,
+              "nuagesPct": 56
+            },
+            {
+              "tempMaxC": 26,
+              "tempMinC": 22.3,
+              "precipMm": 0,
+              "nuagesPct": 50
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 23.8,
+              "precipMm": 0.2,
+              "nuagesPct": 50
+            },
+            {
+              "tempMaxC": 27.5,
+              "tempMinC": 25.2,
+              "precipMm": 2.3,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 24.4,
+              "precipMm": 0.7,
+              "nuagesPct": 29
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 24.3,
+              "precipMm": 0,
+              "nuagesPct": 54
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 24.3,
+              "precipMm": 1.6,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 26.2,
+              "tempMinC": 23.8,
+              "precipMm": 1.9,
+              "nuagesPct": 27
+            }
+          ]
+        },
+        {
+          "annee": 2024,
+          "jours": [
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 23.2,
+              "precipMm": 4.7,
+              "nuagesPct": 54
+            },
+            {
+              "tempMaxC": 25.3,
+              "tempMinC": 23,
+              "precipMm": 6.5,
+              "nuagesPct": 84
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 23.2,
+              "precipMm": 2.7,
+              "nuagesPct": 69
+            },
+            {
+              "tempMaxC": 28.4,
+              "tempMinC": 23.3,
+              "precipMm": 1.8,
+              "nuagesPct": 86
+            },
+            {
+              "tempMaxC": 26.7,
+              "tempMinC": 22.8,
+              "precipMm": 1.8,
+              "nuagesPct": 84
+            },
+            {
+              "tempMaxC": 24.9,
+              "tempMinC": 22.9,
+              "precipMm": 0.2,
+              "nuagesPct": 94
+            },
+            {
+              "tempMaxC": 26.5,
+              "tempMinC": 22.7,
+              "precipMm": 11.8,
+              "nuagesPct": 92
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 22.8,
+              "precipMm": 2.8,
+              "nuagesPct": 55
+            }
+          ]
+        },
+        {
+          "annee": 2025,
+          "jours": [
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 21.7,
+              "precipMm": 9.2,
+              "nuagesPct": 47
+            },
+            {
+              "tempMaxC": 30,
+              "tempMinC": 20.5,
+              "precipMm": 0,
+              "nuagesPct": 47
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 20.9,
+              "precipMm": 0,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 30.9,
+              "tempMinC": 21.6,
+              "precipMm": 6.2,
+              "nuagesPct": 48
+            },
+            {
+              "tempMaxC": 26,
+              "tempMinC": 22,
+              "precipMm": 14.7,
+              "nuagesPct": 93
+            },
+            {
+              "tempMaxC": 26.9,
+              "tempMinC": 22,
+              "precipMm": 7.8,
+              "nuagesPct": 62
+            },
+            {
+              "tempMaxC": 23.4,
+              "tempMinC": 21.2,
+              "precipMm": 8.3,
+              "nuagesPct": 85
+            },
+            {
+              "tempMaxC": 22.4,
+              "tempMinC": 19.5,
+              "precipMm": 1.1,
+              "nuagesPct": 88
+            }
+          ]
+        },
+        {
+          "annee": 2026,
+          "jours": [
+            {
+              "tempMaxC": 24.4,
+              "tempMinC": 18.3,
+              "precipMm": 1.4,
+              "nuagesPct": 65
+            },
+            {
+              "tempMaxC": 26.4,
+              "tempMinC": 20.9,
+              "precipMm": 6.1,
+              "nuagesPct": 52
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 20,
+              "precipMm": 0.8,
+              "nuagesPct": 63
+            },
+            {
+              "tempMaxC": 24.1,
+              "tempMinC": 19.2,
+              "precipMm": 0,
+              "nuagesPct": 57
+            },
+            {
+              "tempMaxC": 24,
+              "tempMinC": 20.4,
+              "precipMm": 0,
+              "nuagesPct": 72
+            },
+            {
+              "tempMaxC": 26.7,
+              "tempMinC": 22.5,
+              "precipMm": 0.7,
+              "nuagesPct": 33
+            },
+            {
+              "tempMaxC": 28.3,
+              "tempMinC": 22.6,
+              "precipMm": 1.6,
+              "nuagesPct": 55
+            },
+            {
+              "tempMaxC": 27.5,
+              "tempMinC": 22.3,
+              "precipMm": 1.9,
+              "nuagesPct": 36
+            }
+          ]
+        }
+      ]
+    },
+    "infrastructures": {
+      "qualitePlage": "Location en bord de mer",
+      "nombrePiscines": 6,
+      "clubEnfants": true,
+      "parcAquatique": true,
+      "nombreRestaurants": 6,
+      "nombreBars": 6,
+      "qualiteWifi": "gratuit",
+      "spaSurPlace": true,
+      "serviceChambre24h": null
+    },
+    "coordonnees": {
+      "lat": 21.29312,
+      "lon": -86.81702,
+      "precision": "exact"
+    },
+    "meta": {
+      "enrichedAt": "2026-10-06T01:31:46.369Z",
+      "sources": [
+        "OpenStreetMap Nominatim",
+        "Open-Meteo",
+        "OSRM",
+        "OpenFlights (historique)",
+        "Wikimedia Commons"
+      ],
+      "avertissements": [
+        "Aucune infrastructure confirmée automatiquement : à compléter dans resorts-overrides.json."
+      ],
+      "aeroportForce": null,
+      "champsManuels": [
+        "etat",
+        "chambres"
+      ],
+      "champsIA": {
+        "clubEnfants": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "RIU Land entertainment programme for kids",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "parcAquatique": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Splash Water World water park",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "spaSurPlace": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Spa & Wellness centre",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "qualiteWifi": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Free WiFi throughout the hotel",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "nombrePiscines": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Your 24h All Inclusive stay includes gourmet dining at specialized venues like Japanese, Mexican, and Italian restaurants, plus 24-hour beverage service and access to 6 pools, including two with swim-up bars (Le site indique aussi : 5 piscines.)",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "nombreBars": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Relax and enjoy a refreshing drink at any of the 6 bars at Hotel Riu Palace Costa Mujeres, perfect for every occasion",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "qualitePlage": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Beachfront location",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "ia"
+        },
+        "nombreRestaurants": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres/gastronomy",
+          "quote": "La page gastronomie du resort liste 6 restaurants",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "noteGenerale": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 4 984 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "nombreAvis": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 4 984 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "etoiles": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "5 étoiles, indiquées par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "lienTripadvisor": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Lien TripAdvisor donné par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        },
+        "siteOfficiel": {
+          "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+          "quote": "Page officielle du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:28.241Z",
+          "methode": "regle"
+        }
+      },
+      "sourceOfficielle": true
+    },
+    "etoiles": 5,
+    "lienTripadvisor": "https://www.tripadvisor.com/Hotel_Review-d14216187",
+    "etat": {
+      "ouvertureAnnee": 2018,
+      "ouvertureMois": 11,
+      "renovationAnnee": null,
+      "renovationMois": null,
+      "renovationNote": null,
+      "note": "Construit récemment : aucune rénovation depuis l’ouverture.",
+      "sources": [
+        {
+          "label": "Riu : l’ouverture est prévue le 17 novembre 2018",
+          "url": "https://www.riu.com/blog/en/we-proudly-present-our-next-hotel-in-mexico-the-riu-palace-costa-mujeres/"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SJSB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SJFE.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Costa-Mujeres/Habitaciones/room-hotel-riu-palace-costa-mujeres-SUMB-2.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  {
+    "id": "riu-playacar",
+    "nom": "Riu Playacar",
+    "destination": "Playacar, Mexique",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/89/Riu_Yucatan_-_Flickr_-_S._Rae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "imageGenerique": false,
+    "galerie": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/8/89/Riu_Yucatan_-_Flickr_-_S._Rae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+        "credit": "S. Rae from Scotland, UK · CC BY 2.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Hotel_Riu_Yucatan_entrance_-_Flickr_-_S._Rae.jpg/1920px-Hotel_Riu_Yucatan_entrance_-_Flickr_-_S._Rae.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "S. Rae from Scotland, UK · CC BY 2.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      }
+    ],
+    "noteGenerale": 4.4,
+    "nombreAvis": 8896,
+    "siteOfficiel": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+    "lienWikipedia": null,
+    "pointsForts": [
+      "Chaud en janvier : de 22 à 27 °C",
+      "Vol sans escale possible depuis Montréal (à confirmer)",
+      "Vol court : environ 4 h 10",
+      "Club pour enfants"
+    ],
+    "pointsFaibles": [
+      "Pluie fréquente en janvier : 55 % des jours"
+    ],
+    "logistiqueTransport": {
+      "aeroportDepart": "YUL (Montréal-Trudeau)",
+      "aeroportArrivee": "CUN (Cancún)",
+      "dureeVol": "4h 10m (Vol direct, à confirmer)",
+      "dureeVolMinutes": 250,
+      "distanceVolKm": 2970,
+      "volDirect": true,
+      "tempsTransfertResort": "50 min (route)",
+      "tempsTransfertMinutes": 50,
+      "distanceTransfertKm": 60,
+      "tempsTrajetTotalMinutes": 300,
+      "estimationVol": true
+    },
+    "meteoHistoriqueJanvier16": {
+      "tempMaxC": 27,
+      "tempMinC": 22,
+      "probabilitePluiePct": 55,
+      "heuresSoleilParJour": 5.8,
+      "couvertureNuageusePct": 48,
+      "annees": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "parJour": [
+        {
+          "date": "01-16",
+          "tempMaxC": 26.6,
+          "tempMaxBasC": 25.3,
+          "tempMaxHautC": 28.6,
+          "tempMinC": 20.7,
+          "tempMinBasC": 16.8,
+          "tempMinHautC": 24.5,
+          "precipMm": 3.2,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 45,
+          "heuresSoleil": 6.1
+        },
+        {
+          "date": "01-17",
+          "tempMaxC": 26.4,
+          "tempMaxBasC": 22.9,
+          "tempMaxHautC": 28.8,
+          "tempMinC": 21.3,
+          "tempMinBasC": 16.8,
+          "tempMinHautC": 23.5,
+          "precipMm": 2.4,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 53,
+          "heuresSoleil": 5.1
+        },
+        {
+          "date": "01-18",
+          "tempMaxC": 27.5,
+          "tempMaxBasC": 24.6,
+          "tempMaxHautC": 29.2,
+          "tempMinC": 21.4,
+          "tempMinBasC": 16.5,
+          "tempMinHautC": 24.8,
+          "precipMm": 0.5,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 42,
+          "heuresSoleil": 6.4
+        },
+        {
+          "date": "01-19",
+          "tempMaxC": 27.4,
+          "tempMaxBasC": 25.5,
+          "tempMaxHautC": 29.4,
+          "tempMinC": 22,
+          "tempMinBasC": 18.2,
+          "tempMinHautC": 25.5,
+          "precipMm": 2.7,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 50,
+          "heuresSoleil": 5.6
+        },
+        {
+          "date": "01-20",
+          "tempMaxC": 26.6,
+          "tempMaxBasC": 24.1,
+          "tempMaxHautC": 28,
+          "tempMinC": 22,
+          "tempMinBasC": 17.9,
+          "tempMinHautC": 24.9,
+          "precipMm": 2.4,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 44,
+          "heuresSoleil": 6.2
+        },
+        {
+          "date": "01-21",
+          "tempMaxC": 26.6,
+          "tempMaxBasC": 25.8,
+          "tempMaxHautC": 27.1,
+          "tempMinC": 22.5,
+          "tempMinBasC": 19.7,
+          "tempMinHautC": 24.9,
+          "precipMm": 2.2,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 56,
+          "heuresSoleil": 4.9
+        },
+        {
+          "date": "01-22",
+          "tempMaxC": 26.8,
+          "tempMaxBasC": 25.2,
+          "tempMaxHautC": 28.2,
+          "tempMinC": 21.8,
+          "tempMinBasC": 20.2,
+          "tempMinHautC": 24,
+          "precipMm": 7.8,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 54,
+          "heuresSoleil": 5.1
+        },
+        {
+          "date": "01-23",
+          "tempMaxC": 26.4,
+          "tempMaxBasC": 23.2,
+          "tempMaxHautC": 28.2,
+          "tempMinC": 21.9,
+          "tempMinBasC": 19.1,
+          "tempMinHautC": 24.8,
+          "precipMm": 1.7,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 39,
+          "heuresSoleil": 6.8
+        }
+      ],
+      "parAnnee": [
+        {
+          "annee": 2022,
+          "jours": [
+            {
+              "tempMaxC": 25.4,
+              "tempMinC": 18,
+              "precipMm": 3.3,
+              "nuagesPct": 51
+            },
+            {
+              "tempMaxC": 22.9,
+              "tempMinC": 16.8,
+              "precipMm": 0,
+              "nuagesPct": 55
+            },
+            {
+              "tempMaxC": 24.6,
+              "tempMinC": 16.5,
+              "precipMm": 0.6,
+              "nuagesPct": 27
+            },
+            {
+              "tempMaxC": 25.5,
+              "tempMinC": 21.2,
+              "precipMm": 5.4,
+              "nuagesPct": 53
+            },
+            {
+              "tempMaxC": 26.7,
+              "tempMinC": 23.2,
+              "precipMm": 0.2,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 23.1,
+              "precipMm": 3.7,
+              "nuagesPct": 50
+            },
+            {
+              "tempMaxC": 26,
+              "tempMinC": 20.4,
+              "precipMm": 22.1,
+              "nuagesPct": 69
+            },
+            {
+              "tempMaxC": 26.1,
+              "tempMinC": 20.7,
+              "precipMm": 2.5,
+              "nuagesPct": 26
+            }
+          ]
+        },
+        {
+          "annee": 2023,
+          "jours": [
+            {
+              "tempMaxC": 25.5,
+              "tempMinC": 22,
+              "precipMm": 0,
+              "nuagesPct": 38
+            },
+            {
+              "tempMaxC": 26.1,
+              "tempMinC": 23.5,
+              "precipMm": 0,
+              "nuagesPct": 59
+            },
+            {
+              "tempMaxC": 27.7,
+              "tempMinC": 24.8,
+              "precipMm": 0.3,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 25.5,
+              "precipMm": 2.8,
+              "nuagesPct": 35
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 24.9,
+              "precipMm": 0.3,
+              "nuagesPct": 13
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 24.9,
+              "precipMm": 0,
+              "nuagesPct": 38
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 24,
+              "precipMm": 1.4,
+              "nuagesPct": 26
+            },
+            {
+              "tempMaxC": 26.5,
+              "tempMinC": 24.8,
+              "precipMm": 1.6,
+              "nuagesPct": 25
+            }
+          ]
+        },
+        {
+          "annee": 2024,
+          "jours": [
+            {
+              "tempMaxC": 28.6,
+              "tempMinC": 24.5,
+              "precipMm": 1.4,
+              "nuagesPct": 65
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 22.7,
+              "precipMm": 1.5,
+              "nuagesPct": 47
+            },
+            {
+              "tempMaxC": 29.2,
+              "tempMinC": 23.4,
+              "precipMm": 1.5,
+              "nuagesPct": 58
+            },
+            {
+              "tempMaxC": 28.8,
+              "tempMinC": 23.3,
+              "precipMm": 1.3,
+              "nuagesPct": 76
+            },
+            {
+              "tempMaxC": 27.2,
+              "tempMinC": 22.5,
+              "precipMm": 2,
+              "nuagesPct": 76
+            },
+            {
+              "tempMaxC": 25.8,
+              "tempMinC": 22.7,
+              "precipMm": 4,
+              "nuagesPct": 93
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 22.4,
+              "precipMm": 15.1,
+              "nuagesPct": 86
+            },
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 23.1,
+              "precipMm": 2,
+              "nuagesPct": 49
+            }
+          ]
+        },
+        {
+          "annee": 2025,
+          "jours": [
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 22.1,
+              "precipMm": 11.2,
+              "nuagesPct": 32
+            },
+            {
+              "tempMaxC": 28.8,
+              "tempMinC": 21.1,
+              "precipMm": 0,
+              "nuagesPct": 37
+            },
+            {
+              "tempMaxC": 28.5,
+              "tempMinC": 22.4,
+              "precipMm": 0,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 29.4,
+              "tempMinC": 21.9,
+              "precipMm": 4,
+              "nuagesPct": 56
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 21.6,
+              "precipMm": 9.3,
+              "nuagesPct": 68
+            },
+            {
+              "tempMaxC": 26,
+              "tempMinC": 22.1,
+              "precipMm": 2.5,
+              "nuagesPct": 67
+            },
+            {
+              "tempMaxC": 25.2,
+              "tempMinC": 20.2,
+              "precipMm": 0.3,
+              "nuagesPct": 57
+            },
+            {
+              "tempMaxC": 23.2,
+              "tempMinC": 19.1,
+              "precipMm": 2.5,
+              "nuagesPct": 79
+            }
+          ]
+        },
+        {
+          "annee": 2026,
+          "jours": [
+            {
+              "tempMaxC": 25.3,
+              "tempMinC": 16.8,
+              "precipMm": 0.1,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 26.2,
+              "tempMinC": 22.4,
+              "precipMm": 10.7,
+              "nuagesPct": 69
+            },
+            {
+              "tempMaxC": 27.7,
+              "tempMinC": 20.1,
+              "precipMm": 0.1,
+              "nuagesPct": 65
+            },
+            {
+              "tempMaxC": 25.5,
+              "tempMinC": 18.2,
+              "precipMm": 0,
+              "nuagesPct": 28
+            },
+            {
+              "tempMaxC": 24.1,
+              "tempMinC": 17.9,
+              "precipMm": 0.1,
+              "nuagesPct": 47
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 19.7,
+              "precipMm": 0.9,
+              "nuagesPct": 32
+            },
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 22.1,
+              "precipMm": 0.2,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 21.6,
+              "precipMm": 0,
+              "nuagesPct": 16
+            }
+          ]
+        }
+      ]
+    },
+    "infrastructures": {
+      "qualitePlage": "Plage de sable blanc avec des eaux cristallines.",
+      "nombrePiscines": null,
+      "clubEnfants": true,
+      "parcAquatique": null,
+      "nombreRestaurants": 5,
+      "nombreBars": 4,
+      "qualiteWifi": "gratuit",
+      "spaSurPlace": true,
+      "serviceChambre24h": null
+    },
+    "coordonnees": {
+      "lat": 20.61234,
+      "lon": -87.09239,
+      "precision": "exact"
+    },
+    "meta": {
+      "enrichedAt": "2026-10-06T01:31:50.507Z",
+      "sources": [
+        "OpenStreetMap Nominatim",
+        "Open-Meteo",
+        "OSRM",
+        "OpenFlights (historique)",
+        "Wikimedia Commons"
+      ],
+      "avertissements": [
+        "Aucune infrastructure confirmée automatiquement : à compléter dans resorts-overrides.json."
+      ],
+      "aeroportForce": null,
+      "champsManuels": [
+        "etat",
+        "chambres"
+      ],
+      "champsIA": {
+        "clubEnfants": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "Entretenimiento para niños, RIULand",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "spaSurPlace": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "Spa & Wellness",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "qualiteWifi": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "WiFi gratuito en todo el hotel",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "nombreBars": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "Relax at the 4 bars of the Hotel Riu Playacar, with atmospheres for every moment of the day",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "qualitePlage": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "beautiful white sand beach with crystal clear waters",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "ia"
+        },
+        "nombreRestaurants": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy",
+          "quote": "La page gastronomie du resort liste 5 restaurants",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "noteGenerale": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 8 896 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "nombreAvis": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 8 896 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "etoiles": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "5 étoiles, indiquées par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "lienTripadvisor": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "Lien TripAdvisor donné par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        },
+        "siteOfficiel": {
+          "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+          "quote": "Page officielle du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T11:59:51.618Z",
+          "methode": "regle"
+        }
+      },
+      "sourceOfficielle": true
+    },
+    "etoiles": 5,
+    "lienTripadvisor": "https://www.tripadvisor.com/Hotel_Review-d219165",
+    "etat": {
+      "ouvertureAnnee": 2000,
+      "ouvertureMois": null,
+      "renovationAnnee": 2015,
+      "renovationMois": 10,
+      "renovationNote": "Tout refait : 396 chambres, lobby, restaurants, piscines, spa.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Hotel Online : réouverture après rénovation de 32 M$",
+          "url": "https://www.hotel-online.com/news/riu-playacar-on-mexicos-riviera-maya-to-reopen-following-32-million"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/DDSB-room-riu-playacar.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/SUSB-3-room-riu-playacar.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Playacar/Habitaciones/DDSN-room-riu-playacar.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  {
+    "id": "riu-palace-tropical-bay-negril",
+    "nom": "Riu Palace Tropical Bay, Negril",
+    "destination": "Negril, Jamaïque",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Jamaica_-_Negril_-_047.jpg/1920px-Jamaica_-_Negril_-_047.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageGenerique": false,
+    "galerie": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Jamaica_-_Negril_-_047.jpg/1920px-Jamaica_-_Negril_-_047.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "This picture has been taken by Oleg Yunakov. Contact e-mail: yunakovgmail.com. Image can be used in accordance with the terms of the СС-BY-SA license. Other photos can be seen here. · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      }
+    ],
+    "noteGenerale": 4.2,
+    "nombreAvis": 8723,
+    "siteOfficiel": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+    "lienWikipedia": null,
+    "pointsForts": [
+      "Chaud en janvier : de 23 à 30 °C",
+      "Ciel souvent dégagé (24 % de nuages en moyenne)",
+      "Vol sans escale possible depuis Montréal (à confirmer)",
+      "Vol court : environ 4 h 10",
+      "Club pour enfants"
+    ],
+    "pointsFaibles": [
+      "Pluie fréquente en janvier : 38 % des jours",
+      "Route longue depuis l’aéroport : 1 h 25"
+    ],
+    "logistiqueTransport": {
+      "aeroportDepart": "YUL (Montréal-Trudeau)",
+      "aeroportArrivee": "MBJ (Montego Bay)",
+      "dureeVol": "4h 10m (Vol direct, à confirmer)",
+      "dureeVolMinutes": 250,
+      "distanceVolKm": 3020,
+      "volDirect": true,
+      "tempsTransfertResort": "85 min (route)",
+      "tempsTransfertMinutes": 85,
+      "distanceTransfertKm": 76,
+      "tempsTrajetTotalMinutes": 335,
+      "estimationVol": true
+    },
+    "meteoHistoriqueJanvier16": {
+      "tempMaxC": 30,
+      "tempMinC": 23,
+      "probabilitePluiePct": 38,
+      "heuresSoleilParJour": 8.6,
+      "couvertureNuageusePct": 24,
+      "annees": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "parJour": [
+        {
+          "date": "01-16",
+          "tempMaxC": 29.2,
+          "tempMaxBasC": 27.7,
+          "tempMaxHautC": 32.1,
+          "tempMinC": 22.1,
+          "tempMinBasC": 20.5,
+          "tempMinHautC": 23.5,
+          "precipMm": 0.2,
+          "probabilitePluiePct": 0,
+          "couvertureNuageusePct": 29,
+          "heuresSoleil": 7.9
+        },
+        {
+          "date": "01-17",
+          "tempMaxC": 29.8,
+          "tempMaxBasC": 28,
+          "tempMaxHautC": 31.8,
+          "tempMinC": 22.5,
+          "tempMinBasC": 21,
+          "tempMinHautC": 24.2,
+          "precipMm": 2.8,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 29,
+          "heuresSoleil": 8
+        },
+        {
+          "date": "01-18",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 27.1,
+          "tempMaxHautC": 32.2,
+          "tempMinC": 22.6,
+          "tempMinBasC": 21.9,
+          "tempMinHautC": 23.6,
+          "precipMm": 2.6,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 23,
+          "heuresSoleil": 8.6
+        },
+        {
+          "date": "01-19",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 29.1,
+          "tempMaxHautC": 32.3,
+          "tempMinC": 22.5,
+          "tempMinBasC": 21.9,
+          "tempMinHautC": 23.3,
+          "precipMm": 1.7,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 37,
+          "heuresSoleil": 7.1
+        },
+        {
+          "date": "01-20",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 28.7,
+          "tempMaxHautC": 32.7,
+          "tempMinC": 22.9,
+          "tempMinBasC": 22.2,
+          "tempMinHautC": 23.5,
+          "precipMm": 0.5,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 21,
+          "heuresSoleil": 8.8
+        },
+        {
+          "date": "01-21",
+          "tempMaxC": 30.3,
+          "tempMaxBasC": 29.3,
+          "tempMaxHautC": 32.1,
+          "tempMinC": 22.9,
+          "tempMinBasC": 21.7,
+          "tempMinHautC": 24,
+          "precipMm": 1.4,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 20,
+          "heuresSoleil": 9
+        },
+        {
+          "date": "01-22",
+          "tempMaxC": 30.4,
+          "tempMaxBasC": 29.3,
+          "tempMaxHautC": 32.5,
+          "tempMinC": 22.6,
+          "tempMinBasC": 22,
+          "tempMinHautC": 24.1,
+          "precipMm": 1.2,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 18,
+          "heuresSoleil": 9.2
+        },
+        {
+          "date": "01-23",
+          "tempMaxC": 30.2,
+          "tempMaxBasC": 28.7,
+          "tempMaxHautC": 31.7,
+          "tempMinC": 22.4,
+          "tempMinBasC": 21.6,
+          "tempMinHautC": 23,
+          "precipMm": 0.8,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 13,
+          "heuresSoleil": 9.8
+        }
+      ],
+      "parAnnee": [
+        {
+          "annee": 2022,
+          "jours": [
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 22.1,
+              "precipMm": 0,
+              "nuagesPct": 9
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 21.8,
+              "precipMm": 2.1,
+              "nuagesPct": 30
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 22.5,
+              "precipMm": 1.9,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 29.1,
+              "tempMinC": 22.2,
+              "precipMm": 2.7,
+              "nuagesPct": 21
+            },
+            {
+              "tempMaxC": 30.5,
+              "tempMinC": 22.5,
+              "precipMm": 0.7,
+              "nuagesPct": 13
+            },
+            {
+              "tempMaxC": 30.1,
+              "tempMinC": 21.7,
+              "precipMm": 0.3,
+              "nuagesPct": 8
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.6,
+              "precipMm": 0.6,
+              "nuagesPct": 24
+            },
+            {
+              "tempMaxC": 28.7,
+              "tempMinC": 22.8,
+              "precipMm": 0.9,
+              "nuagesPct": 12
+            }
+          ]
+        },
+        {
+          "annee": 2023,
+          "jours": [
+            {
+              "tempMaxC": 27.7,
+              "tempMinC": 20.5,
+              "precipMm": 0,
+              "nuagesPct": 0
+            },
+            {
+              "tempMaxC": 29.9,
+              "tempMinC": 21,
+              "precipMm": 0,
+              "nuagesPct": 5
+            },
+            {
+              "tempMaxC": 30.7,
+              "tempMinC": 22.3,
+              "precipMm": 0.5,
+              "nuagesPct": 20
+            },
+            {
+              "tempMaxC": 30,
+              "tempMinC": 21.9,
+              "precipMm": 0,
+              "nuagesPct": 36
+            },
+            {
+              "tempMaxC": 29.5,
+              "tempMinC": 22.2,
+              "precipMm": 0,
+              "nuagesPct": 16
+            },
+            {
+              "tempMaxC": 30.3,
+              "tempMinC": 22.5,
+              "precipMm": 1.4,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 29.7,
+              "tempMinC": 22,
+              "precipMm": 1.5,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 29.5,
+              "tempMinC": 22,
+              "precipMm": 2.4,
+              "nuagesPct": 21
+            }
+          ]
+        },
+        {
+          "annee": 2024,
+          "jours": [
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 22.4,
+              "precipMm": 0,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 31.8,
+              "tempMinC": 23.4,
+              "precipMm": 0.5,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 32.2,
+              "tempMinC": 23.6,
+              "precipMm": 0,
+              "nuagesPct": 11
+            },
+            {
+              "tempMaxC": 32.3,
+              "tempMinC": 23.3,
+              "precipMm": 2.5,
+              "nuagesPct": 33
+            },
+            {
+              "tempMaxC": 31.5,
+              "tempMinC": 22.8,
+              "precipMm": 0.7,
+              "nuagesPct": 7
+            },
+            {
+              "tempMaxC": 29.9,
+              "tempMinC": 24,
+              "precipMm": 1.6,
+              "nuagesPct": 16
+            },
+            {
+              "tempMaxC": 30.2,
+              "tempMinC": 24.1,
+              "precipMm": 2.4,
+              "nuagesPct": 20
+            },
+            {
+              "tempMaxC": 31.7,
+              "tempMinC": 22.5,
+              "precipMm": 0,
+              "nuagesPct": 10
+            }
+          ]
+        },
+        {
+          "annee": 2025,
+          "jours": [
+            {
+              "tempMaxC": 29.7,
+              "tempMinC": 23.5,
+              "precipMm": 0,
+              "nuagesPct": 34
+            },
+            {
+              "tempMaxC": 31.4,
+              "tempMinC": 22.3,
+              "precipMm": 0,
+              "nuagesPct": 7
+            },
+            {
+              "tempMaxC": 31.9,
+              "tempMinC": 21.9,
+              "precipMm": 0,
+              "nuagesPct": 10
+            },
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 22.5,
+              "precipMm": 0.8,
+              "nuagesPct": 36
+            },
+            {
+              "tempMaxC": 32.7,
+              "tempMinC": 23.5,
+              "precipMm": 1,
+              "nuagesPct": 40
+            },
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 23.2,
+              "precipMm": 0.4,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 32.5,
+              "tempMinC": 22.3,
+              "precipMm": 0.4,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 31.2,
+              "tempMinC": 21.6,
+              "precipMm": 0.5,
+              "nuagesPct": 15
+            }
+          ]
+        },
+        {
+          "annee": 2026,
+          "jours": [
+            {
+              "tempMaxC": 28.4,
+              "tempMinC": 22.1,
+              "precipMm": 0.8,
+              "nuagesPct": 88
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 24.2,
+              "precipMm": 11.3,
+              "nuagesPct": 87
+            },
+            {
+              "tempMaxC": 31,
+              "tempMinC": 22.8,
+              "precipMm": 10.4,
+              "nuagesPct": 43
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.4,
+              "precipMm": 2.3,
+              "nuagesPct": 57
+            },
+            {
+              "tempMaxC": 28.7,
+              "tempMinC": 23.4,
+              "precipMm": 0.1,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.9,
+              "precipMm": 3.1,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 30.1,
+              "tempMinC": 22.1,
+              "precipMm": 1.1,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 30,
+              "tempMinC": 23,
+              "precipMm": 0.1,
+              "nuagesPct": 7
+            }
+          ]
+        }
+      ]
+    },
+    "infrastructures": {
+      "qualitePlage": "sable blanc et eaux cristallines",
+      "nombrePiscines": 3,
+      "clubEnfants": true,
+      "parcAquatique": null,
+      "nombreRestaurants": 6,
+      "nombreBars": null,
+      "qualiteWifi": "gratuit",
+      "spaSurPlace": true,
+      "serviceChambre24h": null
+    },
+    "coordonnees": {
+      "lat": 18.34549,
+      "lon": -78.33419,
+      "precision": "exact"
+    },
+    "meta": {
+      "enrichedAt": "2026-10-06T01:31:55.083Z",
+      "sources": [
+        "OpenStreetMap Nominatim",
+        "Open-Meteo",
+        "OSRM",
+        "OpenFlights (historique)",
+        "Wikimedia Commons"
+      ],
+      "avertissements": [
+        "Aucune infrastructure confirmée automatiquement : à compléter dans resorts-overrides.json."
+      ],
+      "aeroportForce": null,
+      "champsManuels": [
+        "etat",
+        "chambres"
+      ],
+      "champsIA": {
+        "clubEnfants": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "RIU Land entertainment programme for kids",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "spaSurPlace": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Spa & Wellness centre",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "qualiteWifi": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Free WiFi throughout the hotel",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "nombrePiscines": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Three pools are all smallish for dipping not swimming but you have the sea if you want to do lengths",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "ia"
+        },
+        "qualitePlage": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Hotel Riu Tropical Bay is located on one of the best beaches on the Jamaican coast. Come and enjoy the white sand and crystal clear waters!",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "ia"
+        },
+        "nombreRestaurants": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy",
+          "quote": "La page gastronomie du resort liste 6 restaurants",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "noteGenerale": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,2/5, 8 723 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "nombreAvis": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "TripAdvisor, affiché sur le site du resort : 4,2/5, 8 723 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "etoiles": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "5 étoiles, indiquées par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "lienTripadvisor": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Lien TripAdvisor donné par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        },
+        "siteOfficiel": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+          "quote": "Page officielle du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:19.164Z",
+          "methode": "regle"
+        }
+      },
+      "sourceOfficielle": true
+    },
+    "etoiles": 5,
+    "lienTripadvisor": "https://www.tripadvisor.com/Hotel_Review-d209701",
+    "etat": {
+      "ouvertureAnnee": 2001,
+      "ouvertureMois": null,
+      "renovationAnnee": 2018,
+      "renovationMois": 10,
+      "renovationNote": "Chambres refaites, 52 chambres neuves, piscine et bâtiment principal.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Caribbean Journal : réouverture le 20 octobre 2018",
+          "url": "https://www.caribjournal.com/2018/10/13/riu-reopening-tropical-bay-all-inclusive-in-negril/"
+        },
+        {
+          "label": "Hosteltur : inauguré en 2001",
+          "url": "https://www.hosteltur.com/109697_reabre-el-riu-palace-tropical-bay-de-jamaica-tras-una-inversion-de-35-m.html"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SJSB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SUMB.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Tropical-Bay/Habitaciones/rooms-hotel-riu-palace-tropical-bay-SJLF.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  {
+    "id": "riu-negril-negril",
+    "nom": "Riu Negril, Negril",
+    "destination": "Negril, Jamaïque",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/23/Negril_Jamaica_2007-09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "imageGenerique": false,
+    "galerie": [
+      {
+        "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Negril_Jamaica_2007-09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+        "credit": "Wikipédia : Negril",
+        "source": "Wikipedia"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/Spiaggia_RIU_NEGRIL_-_panoramio.jpg/1920px-Spiaggia_RIU_NEGRIL_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Fulvio Barudoni · CC BY 3.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/RIU_Negril_Giamaica_-_panoramio.jpg/1920px-RIU_Negril_Giamaica_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Fulvio Barudoni · CC BY 3.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/Riu_Negril_Giamaica_-_panoramio.jpg/1920px-Riu_Negril_Giamaica_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Fulvio Barudoni · CC BY 3.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Jamaica_-_Negril_-_047.jpg/1920px-Jamaica_-_Negril_-_047.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "This picture has been taken by Oleg Yunakov. Contact e-mail: yunakovgmail.com. Image can be used in accordance with the terms of the СС-BY-SA license. Other photos can be seen here. · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      }
+    ],
+    "noteGenerale": 3.9,
+    "nombreAvis": 9138,
+    "siteOfficiel": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+    "lienWikipedia": "https://en.wikipedia.org/wiki/Negril",
+    "pointsForts": [
+      "Chaud en janvier : de 23 à 30 °C",
+      "Ciel souvent dégagé (24 % de nuages en moyenne)",
+      "Vol sans escale possible depuis Montréal (à confirmer)",
+      "Vol court : environ 4 h 10"
+    ],
+    "pointsFaibles": [
+      "Pluie fréquente en janvier : 38 % des jours",
+      "Route longue depuis l’aéroport : 1 h 30"
+    ],
+    "logistiqueTransport": {
+      "aeroportDepart": "YUL (Montréal-Trudeau)",
+      "aeroportArrivee": "MBJ (Montego Bay)",
+      "dureeVol": "4h 10m (Vol direct, à confirmer)",
+      "dureeVolMinutes": 250,
+      "distanceVolKm": 3020,
+      "volDirect": true,
+      "tempsTransfertResort": "90 min (route)",
+      "tempsTransfertMinutes": 90,
+      "distanceTransfertKm": 81,
+      "tempsTrajetTotalMinutes": 340,
+      "estimationVol": true
+    },
+    "meteoHistoriqueJanvier16": {
+      "tempMaxC": 30,
+      "tempMinC": 23,
+      "probabilitePluiePct": 38,
+      "heuresSoleilParJour": 8.6,
+      "couvertureNuageusePct": 24,
+      "annees": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "parJour": [
+        {
+          "date": "01-16",
+          "tempMaxC": 29.2,
+          "tempMaxBasC": 27.7,
+          "tempMaxHautC": 32.1,
+          "tempMinC": 22.1,
+          "tempMinBasC": 20.5,
+          "tempMinHautC": 23.5,
+          "precipMm": 0.2,
+          "probabilitePluiePct": 0,
+          "couvertureNuageusePct": 29,
+          "heuresSoleil": 7.9
+        },
+        {
+          "date": "01-17",
+          "tempMaxC": 29.8,
+          "tempMaxBasC": 28,
+          "tempMaxHautC": 31.8,
+          "tempMinC": 22.5,
+          "tempMinBasC": 21,
+          "tempMinHautC": 24.2,
+          "precipMm": 2.8,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 29,
+          "heuresSoleil": 8
+        },
+        {
+          "date": "01-18",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 27.1,
+          "tempMaxHautC": 32.2,
+          "tempMinC": 22.6,
+          "tempMinBasC": 21.9,
+          "tempMinHautC": 23.6,
+          "precipMm": 2.6,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 23,
+          "heuresSoleil": 8.6
+        },
+        {
+          "date": "01-19",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 29.1,
+          "tempMaxHautC": 32.3,
+          "tempMinC": 22.5,
+          "tempMinBasC": 21.9,
+          "tempMinHautC": 23.3,
+          "precipMm": 1.7,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 37,
+          "heuresSoleil": 7.1
+        },
+        {
+          "date": "01-20",
+          "tempMaxC": 30.6,
+          "tempMaxBasC": 28.7,
+          "tempMaxHautC": 32.7,
+          "tempMinC": 22.9,
+          "tempMinBasC": 22.2,
+          "tempMinHautC": 23.5,
+          "precipMm": 0.5,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 21,
+          "heuresSoleil": 8.8
+        },
+        {
+          "date": "01-21",
+          "tempMaxC": 30.3,
+          "tempMaxBasC": 29.3,
+          "tempMaxHautC": 32.1,
+          "tempMinC": 22.9,
+          "tempMinBasC": 21.7,
+          "tempMinHautC": 24,
+          "precipMm": 1.4,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 20,
+          "heuresSoleil": 9
+        },
+        {
+          "date": "01-22",
+          "tempMaxC": 30.4,
+          "tempMaxBasC": 29.3,
+          "tempMaxHautC": 32.5,
+          "tempMinC": 22.6,
+          "tempMinBasC": 22,
+          "tempMinHautC": 24.1,
+          "precipMm": 1.2,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 18,
+          "heuresSoleil": 9.2
+        },
+        {
+          "date": "01-23",
+          "tempMaxC": 30.2,
+          "tempMaxBasC": 28.7,
+          "tempMaxHautC": 31.7,
+          "tempMinC": 22.4,
+          "tempMinBasC": 21.6,
+          "tempMinHautC": 23,
+          "precipMm": 0.8,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 13,
+          "heuresSoleil": 9.8
+        }
+      ],
+      "parAnnee": [
+        {
+          "annee": 2022,
+          "jours": [
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 22.1,
+              "precipMm": 0,
+              "nuagesPct": 9
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 21.8,
+              "precipMm": 2.1,
+              "nuagesPct": 30
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 22.5,
+              "precipMm": 1.9,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 29.1,
+              "tempMinC": 22.2,
+              "precipMm": 2.7,
+              "nuagesPct": 21
+            },
+            {
+              "tempMaxC": 30.5,
+              "tempMinC": 22.5,
+              "precipMm": 0.7,
+              "nuagesPct": 13
+            },
+            {
+              "tempMaxC": 30.1,
+              "tempMinC": 21.7,
+              "precipMm": 0.3,
+              "nuagesPct": 8
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.6,
+              "precipMm": 0.6,
+              "nuagesPct": 24
+            },
+            {
+              "tempMaxC": 28.7,
+              "tempMinC": 22.8,
+              "precipMm": 0.9,
+              "nuagesPct": 12
+            }
+          ]
+        },
+        {
+          "annee": 2023,
+          "jours": [
+            {
+              "tempMaxC": 27.7,
+              "tempMinC": 20.5,
+              "precipMm": 0,
+              "nuagesPct": 0
+            },
+            {
+              "tempMaxC": 29.9,
+              "tempMinC": 21,
+              "precipMm": 0,
+              "nuagesPct": 5
+            },
+            {
+              "tempMaxC": 30.7,
+              "tempMinC": 22.3,
+              "precipMm": 0.5,
+              "nuagesPct": 20
+            },
+            {
+              "tempMaxC": 30,
+              "tempMinC": 21.9,
+              "precipMm": 0,
+              "nuagesPct": 36
+            },
+            {
+              "tempMaxC": 29.5,
+              "tempMinC": 22.2,
+              "precipMm": 0,
+              "nuagesPct": 16
+            },
+            {
+              "tempMaxC": 30.3,
+              "tempMinC": 22.5,
+              "precipMm": 1.4,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 29.7,
+              "tempMinC": 22,
+              "precipMm": 1.5,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 29.5,
+              "tempMinC": 22,
+              "precipMm": 2.4,
+              "nuagesPct": 21
+            }
+          ]
+        },
+        {
+          "annee": 2024,
+          "jours": [
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 22.4,
+              "precipMm": 0,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 31.8,
+              "tempMinC": 23.4,
+              "precipMm": 0.5,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 32.2,
+              "tempMinC": 23.6,
+              "precipMm": 0,
+              "nuagesPct": 11
+            },
+            {
+              "tempMaxC": 32.3,
+              "tempMinC": 23.3,
+              "precipMm": 2.5,
+              "nuagesPct": 33
+            },
+            {
+              "tempMaxC": 31.5,
+              "tempMinC": 22.8,
+              "precipMm": 0.7,
+              "nuagesPct": 7
+            },
+            {
+              "tempMaxC": 29.9,
+              "tempMinC": 24,
+              "precipMm": 1.6,
+              "nuagesPct": 16
+            },
+            {
+              "tempMaxC": 30.2,
+              "tempMinC": 24.1,
+              "precipMm": 2.4,
+              "nuagesPct": 20
+            },
+            {
+              "tempMaxC": 31.7,
+              "tempMinC": 22.5,
+              "precipMm": 0,
+              "nuagesPct": 10
+            }
+          ]
+        },
+        {
+          "annee": 2025,
+          "jours": [
+            {
+              "tempMaxC": 29.7,
+              "tempMinC": 23.5,
+              "precipMm": 0,
+              "nuagesPct": 34
+            },
+            {
+              "tempMaxC": 31.4,
+              "tempMinC": 22.3,
+              "precipMm": 0,
+              "nuagesPct": 7
+            },
+            {
+              "tempMaxC": 31.9,
+              "tempMinC": 21.9,
+              "precipMm": 0,
+              "nuagesPct": 10
+            },
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 22.5,
+              "precipMm": 0.8,
+              "nuagesPct": 36
+            },
+            {
+              "tempMaxC": 32.7,
+              "tempMinC": 23.5,
+              "precipMm": 1,
+              "nuagesPct": 40
+            },
+            {
+              "tempMaxC": 32.1,
+              "tempMinC": 23.2,
+              "precipMm": 0.4,
+              "nuagesPct": 39
+            },
+            {
+              "tempMaxC": 32.5,
+              "tempMinC": 22.3,
+              "precipMm": 0.4,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 31.2,
+              "tempMinC": 21.6,
+              "precipMm": 0.5,
+              "nuagesPct": 15
+            }
+          ]
+        },
+        {
+          "annee": 2026,
+          "jours": [
+            {
+              "tempMaxC": 28.4,
+              "tempMinC": 22.1,
+              "precipMm": 0.8,
+              "nuagesPct": 88
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 24.2,
+              "precipMm": 11.3,
+              "nuagesPct": 87
+            },
+            {
+              "tempMaxC": 31,
+              "tempMinC": 22.8,
+              "precipMm": 10.4,
+              "nuagesPct": 43
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.4,
+              "precipMm": 2.3,
+              "nuagesPct": 57
+            },
+            {
+              "tempMaxC": 28.7,
+              "tempMinC": 23.4,
+              "precipMm": 0.1,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 29.3,
+              "tempMinC": 22.9,
+              "precipMm": 3.1,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 30.1,
+              "tempMinC": 22.1,
+              "precipMm": 1.1,
+              "nuagesPct": 15
+            },
+            {
+              "tempMaxC": 30,
+              "tempMinC": 23,
+              "precipMm": 0.1,
+              "nuagesPct": 7
+            }
+          ]
+        }
+      ]
+    },
+    "infrastructures": {
+      "qualitePlage": "Sable blanc et calme, eaux turquoise.",
+      "nombrePiscines": null,
+      "clubEnfants": true,
+      "parcAquatique": null,
+      "nombreRestaurants": 8,
+      "nombreBars": null,
+      "qualiteWifi": "gratuit",
+      "spaSurPlace": true,
+      "serviceChambre24h": null
+    },
+    "coordonnees": {
+      "lat": 18.31102,
+      "lon": -78.33939,
+      "precision": "exact"
+    },
+    "meta": {
+      "enrichedAt": "2026-10-06T01:52:50.021Z",
+      "sources": [
+        "Wikipedia",
+        "Open-Meteo",
+        "OSRM",
+        "OpenFlights (historique)"
+      ],
+      "avertissements": [
+        "Aucune infrastructure confirmée automatiquement : à compléter dans resorts-overrides.json."
+      ],
+      "aeroportForce": null,
+      "champsManuels": [
+        "etat",
+        "chambres"
+      ],
+      "champsIA": {
+        "clubEnfants": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "Entretenimiento para niños, RIULand",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "spaSurPlace": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "Spa & Wellness",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "qualiteWifi": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "WiFi gratuito en todo el hotel",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "qualitePlage": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "Relax on one of Jamaica's most special beaches, where the sea and nature create a unique environment.",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "ia"
+        },
+        "nombreRestaurants": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril/gastronomy",
+          "quote": "La page gastronomie du resort liste 8 restaurants",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "noteGenerale": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 9 138 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "nombreAvis": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 9 138 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "etoiles": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "5 étoiles, indiquées par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "lienTripadvisor": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "Lien TripAdvisor donné par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        },
+        "siteOfficiel": {
+          "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+          "quote": "Page officielle du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:00:53.244Z",
+          "methode": "regle"
+        }
+      },
+      "sourceOfficielle": true
+    },
+    "etoiles": 5,
+    "lienTripadvisor": "https://www.tripadvisor.com/Hotel_Review-d478349",
+    "etat": {
+      "ouvertureAnnee": 2002,
+      "ouvertureMois": null,
+      "renovationAnnee": 2024,
+      "renovationMois": 12,
+      "renovationNote": "600 chambres refaites, 28 avec accès piscine, 3 restaurants neufs.",
+      "note": "Année d’ouverture : 2002 selon Riu, 2004 selon d’autres sources.",
+      "sources": [
+        {
+          "label": "Travelweek : réouverture en décembre 2024",
+          "url": "https://www.travelweek.ca/news/riu-negril-reopens-following-extensive-renovations/"
+        },
+        {
+          "label": "Travelweek : Riu en Jamaïque depuis 2001, Riu Negril un an plus tard",
+          "url": "https://www.travelweek.ca/news/riu-celebrates-20-years-in-jamaica/"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBJF_2.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBSM.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Negril/Habitaciones/room-hotel-riu-negril-DBMF.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  },
+  {
+    "id": "riu-palace-bavaro",
+    "nom": "Riu Palace Bavaro",
+    "destination": "Bávaro, République dominicaine",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Riu_Palace_B%C3%A1varo_-_Waterslide.jpg/1920px-Riu_Palace_B%C3%A1varo_-_Waterslide.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "imageGenerique": false,
+    "galerie": [
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Riu_Palace_B%C3%A1varo_-_Waterslide.jpg/1920px-Riu_Palace_B%C3%A1varo_-_Waterslide.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/Riu_Palace_B%C3%A1varo_-_10.jpg/1920px-Riu_Palace_B%C3%A1varo_-_10.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Riu_Palace_B%C3%A1varo_-_Food_-_04.jpg/1920px-Riu_Palace_B%C3%A1varo_-_Food_-_04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      },
+      {
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Riu_Palace_B%C3%A1varo_-_recycle_bins.jpg/1920px-Riu_Palace_B%C3%A1varo_-_recycle_bins.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+        "credit": "Oleg Yunakov · CC BY-SA 4.0 · Wikimedia Commons",
+        "source": "Wikimedia Commons"
+      }
+    ],
+    "noteGenerale": 3.9,
+    "nombreAvis": 11646,
+    "siteOfficiel": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+    "lienWikipedia": null,
+    "pointsForts": [
+      "Chaud en janvier : de 23 à 28 °C",
+      "Ciel souvent dégagé (28 % de nuages en moyenne)",
+      "Vol sans escale possible depuis Montréal (à confirmer)",
+      "Vol court : environ 4 h 10",
+      "Route courte depuis l’aéroport : 25 min",
+      "Parc aquatique sur place"
+    ],
+    "pointsFaibles": [
+      "Pluie fréquente en janvier : 53 % des jours"
+    ],
+    "logistiqueTransport": {
+      "aeroportDepart": "YUL (Montréal-Trudeau)",
+      "aeroportArrivee": "PUJ (Punta Cana)",
+      "dureeVol": "4h 10m (Vol direct, à confirmer)",
+      "dureeVolMinutes": 250,
+      "distanceVolKm": 3030,
+      "volDirect": true,
+      "tempsTransfertResort": "25 min (route)",
+      "tempsTransfertMinutes": 25,
+      "distanceTransfertKm": 26,
+      "tempsTrajetTotalMinutes": 275,
+      "estimationVol": true
+    },
+    "meteoHistoriqueJanvier16": {
+      "tempMaxC": 28,
+      "tempMinC": 23,
+      "probabilitePluiePct": 53,
+      "heuresSoleilParJour": 8,
+      "couvertureNuageusePct": 28,
+      "annees": [
+        2022,
+        2023,
+        2024,
+        2025,
+        2026
+      ],
+      "parJour": [
+        {
+          "date": "01-16",
+          "tempMaxC": 27.5,
+          "tempMaxBasC": 25.2,
+          "tempMaxHautC": 28.4,
+          "tempMinC": 23.4,
+          "tempMinBasC": 21.8,
+          "tempMinHautC": 24.6,
+          "precipMm": 0.5,
+          "probabilitePluiePct": 20,
+          "couvertureNuageusePct": 28,
+          "heuresSoleil": 8
+        },
+        {
+          "date": "01-17",
+          "tempMaxC": 27.4,
+          "tempMaxBasC": 26,
+          "tempMaxHautC": 28.6,
+          "tempMinC": 23.2,
+          "tempMinBasC": 22,
+          "tempMinHautC": 24.8,
+          "precipMm": 1.3,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 36,
+          "heuresSoleil": 7.1
+        },
+        {
+          "date": "01-18",
+          "tempMaxC": 27.7,
+          "tempMaxBasC": 26.7,
+          "tempMaxHautC": 28.9,
+          "tempMinC": 23.1,
+          "tempMinBasC": 21.6,
+          "tempMinHautC": 24.8,
+          "precipMm": 1.6,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 26,
+          "heuresSoleil": 8.2
+        },
+        {
+          "date": "01-19",
+          "tempMaxC": 27.9,
+          "tempMaxBasC": 27.2,
+          "tempMaxHautC": 28.5,
+          "tempMinC": 23.5,
+          "tempMinBasC": 22,
+          "tempMinHautC": 24.4,
+          "precipMm": 1.6,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 28,
+          "heuresSoleil": 8
+        },
+        {
+          "date": "01-20",
+          "tempMaxC": 27.6,
+          "tempMaxBasC": 27,
+          "tempMaxHautC": 29.2,
+          "tempMinC": 23.3,
+          "tempMinBasC": 22.5,
+          "tempMinHautC": 24.1,
+          "precipMm": 2.3,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 26,
+          "heuresSoleil": 8.3
+        },
+        {
+          "date": "01-21",
+          "tempMaxC": 27.8,
+          "tempMaxBasC": 27.1,
+          "tempMaxHautC": 28.9,
+          "tempMinC": 23.8,
+          "tempMinBasC": 22.9,
+          "tempMinHautC": 24.8,
+          "precipMm": 1.3,
+          "probabilitePluiePct": 40,
+          "couvertureNuageusePct": 25,
+          "heuresSoleil": 8.4
+        },
+        {
+          "date": "01-22",
+          "tempMaxC": 27.4,
+          "tempMaxBasC": 26.3,
+          "tempMaxHautC": 28.1,
+          "tempMinC": 23.5,
+          "tempMinBasC": 22.1,
+          "tempMinHautC": 24.4,
+          "precipMm": 2.7,
+          "probabilitePluiePct": 80,
+          "couvertureNuageusePct": 28,
+          "heuresSoleil": 8
+        },
+        {
+          "date": "01-23",
+          "tempMaxC": 27.6,
+          "tempMaxBasC": 27.2,
+          "tempMaxHautC": 28,
+          "tempMinC": 23.1,
+          "tempMinBasC": 22,
+          "tempMinHautC": 24.3,
+          "precipMm": 3.1,
+          "probabilitePluiePct": 60,
+          "couvertureNuageusePct": 30,
+          "heuresSoleil": 7.8
+        }
+      ],
+      "parAnnee": [
+        {
+          "annee": 2022,
+          "jours": [
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 23.6,
+              "precipMm": 0.5,
+              "nuagesPct": 11
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 22.4,
+              "precipMm": 0.6,
+              "nuagesPct": 21
+            },
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 21.6,
+              "precipMm": 0.1,
+              "nuagesPct": 10
+            },
+            {
+              "tempMaxC": 27.9,
+              "tempMinC": 23.1,
+              "precipMm": 2.6,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 24.1,
+              "precipMm": 2.4,
+              "nuagesPct": 29
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 23.8,
+              "precipMm": 0.5,
+              "nuagesPct": 31
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 23.4,
+              "precipMm": 0.1,
+              "nuagesPct": 22
+            },
+            {
+              "tempMaxC": 27.2,
+              "tempMinC": 22,
+              "precipMm": 1.3,
+              "nuagesPct": 27
+            }
+          ]
+        },
+        {
+          "annee": 2023,
+          "jours": [
+            {
+              "tempMaxC": 25.2,
+              "tempMinC": 21.8,
+              "precipMm": 0,
+              "nuagesPct": 10
+            },
+            {
+              "tempMaxC": 26,
+              "tempMinC": 22,
+              "precipMm": 0,
+              "nuagesPct": 27
+            },
+            {
+              "tempMaxC": 26.7,
+              "tempMinC": 22.8,
+              "precipMm": 0,
+              "nuagesPct": 21
+            },
+            {
+              "tempMaxC": 27.2,
+              "tempMinC": 22,
+              "precipMm": 0,
+              "nuagesPct": 18
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 22.5,
+              "precipMm": 1.4,
+              "nuagesPct": 22
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 22.9,
+              "precipMm": 0.9,
+              "nuagesPct": 18
+            },
+            {
+              "tempMaxC": 26.3,
+              "tempMinC": 23.1,
+              "precipMm": 1.5,
+              "nuagesPct": 33
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 23.2,
+              "precipMm": 0.1,
+              "nuagesPct": 9
+            }
+          ]
+        },
+        {
+          "annee": 2024,
+          "jours": [
+            {
+              "tempMaxC": 28.4,
+              "tempMinC": 24.6,
+              "precipMm": 1.1,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 28.6,
+              "tempMinC": 24.8,
+              "precipMm": 0.8,
+              "nuagesPct": 42
+            },
+            {
+              "tempMaxC": 28.9,
+              "tempMinC": 24.8,
+              "precipMm": 0.2,
+              "nuagesPct": 24
+            },
+            {
+              "tempMaxC": 28.5,
+              "tempMinC": 24.4,
+              "precipMm": 2.2,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 29.2,
+              "tempMinC": 23.2,
+              "precipMm": 0,
+              "nuagesPct": 14
+            },
+            {
+              "tempMaxC": 28.9,
+              "tempMinC": 23.5,
+              "precipMm": 0.8,
+              "nuagesPct": 18
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 24.4,
+              "precipMm": 1.1,
+              "nuagesPct": 25
+            },
+            {
+              "tempMaxC": 28,
+              "tempMinC": 24,
+              "precipMm": 0.5,
+              "nuagesPct": 22
+            }
+          ]
+        },
+        {
+          "annee": 2025,
+          "jours": [
+            {
+              "tempMaxC": 27.3,
+              "tempMinC": 24.2,
+              "precipMm": 0.1,
+              "nuagesPct": 26
+            },
+            {
+              "tempMaxC": 27.6,
+              "tempMinC": 22.8,
+              "precipMm": 1.9,
+              "nuagesPct": 28
+            },
+            {
+              "tempMaxC": 27.1,
+              "tempMinC": 22.3,
+              "precipMm": 6.6,
+              "nuagesPct": 55
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 24,
+              "precipMm": 3.3,
+              "nuagesPct": 27
+            },
+            {
+              "tempMaxC": 27,
+              "tempMinC": 23.6,
+              "precipMm": 3.8,
+              "nuagesPct": 26
+            },
+            {
+              "tempMaxC": 28.1,
+              "tempMinC": 24,
+              "precipMm": 2.4,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 24.4,
+              "precipMm": 3.8,
+              "nuagesPct": 23
+            },
+            {
+              "tempMaxC": 27.7,
+              "tempMinC": 24.3,
+              "precipMm": 5.1,
+              "nuagesPct": 49
+            }
+          ]
+        },
+        {
+          "annee": 2026,
+          "jours": [
+            {
+              "tempMaxC": 28.2,
+              "tempMinC": 22.6,
+              "precipMm": 0.6,
+              "nuagesPct": 71
+            },
+            {
+              "tempMaxC": 27.2,
+              "tempMinC": 24.1,
+              "precipMm": 3.4,
+              "nuagesPct": 63
+            },
+            {
+              "tempMaxC": 27.8,
+              "tempMinC": 23.9,
+              "precipMm": 1,
+              "nuagesPct": 22
+            },
+            {
+              "tempMaxC": 27.9,
+              "tempMinC": 24.1,
+              "precipMm": 0,
+              "nuagesPct": 41
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 23.2,
+              "precipMm": 4,
+              "nuagesPct": 37
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 24.8,
+              "precipMm": 2.1,
+              "nuagesPct": 35
+            },
+            {
+              "tempMaxC": 27.3,
+              "tempMinC": 22.1,
+              "precipMm": 7.2,
+              "nuagesPct": 38
+            },
+            {
+              "tempMaxC": 27.4,
+              "tempMinC": 22.1,
+              "precipMm": 8.3,
+              "nuagesPct": 44
+            }
+          ]
+        }
+      ]
+    },
+    "infrastructures": {
+      "qualitePlage": "Sur les berges de la magnifique plage Arena Gorda – sable blanc et eaux turquoise.",
+      "nombrePiscines": 11,
+      "clubEnfants": true,
+      "parcAquatique": true,
+      "nombreRestaurants": 10,
+      "nombreBars": 12,
+      "qualiteWifi": "gratuit",
+      "spaSurPlace": true,
+      "serviceChambre24h": true
+    },
+    "coordonnees": {
+      "lat": 18.7181,
+      "lon": -68.45406,
+      "precision": "exact"
+    },
+    "meta": {
+      "enrichedAt": "2026-10-06T01:32:16.087Z",
+      "sources": [
+        "OpenStreetMap Nominatim",
+        "Open-Meteo",
+        "OSRM",
+        "OpenFlights (historique)",
+        "Wikimedia Commons"
+      ],
+      "avertissements": [
+        "Aucune infrastructure confirmée automatiquement : à compléter dans resorts-overrides.json."
+      ],
+      "aeroportForce": null,
+      "champsManuels": [
+        "etat",
+        "chambres"
+      ],
+      "champsIA": {
+        "clubEnfants": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "RIU Land entertainment programme for kids",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "parcAquatique": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Splash Water World water park",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "spaSurPlace": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Spa & Wellness centre",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "serviceChambre24h": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "24-hour room service",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "qualiteWifi": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Free WiFi throughout the hotel",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "nombrePiscines": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "11 swimming pools, two of them adults-only (Le site indique aussi : 6, 9 piscines.)",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "nombreRestaurants": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Feast whenever you want with 10 varied restaurants, featuring exquisite Japanese at 'Geisha', Italian favorites at 'La Bambola', and the 'Taino' Steakhouse",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "nombreBars": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Our 24h All-Inclusive experience gives you unlimited drinks at 12 bars",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "qualitePlage": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "On the shores of the wonderful Arena Gorda beach – with white sands and turquoise waters",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "ia"
+        },
+        "noteGenerale": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 11 646 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "nombreAvis": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 11 646 avis",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "etoiles": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "5 étoiles, indiquées par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "lienTripadvisor": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Lien TripAdvisor donné par le site du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        },
+        "siteOfficiel": {
+          "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+          "quote": "Page officielle du resort",
+          "model": "qwen3:8b",
+          "date": "2026-10-06T12:01:23.852Z",
+          "methode": "regle"
+        }
+      },
+      "sourceOfficielle": true
+    },
+    "etoiles": 5,
+    "lienTripadvisor": "https://www.tripadvisor.com/Hotel_Review-d2399068",
+    "etat": {
+      "ouvertureAnnee": 2011,
+      "ouvertureMois": 12,
+      "renovationAnnee": 2024,
+      "renovationMois": 9,
+      "renovationNote": "Décor refait, zone famille et Elite Club. Chambres : à confirmer.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Travel Market Report : réouverture en septembre 2024",
+          "url": "https://travelmarketreport.com/destinations/articles/riu-palace-bavaro-in-punta-cana-reopens-after-refurb"
+        },
+        {
+          "label": "Hotel Executive : ouverture en décembre 2011",
+          "url": "https://www.hotelexecutive.com/newswire/38112/riu-palace-bavaro-opens-in-punta-cana"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SJEB-room-hotel-riu-palace-bavaro.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SJPE-room-hotel-riu-palace-bavaro.jpg",
+        "https://www.riu.com/dam/Ficha-Hotel/Hotel-Riu-Palace-Bavaro/Habitaciones/SUJE-room-hotel-riu-palace-bavaro.jpg"
+      ],
+      "source": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+      "credit": "Riu Hotels & Resorts (site officiel)"
+    }
+  }
+]

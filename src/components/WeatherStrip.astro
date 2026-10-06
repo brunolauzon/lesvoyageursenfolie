@@ -1,0 +1,77 @@
+---
+// One resort's week as a single picture, read top to bottom:
+// the usual sky (symbol), the daytime temperature (line), the chance of rain (bar and percentage).
+import type { Resort } from '../lib/resorts';
+import { COND, likelyWet, weekOf } from '../lib/weather';
+
+interface Props {
+  resort: Resort;
+  /** Shared temperature scale, so several strips can be compared. Computed from this resort when absent. */
+  lo?: number;
+  hi?: number;
+}
+const { resort } = Astro.props;
+const days = weekOf(resort);
+const own = days.map((d) => d.max).filter((v): v is number => v != null);
+const MIN_SPAN = 8;
+let lo = Astro.props.lo ?? (own.length ? Math.floor(Math.min(...own) - 1) : 0);
+let hi = Astro.props.hi ?? (own.length ? Math.ceil(Math.max(...own) + 1) : MIN_SPAN);
+if (hi - lo < MIN_SPAN) {
+  lo = Math.floor((hi + lo) / 2 - MIN_SPAN / 2);
+  hi = lo + MIN_SPAN;
+}
+
+const W = 640;
+const H = 244;
+const padX = 40;
+const n = days.length;
+const x = (i: number) => padX + (n > 1 ? (i * (W - 2 * padX)) / (n - 1) : 0);
+const ICON = 38;
+const tTop = 90; // temperature band
+const tBottom = 124;
+const y = (t: number) => tTop + ((hi - t) / (hi - lo)) * (tBottom - tTop);
+const barBase = 188; // rain bars grow up from here
+const barMax = 40;
+const share = (d: (typeof days)[number]) => (d.rainYears != null && d.years.length ? d.rainYears / d.years.length : null);
+
+const known = days.map((d, i) => ({ d, i })).filter((p): p is { d: (typeof days)[number] & { max: number }; i: number } => p.d.max != null);
+const path = known.map((p, k) => `${k ? 'L' : 'M'}${x(p.i).toFixed(1)} ${y(p.d.max).toFixed(1)}`).join(' ');
+const wetDays = days.filter(likelyWet).length;
+const label = `${resort.nom}, du ${days[0]?.num} au ${days[n - 1]?.num} janvier : ${known.length ? `${Math.round(Math.min(...known.map((p) => p.d.max)))}° à ${Math.round(Math.max(...known.map((p) => p.d.max)))}° le jour` : ''}, pluie probable ${wetDays} jour${wetDays > 1 ? 's' : ''} sur ${n}.`;
+---
+
+{n > 0 && (
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={label} class="h-auto w-full">
+    {days.map((d, i) => {
+      const c = d.typical ? COND[d.typical] : null;
+      const s = share(d);
+      const h = s == null ? 0 : s > 0 ? Math.max(s * barMax, 4) : 0;
+      return (
+        <g>
+          <title>{`${d.weekdayLong} ${d.num} janvier${c ? ` : ${c.label.toLowerCase()}` : ''}${d.max != null ? `, ${Math.round(d.max)}° le jour` : ''}${d.min != null ? `, ${Math.round(d.min)}° la nuit` : ''}${d.rainYears != null ? `. Il a plu ${d.rainYears} année${d.rainYears > 1 ? 's' : ''} sur ${d.years.length}.` : ''}`}</title>
+
+          {c && <c.Icon x={x(i) - ICON / 2} y={4} size={ICON} strokeWidth={1.75} className={c.color} aria-hidden="true" />}
+
+          {s != null && (
+            <>
+              <rect x={x(i) - 13} y={barBase - barMax} width="26" height={barMax} rx="5" class="fill-rain/15" />
+              {h > 0 && <rect x={x(i) - 13} y={barBase - h} width="26" height={h} rx="5" class="fill-rain" />}
+              <text x={x(i)} y={barBase - barMax - 8} text-anchor="middle" class:list={['text-[23px]', likelyWet(d) ? 'fill-rain font-bold' : 'fill-faint']}>{Math.round(s * 100)} %</text>
+            </>
+          )}
+
+          <text x={x(i)} y={H - 34} text-anchor="middle" class="fill-faint text-[22px]">{d.weekday}</text>
+          <text x={x(i)} y={H - 8} text-anchor="middle" class="fill-ink text-[24px] font-bold">{d.num}</text>
+        </g>
+      );
+    })}
+
+    <path d={path} fill="none" class="stroke-sun/60" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+    {known.map(({ d, i }) => (
+      <>
+        <circle cx={x(i)} cy={y(d.max)} r="5" class="fill-sun" />
+        <text x={x(i)} y={y(d.max) - 14} text-anchor="middle" class="fill-ink text-[27px] font-bold">{Math.round(d.max)}°</text>
+      </>
+    ))}
+  </svg>
+)}

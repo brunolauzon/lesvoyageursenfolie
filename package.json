@@ -1,31 +1,46 @@
 {
-  "name": "lesvoyageursenfolie",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vacances-famille-2027",
   "type": "module",
+  "version": "0.0.1",
   "engines": {
-    "node": ">=22"
+    "node": ">=22.12.0"
   },
   "scripts": {
-    "dev": "astro dev",
-    "prebuild": "tsx scripts/fetch-resort-data.ts",
+    "prebuild": "node scripts/fetch-resort-data.js",
     "build": "astro build",
+    "dev": "node scripts/fetch-resort-data.js && astro dev",
     "preview": "astro preview",
-    "fetch": "tsx scripts/fetch-resort-data.ts",
-    "update-airports": "tsx scripts/update-airports.ts",
-    "check": "tsx scripts/validate-data.ts && astro check",
-    "test": "vitest run"
+    "enrich": "node scripts/fetch-resort-data.js",
+    "enrich:force": "node scripts/fetch-resort-data.js --force",
+    "astro": "astro",
+    "enrich:web": "node scripts/enrich-web.js"
   },
   "dependencies": {
-    "astro": "^7.3.6",
-    "yaml": "^2.9.1",
-    "zod": "^4.6.5"
+    "@astrojs/react": "^7.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "astro": "^7.3.5",
+    "clsx": "^2.1.1",
+    "d3-geo": "^3.1.1",
+    "dotenv": "^18.0.5",
+    "leaflet": "^1.9.4",
+    "lucide-react": "^1.52.0",
+    "node-fetch": "^3.3.2",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.3",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  },
+  "allowScripts": {
+    "esbuild": true
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
-    "@types/node": "^26.6.4",
-    "tsx": "^4.23.15",
-    "typescript": "^6.0.3",
-    "vitest": "^5.0.3"
+    "@types/d3-geo": "^3.1.1",
+    "@types/geojson": "^7946.0.16",
+    "@types/leaflet": "^1.9.22",
+    "@types/topojson-client": "^3.1.5"
   }
 }

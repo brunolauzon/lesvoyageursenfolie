@@ -1,24 +1,43 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-import { parse } from 'yaml';
-import { z } from 'zod';
+// French country names (as produced by the enrichment script) -> ISO code and the Natural Earth name used by world-atlas.
 
-const CountrySchema = z.object({
-  name: z.string(),
-  currency: z.string(),
-  plugs: z.array(z.string()),
-  voltage: z.string(),
-  language: z.string(),
-  advisory: z.string(),
-});
-export type Country = z.infer<typeof CountrySchema>;
+export const norm = (s: string) => s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().trim();
 
-/** data/reference/countries.yml, keyed by the country name as returned by the resolver or an ISO code. */
-export function loadCountries(): Record<string, Country> {
-  const file = join(process.cwd(), 'data', 'reference', 'countries.yml');
-  return z.record(z.string(), CountrySchema).parse(parse(readFileSync(file, 'utf8'), { schema: 'core' }));
+const TABLE: [fr: string, iso2: string, en: string][] = [
+  ['Mexique', 'MX', 'Mexico'],
+  ['Jamaïque', 'JM', 'Jamaica'],
+  ['République dominicaine', 'DO', 'Dominican Rep.'],
+  ['Aruba', 'AW', 'Aruba'],
+  ['Curaçao', 'CW', 'Curaçao'],
+  ['Cuba', 'CU', 'Cuba'],
+  ['Bahamas', 'BS', 'Bahamas'],
+  ['Costa Rica', 'CR', 'Costa Rica'],
+  ['Panama', 'PA', 'Panama'],
+  ['Barbade', 'BB', 'Barbados'],
+  ['Sainte-Lucie', 'LC', 'Saint Lucia'],
+  ['Antigua-et-Barbuda', 'AG', 'Antigua and Barb.'],
+  ['Grenade', 'GD', 'Grenada'],
+  ['Belize', 'BZ', 'Belize'],
+  ['Îles Turques-et-Caïques', 'TC', 'Turks and Caicos Is.'],
+  ['Îles Caïmans', 'KY', 'Cayman Is.'],
+  ['Porto Rico', 'PR', 'Puerto Rico'],
+  ['Colombie', 'CO', 'Colombia'],
+  ['Haïti', 'HT', 'Haiti'],
+  ['Honduras', 'HN', 'Honduras'],
+  ['Guatemala', 'GT', 'Guatemala'],
+  ['Trinité-et-Tobago', 'TT', 'Trinidad and Tobago'],
+  ['Saint-Christophe-et-Niévès', 'KN', 'St. Kitts and Nevis'],
+  ['Dominique', 'DM', 'Dominica'],
+  ['Bermudes', 'BM', 'Bermuda'],
+  ['États-Unis', 'US', 'United States of America'],
+  ['Canada', 'CA', 'Canada'],
+];
+
+const BY_NAME = new Map(TABLE.map(([fr, iso2, en]) => [norm(fr), { iso2, en }]));
+
+export const countryInfo = (fr: string | null | undefined) => (fr ? BY_NAME.get(norm(fr)) ?? null : null);
+
+/** Flag emoji for a French country name, or '' when unknown. */
+export function flagOf(fr: string | null | undefined): string {
+  const info = countryInfo(fr);
+  return info ? String.fromCodePoint(...[...info.iso2].map((c) => 0x1f1e6 + c.charCodeAt(0) - 65)) : '';
 }
-
-/** Look up by ISO 3166-1 alpha-2 code (the airport table carries it). */
-export const findCountry = (countries: Record<string, Country>, iso: string | null | undefined): Country | null =>
-  (iso && countries[iso.toUpperCase()]) || null;

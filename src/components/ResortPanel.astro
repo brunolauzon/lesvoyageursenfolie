@@ -1,0 +1,76 @@
+---
+import { Check, Minus, Star } from 'lucide-react';
+import type { Resort } from '../lib/resorts';
+import { cityOf, countryOf } from '../lib/resorts';
+import { duration, href, num } from '../lib/format';
+import { rainLabel, tempLabel } from '../lib/plain';
+
+interface Props {
+  resort: Resort;
+  index: number;
+}
+const { resort, index } = Astro.props;
+const t = resort.logistiqueTransport;
+const m = resort.meteoHistoriqueJanvier16;
+const photo = resort.galerie[0]?.url ?? resort.image;
+---
+
+<article id={`resort-${resort.id}`} data-resort-block data-resort={resort.id} class:list={['avoid-break band scroll-mt-40 py-10', index % 2 === 1 && 'band-alt']}>
+  <div class="grid grid-cols-[minmax(0,1fr)] gap-8 md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:gap-12">
+    <div>
+      {photo ? (
+        <img src={photo} alt={`${resort.nom}`} loading={index < 2 ? 'eager' : 'lazy'} decoding="async" referrerpolicy="no-referrer" class="aspect-[4/3] w-full rounded-lg bg-ink/10 object-cover" />
+      ) : (
+        <div class="aspect-[4/3] w-full rounded-lg bg-ink/10"></div>
+      )}
+    </div>
+
+    <div>
+      <p class="t-small text-muted">{cityOf(resort) ? `${cityOf(resort)}, ` : ''}{countryOf(resort) ?? 'Pays à confirmer'}</p>
+      <h4 class="h-name mt-1 text-balance">{resort.nom}</h4>
+      {resort.noteGenerale != null && (
+        <p class="t-small mt-2 flex items-center gap-1.5 text-muted">
+          <Star size={15} fill="currentColor" className="text-sun" aria-hidden="true" />
+          <span class="t-strong text-ink">{resort.noteGenerale.toFixed(1).replace('.', ',')}/5</span>
+          {resort.nombreAvis != null && <span>sur {num(resort.nombreAvis)} avis</span>}
+          {resort.etoiles != null && <span>, {resort.etoiles} étoiles</span>}
+        </p>
+      )}
+
+      <dl class="mt-7 grid grid-cols-3 gap-x-5">
+        <div>
+          <dt class="t-small text-muted">Trajet</dt>
+          <dd class="figure-num mt-1 text-[clamp(1.9rem,3vw,2.5rem)]">{duration(t?.tempsTrajetTotalMinutes)}</dd>
+          <dd class="t-small text-muted">avion et route</dd>
+        </div>
+        <div>
+          <dt class="t-small text-muted">Chaleur</dt>
+          <dd class="figure-num mt-1 text-[clamp(1.9rem,3vw,2.5rem)] text-sun">{m?.tempMaxC != null ? `${m.tempMaxC}°` : '?'}</dd>
+          <dd class="t-small text-muted">{tempLabel(m?.tempMaxC)?.toLowerCase() ?? 'à confirmer'}</dd>
+        </div>
+        <div>
+          <dt class="t-small text-muted">Pluie</dt>
+          <dd class="figure-num mt-1 text-[clamp(1.9rem,3vw,2.5rem)] text-rain">{num(m?.probabilitePluiePct, '%')}</dd>
+          <dd class="t-small text-muted">{rainLabel(m?.probabilitePluiePct)?.toLowerCase() ?? 'à confirmer'}</dd>
+        </div>
+      </dl>
+
+      <div class="mt-8 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+        <div>
+          <h5 class="t-strong mb-2.5">Points forts</h5>
+          {resort.pointsForts.length ? (
+            <ul class="t-small space-y-2">{resort.pointsForts.slice(0, 3).map((p) => <li class="flex gap-2.5"><Check size={16} className="mt-1 shrink-0 text-muted" aria-hidden="true" />{p}</li>)}</ul>
+          ) : <p class="t-small text-muted">À confirmer</p>}
+        </div>
+        <div>
+          <h5 class="t-strong mb-2.5">Points faibles</h5>
+          {resort.pointsFaibles.length ? (
+            <ul class="t-small space-y-2">{resort.pointsFaibles.slice(0, 3).map((p) => <li class="flex gap-2.5"><Minus size={16} className="mt-1 shrink-0 text-muted" aria-hidden="true" />{p}</li>)}</ul>
+          ) : <p class="t-small text-muted">Aucun relevé</p>}
+        </div>
+      </div>
+
+      <p class="no-print mt-8"><a href={href(`hotel/${resort.id}/`)} class="link t-strong">Voir la fiche complète</a></p>
+    </div>
+  </div>
+</article>
