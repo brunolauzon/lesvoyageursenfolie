@@ -77,9 +77,10 @@ const ai = Object.entries(resort.meta.champsIA ?? {});
         {fresh && (
           <div class="avoid-break border-y border-line py-6">
             <h2 class="h-sub mb-3">L’hôtel est-il récent ?</h2>
-            <p class:list={['figure-num text-[clamp(2rem,3.6vw,3rem)]', fresh.label === 'Très récent' ? 'text-sun' : 'text-ink']}>{chipLabel(fresh)}</p>
-            <p class="t-small mt-1 text-muted">{fresh.label}, {agoLabel(fresh.age)}.{fresh.open != null && fresh.lastKind === 'renovation' ? ` Ouvert en ${fresh.open}.` : ''}</p>
+            <p class:list={['figure-num text-[clamp(2rem,3.6vw,3rem)]', fresh.label === 'Très récent' || fresh.planned ? 'text-sun' : 'text-ink']}>{chipLabel(fresh)}</p>
+            <p class="t-small mt-1 text-muted">{fresh.planned ? 'À confirmer avant de réserver.' : `${fresh.label}, ${agoLabel(fresh.age)}.`}{fresh.open != null && fresh.lastKind === 'renovation' ? ` Ouvert en ${fresh.open}.` : ''}</p>
             {fresh.works && <p class="t-small mt-3 text-ink">{fresh.works}</p>}
+            {fresh.alerte && <p class="t-small mt-3 rounded-md border border-sun px-3 py-2 font-bold text-sun" role="note">{fresh.alerte}</p>}
             {fresh.note && <p class="t-small mt-1 text-muted">{fresh.note}</p>}
             {resort.chambres?.photos?.length ? (
               <ul class="mt-5 grid grid-cols-3 gap-2" aria-label="Photos de chambres">

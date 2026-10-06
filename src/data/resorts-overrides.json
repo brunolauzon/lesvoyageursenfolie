@@ -136,5 +136,172 @@
       "source": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
       "credit": "Riu Hotels & Resorts (site officiel)"
     }
+  },
+  "grand-bavaro-princess-punta-cana": {
+    "etat": {
+      "ouvertureAnnee": null,
+      "ouvertureMois": null,
+      "renovationAnnee": 2019,
+      "renovationMois": null,
+      "renovationNote": "Rénové à l’été 2019 : zone Platinum de 266 chambres, nouveaux restaurants, nouveau coin famille avec parc aquatique.",
+      "note": "Année d’ouverture non confirmée (2006 selon une source). La rénovation de 2019 ne couvre pas forcément toutes les chambres.",
+      "sources": [
+        {
+          "label": "TravelPulse : Grand Bavaro Princess récemment rénové",
+          "url": "https://www.travelpulse.com/voices/blogs/discover-the-recently-refurbished-grand-bavaro-princess"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.princess-hotels.com/wp-content/blogs.dir/1738/files/bavaro-princess-interiores//Habitaciones_-_Bungalow_Suite_2_-_Propuesta.jpg",
+        "https://www.princess-hotels.com/wp-content/blogs.dir/1738/files/bavaro-princess-interiores//Habitaciones_-_Family_1_-_propuesta.jpg",
+        "https://www.princess-hotels.com/wp-content/blogs.dir/1738/files/bavaro-princess-interiores//Habitaciones_-_Platinum_Suite_4_propuesta.jpg"
+      ],
+      "source": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess/",
+      "credit": "Princess Hotels & Resorts (site officiel)"
+    }
+  },
+  "paradisus-palma-real-golf-punta-cana": {
+    "etat": {
+      "ouvertureAnnee": 2006,
+      "ouvertureMois": 4,
+      "renovationAnnee": 2022,
+      "renovationMois": 12,
+      "renovationNote": "Rénovation de 40 M$ US : 596 suites redessinées dont 58 avec accès direct à la piscine, 9 restaurants.",
+      "note": null,
+      "sources": [
+        {
+          "label": "Travelweek : réouverture après 40 M$ de rénovation",
+          "url": "https://www.travelweek.ca/news/paradisus-palma-real-golf-spa-resort-reopens-after-us40-million-reno/"
+        },
+        {
+          "label": "Hosteltur : inauguration de 2006",
+          "url": "https://www.hosteltur.com/31740_sol-melia-inaugura-paradisus-palma-real-punta-cana-republica-dominicana.html"
+        }
+      ]
+    },
+    "infrastructures": {
+      "nombreRestaurants": 9,
+      "nombreBars": 11,
+      "nombrePiscines": 11,
+      "clubEnfants": true,
+      "spaSurPlace": true,
+      "serviceChambre24h": true
+    }
+  },
+  "majestic-elegance-punta-cana": {
+    "etat": {
+      "ouvertureAnnee": 2008,
+      "ouvertureMois": null,
+      "renovationAnnee": 2023,
+      "renovationMois": null,
+      "renovationNote": "Rénovation partielle en 2023 : lobby, restaurant italien, théâtre, allées et salles de bain des chambres Club.",
+      "note": "Rénovation partielle : les autres chambres peuvent être plus anciennes. Année d’ouverture : fin 2008 selon des sites de réservation.",
+      "sources": [
+        {
+          "label": "TravelPulse : Majestic Elegance, nouveautés",
+          "url": "https://www.travelpulse.com/news/hotels-and-resorts/majestic-elegance-punta-cana-introduces-new-enhancements"
+        },
+        {
+          "label": "TravelPulse : grosse rénovation en cours",
+          "url": "https://www.travelpulse.ca/news/hotels-and-resorts/acta-d-r-immersive-fam-majestic-elegance"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://www.majestic-resorts.com/dam/jcr:e34954f4-610b-4f2d-a453-27cea6e23a36/junior-suite-majestic-elegance-punta-cana.webp",
+        "https://www.majestic-resorts.com/dam/jcr:cef1664c-00ff-462f-b12e-5830cfa54e70/junior-suite-jacuzzy-majestic-elegance-punta-cana.webp",
+        "https://www.majestic-resorts.com/dam/jcr:87b958fd-3192-44c6-ace1-8fb32ba2d07c/one-bedroom-suite-majestic-3.webp"
+      ],
+      "source": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana/rooms",
+      "credit": "Majestic Resorts (site officiel)"
+    }
+  },
+  "dreams-playa-esmeralda-miches": {
+    "etat": {
+      "ouvertureAnnee": 2025,
+      "ouvertureMois": 9,
+      "renovationAnnee": null,
+      "renovationMois": null,
+      "renovationNote": null,
+      "note": "Hôtel neuf, ouvert en septembre 2025 : 500 chambres et suites.",
+      "sources": [
+        {
+          "label": "Hospitality Net : ouverture de Dreams Playa Esmeralda",
+          "url": "https://www.hospitalitynet.org/announcement/41013175/dreams-playa-esmeralda-resort-spa-debuts-in-the-dominican-republic"
+        }
+      ]
+    },
+    "infrastructures": {
+      "nombreRestaurants": 10,
+      "nombreBars": 7,
+      "nombrePiscines": 4,
+      "clubEnfants": true,
+      "parcAquatique": true,
+      "spaSurPlace": true,
+      "serviceChambre24h": true,
+      "qualiteWifi": "gratuit"
+    }
+  },
+  "bahia-principe-explore-jamaica-runaway-bay": {
+    "etat": {
+      "ouvertureAnnee": 2006,
+      "ouvertureMois": null,
+      "renovationAnnee": 2026,
+      "renovationMois": 12,
+      "renovationNote": "Rénovation complète après l’ouragan Melissa (octobre 2025). Détails non précisés.",
+      "note": "Année d’ouverture (2006) : une seule source.",
+      "sources": [
+        {
+          "label": "Travelweek : dates de réouverture des hôtels Bahia Principe en Jamaïque",
+          "url": "https://www.travelweek.ca/news/reopening-dates-for-bahia-principe-hotels-resorts-jamaica-properties/"
+        }
+      ],
+      "prevu": true,
+      "alerte": "Fermé depuis l’ouragan Melissa (octobre 2025). Réouverture prévue le 1er décembre 2026, six semaines avant le départ : à confirmer avant de réserver. Les photos peuvent montrer les chambres d’avant les travaux."
+    },
+    "chambres": {
+      "photos": [
+        "https://www.bahia-principe.com/data/webp/big-bahia-principe-jamaica-junior-suite-premium-5-desktop-4152503e79473afc2d35701ee52ec4ca-a0c646c5192f44a11ac166fe1934565d.webp",
+        "https://www.bahia-principe.com/data/webp/big-bahia-principe-jamaica-junior-suite-premium-2-desktop-2cb6625c50e403c6b49e86cbc26466d4-a6a48cbf00792f9dac02686d58a2639b.webp",
+        "https://www.bahia-principe.com/data/webp/big-cabecera-rooms-jamaica-desktop-ed1dd685cfc59fc8c7e584e503460670-35c332370331d0266cba64d40ed8b19f.webp"
+      ],
+      "source": "https://www.bahia-principe.com/en/resorts-in-jamaica/resort-jamaica/rooms/",
+      "credit": "Bahia Principe Hotels & Resorts (site officiel)"
+    }
+  },
+  "finest-punta-cana-by-excellence-collection-punta-cana": {
+    "etat": {
+      "ouvertureAnnee": 2021,
+      "ouvertureMois": 10,
+      "renovationAnnee": null,
+      "renovationMois": null,
+      "renovationNote": null,
+      "note": "Ouvert le 1er octobre 2021, aucune rénovation depuis.",
+      "sources": [
+        {
+          "label": "Excellence Collection : 25 ans de resorts",
+          "url": "https://www.theexcellencecollection.com/blog/25-years-of-luxury-caribbean-resorts/"
+        }
+      ]
+    },
+    "chambres": {
+      "photos": [
+        "https://84c1b501fde61dba63bc-fa6d706bb129c036124b532437347c9f.ssl.cf1.rackcdn.com/u/suites-fpc/Finest-Punta-Cana-Junior-Suite-Bedroom.jpg",
+        "https://84c1b501fde61dba63bc-fa6d706bb129c036124b532437347c9f.ssl.cf1.rackcdn.com/responsive/4:3/1200px/u/suites-fpc/Finest-Punta-Cana-Junior-Suite-Garden-View-Living.jpg",
+        "https://84c1b501fde61dba63bc-fa6d706bb129c036124b532437347c9f.ssl.cf1.rackcdn.com/u/suites-fpc/Finest-Punta-Cana-Regular-Bathroom.jpg"
+      ],
+      "source": "https://www.finestresorts.com/punta-cana/finest-punta-cana/rooms/junior-suite-pool-view/",
+      "credit": "Finest Resorts, Excellence Collection (site officiel)"
+    },
+    "infrastructures": {
+      "nombreRestaurants": 12,
+      "nombreBars": 16,
+      "nombrePiscines": 7,
+      "clubEnfants": true,
+      "spaSurPlace": true
+    }
   }
 }

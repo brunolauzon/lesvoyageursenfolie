@@ -15,7 +15,10 @@ export interface Freshness {
   /** Years between that date and the departure. */
   age: number;
   /** Plain words for the age. */
-  label: 'Très récent' | 'Récent' | 'Plus ancien';
+  label: 'Très récent' | 'Récent' | 'Plus ancien' | 'À confirmer';
+  /** The work is announced but not done yet. */
+  planned: boolean;
+  alerte: string | null;
   note: string | null;
   works: string | null;
 }
@@ -36,7 +39,9 @@ export function freshnessOf(r: Resort): Freshness | null {
     lastYear: Math.floor(last),
     lastKind: n != null && n >= (o ?? -Infinity) ? 'renovation' : 'ouverture',
     age,
-    label: age <= 3 ? 'Très récent' : age <= 6 ? 'Récent' : 'Plus ancien',
+    label: e.prevu ? 'À confirmer' : age <= 3 ? 'Très récent' : age <= 6 ? 'Récent' : 'Plus ancien',
+    planned: Boolean(e.prevu),
+    alerte: e.alerte ?? null,
     note: e.note ?? null,
     works: e.renovationNote ?? null,
   };
@@ -50,5 +55,6 @@ export function agoLabel(age: number): string {
 
 /** Short chip text: "Rénové en 2024" or "Ouvert en 2018". */
 export function chipLabel(f: Freshness): string {
+  if (f.planned) return `Réouverture prévue ${f.lastYear}`;
   return f.lastKind === 'renovation' ? `Rénové en ${f.lastYear}` : `Ouvert en ${f.lastYear}`;
 }

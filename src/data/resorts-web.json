@@ -1,593 +1,96 @@
 {
-  "riu-palace-costa-mujeres": {
-    "generatedAt": "2026-10-06T11:59:28.241Z",
+  "majestic-elegance-punta-cana": {
+    "generatedAt": "2026-10-06T22:10:17.657Z",
     "model": "qwen3:8b",
     "officiel": true,
     "pages": [
       {
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "status": "ok",
-        "chars": 17896
+        "chars": 29897
       },
       {
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres/gastronomy",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana/spa",
         "status": "ok",
-        "chars": 4348
-      },
-      {
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-quintana-roo",
-        "status": "ce n’est pas la page de ce resort (« Riu Palace Quintana Roo »)",
-        "chars": 5034
+        "chars": 2674
       }
     ],
     "facts": {
       "clubEnfants": {
         "value": true,
-        "quote": "RIU Land entertainment programme for kids",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "parcAquatique": {
-        "value": true,
-        "quote": "Splash Water World water park",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
+        "quote": "Kids Club & Babysitting (4-12 years)",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "spaSurPlace": {
         "value": true,
-        "quote": "Spa & Wellness centre",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "qualiteWifi": {
-        "value": "gratuit",
-        "quote": "Free WiFi throughout the hotel",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "nombrePiscines": {
-        "value": 6,
-        "quote": "Your 24h All Inclusive stay includes gourmet dining at specialized venues like Japanese, Mexican, and Italian restaurants, plus 24-hour beverage service and access to 6 pools, including two with swim-up bars (Le site indique aussi : 5 piscines.)",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle",
-        "autres": [
-          5
-        ]
-      },
-      "nombreBars": {
-        "value": 6,
-        "quote": "Relax and enjoy a refreshing drink at any of the 6 bars at Hotel Riu Palace Costa Mujeres, perfect for every occasion",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "qualitePlage": {
-        "value": "Location en bord de mer",
-        "quote": "Beachfront location",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "ia"
-      },
-      "nombreRestaurants": {
-        "value": 6,
-        "quote": "La page gastronomie du resort liste 6 restaurants",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres/gastronomy",
-        "methode": "regle",
-        "evidence": "liste"
-      }
-    },
-    "extras": {
-      "noteGenerale": {
-        "value": 4.4,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 4 984 avis",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "nombreAvis": {
-        "value": 4984,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 4 984 avis",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "etoiles": {
-        "value": 5,
-        "quote": "5 étoiles, indiquées par le site du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "lienTripadvisor": {
-        "value": "https://www.tripadvisor.com/Hotel_Review-d14216187",
-        "quote": "Lien TripAdvisor donné par le site du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      },
-      "siteOfficiel": {
-        "value": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "quote": "Page officielle du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres",
-        "methode": "regle"
-      }
-    },
-    "rejected": [
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "All this with the comfort of the 24-hour All Inclusive service",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres"
-      },
-      {
-        "field": "nombreRestaurants",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Relax and enjoy a refreshing drink at any of the 6 bars at Hotel Riu Palace Costa Mujeres",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres"
-      },
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "All this with the comfort of the 24-hour All Inclusive service",
-        "url": "https://www.riu.com/en/hotel/mexico/cancun/hotel-riu-palace-costa-mujeres/gastronomy"
-      }
-    ],
-    "conflicts": []
-  },
-  "riu-playacar": {
-    "generatedAt": "2026-10-06T11:59:51.618Z",
-    "model": "qwen3:8b",
-    "officiel": true,
-    "pages": [
-      {
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "status": "ok",
-        "chars": 14078
-      },
-      {
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy",
-        "status": "ok",
-        "chars": 3854
-      }
-    ],
-    "facts": {
-      "clubEnfants": {
-        "value": true,
-        "quote": "Entretenimiento para niños, RIULand",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "spaSurPlace": {
-        "value": true,
-        "quote": "Spa & Wellness",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "qualiteWifi": {
-        "value": "gratuit",
-        "quote": "WiFi gratuito en todo el hotel",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "nombreBars": {
-        "value": 4,
-        "quote": "Relax at the 4 bars of the Hotel Riu Playacar, with atmospheres for every moment of the day",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "qualitePlage": {
-        "value": "Plage de sable blanc avec des eaux cristallines.",
-        "quote": "beautiful white sand beach with crystal clear waters",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "ia"
-      },
-      "nombreRestaurants": {
-        "value": 5,
-        "quote": "La page gastronomie du resort liste 5 restaurants",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy",
-        "methode": "regle",
-        "evidence": "liste"
-      }
-    },
-    "extras": {
-      "noteGenerale": {
-        "value": 4.4,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 8 896 avis",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "nombreAvis": {
-        "value": 8896,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,4/5, 8 896 avis",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "etoiles": {
-        "value": 5,
-        "quote": "5 étoiles, indiquées par le site du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "lienTripadvisor": {
-        "value": "https://www.tripadvisor.com/Hotel_Review-d219165",
-        "quote": "Lien TripAdvisor donné par le site du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      },
-      "siteOfficiel": {
-        "value": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "quote": "Page officielle du resort",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar",
-        "methode": "regle"
-      }
-    },
-    "rejected": [
-      {
-        "field": "parcAquatique",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Piscinas infantiles con toboganes",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar"
-      },
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "24-hour all-inclusive",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar"
-      },
-      {
-        "field": "nombrePiscines",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "Piscina exterior con swim up bar",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar"
-      },
-      {
-        "field": "nombreRestaurants",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "4 bars of the Hotel Riu Playacar",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar"
-      },
-      {
-        "field": "parcAquatique",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Entretenimiento para niños, RIULand",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy"
-      },
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Take advantage of the 24-hour All-Inclusive service at Hotel Riu Playacar",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy"
-      },
-      {
-        "field": "nombrePiscines",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "Piscina exterior con swim up bar",
-        "url": "https://www.riu.com/en/hotel/mexico/playa-del-carmen/hotel-riu-playacar/gastronomy"
-      }
-    ],
-    "conflicts": []
-  },
-  "riu-palace-tropical-bay-negril": {
-    "generatedAt": "2026-10-06T12:00:19.164Z",
-    "model": "qwen3:8b",
-    "officiel": true,
-    "pages": [
-      {
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "status": "ok",
-        "chars": 16347
-      },
-      {
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy",
-        "status": "ok",
-        "chars": 4437
-      }
-    ],
-    "facts": {
-      "clubEnfants": {
-        "value": true,
-        "quote": "RIU Land entertainment programme for kids",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "spaSurPlace": {
-        "value": true,
-        "quote": "Spa & Wellness centre",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "qualiteWifi": {
-        "value": "gratuit",
-        "quote": "Free WiFi throughout the hotel",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "nombrePiscines": {
-        "value": 3,
-        "quote": "Three pools are all smallish for dipping not swimming but you have the sea if you want to do lengths",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "ia"
-      },
-      "qualitePlage": {
-        "value": "sable blanc et eaux cristallines",
-        "quote": "Hotel Riu Tropical Bay is located on one of the best beaches on the Jamaican coast. Come and enjoy the white sand and crystal clear waters!",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "ia"
-      },
-      "nombreRestaurants": {
-        "value": 6,
-        "quote": "La page gastronomie du resort liste 6 restaurants",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy",
-        "methode": "regle",
-        "evidence": "liste"
-      }
-    },
-    "extras": {
-      "noteGenerale": {
-        "value": 4.2,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,2/5, 8 723 avis",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "nombreAvis": {
-        "value": 8723,
-        "quote": "TripAdvisor, affiché sur le site du resort : 4,2/5, 8 723 avis",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "etoiles": {
-        "value": 5,
-        "quote": "5 étoiles, indiquées par le site du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "lienTripadvisor": {
-        "value": "https://www.tripadvisor.com/Hotel_Review-d209701",
-        "quote": "Lien TripAdvisor donné par le site du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      },
-      "siteOfficiel": {
-        "value": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "quote": "Page officielle du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay",
-        "methode": "regle"
-      }
-    },
-    "rejected": [
-      {
-        "field": "parcAquatique",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "The little ones will have fun at RIU Land and in the children's pool",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay"
-      },
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Let yourself be surprised by a varied gastronomic offer in buffet and à la carte themed restaurants, as well as drinks a",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay"
-      },
-      {
-        "field": "nombreRestaurants",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "Let yourself be surprised by a varied gastronomic offer in buffet and à la carte themed restaurants",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay"
-      },
-      {
-        "field": "nombreBars",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "Take advantage of the best 24-hour All Inclusive service at Hotel Riu Palace Tropical Bay and enjoy unlimited soft drink",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay"
-      },
-      {
-        "field": "parcAquatique",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "The little ones will have fun at RIU Land and in the children's pool",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy"
-      },
-      {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Let yourself be surprised by a varied gastronomic offer in buffet and à la carte themed restaurants, as well as drinks a",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy"
-      },
-      {
-        "field": "nombreBars",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Restaurants at All-Inclusive Hotel in Negril Beach · Hotel Riu Palace Tropical Bay",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-palace-tropical-bay/gastronomy"
-      }
-    ],
-    "conflicts": []
-  },
-  "riu-palace-bavaro": {
-    "generatedAt": "2026-10-06T12:01:23.852Z",
-    "model": "qwen3:8b",
-    "officiel": true,
-    "pages": [
-      {
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
-        "status": "ok",
-        "chars": 15357
-      },
-      {
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro/gastronomy",
-        "status": "ok",
-        "chars": 6059
-      }
-    ],
-    "facts": {
-      "clubEnfants": {
-        "value": true,
-        "quote": "RIU Land entertainment programme for kids",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
-        "methode": "regle"
-      },
-      "parcAquatique": {
-        "value": true,
-        "quote": "Splash Water World water park",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
-        "methode": "regle"
-      },
-      "spaSurPlace": {
-        "value": true,
-        "quote": "Spa & Wellness centre",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "quote": "Blossom Spa (hydrotherapy, Turkish bath, massages, beauty salon)",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "serviceChambre24h": {
         "value": true,
-        "quote": "24-hour room service",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "quote": "24h Room Service (Elegance Club) / 7am-11pm (Family Section)",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "qualiteWifi": {
         "value": "gratuit",
-        "quote": "Free WiFi throughout the hotel",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "quote": "Free Wi-Fi throughout resort",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "nombrePiscines": {
-        "value": 11,
-        "quote": "11 swimming pools, two of them adults-only (Le site indique aussi : 6, 9 piscines.)",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": 9,
+        "quote": "9 Swimming Pools (incl. 300m river pool with swim-up bar) (Le site indique aussi : 4 piscines.)",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle",
         "autres": [
-          6,
-          9
+          4
         ]
       },
       "nombreRestaurants": {
-        "value": 10,
-        "quote": "Feast whenever you want with 10 varied restaurants, featuring exquisite Japanese at 'Geisha', Italian favorites at 'La Bambola', and the 'Taino' Steakhouse",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": 7,
+        "quote": "Features the exclusive adults-only Elegance Club (18+, 315 rooms) with private pools, butler service and VIP lounges, 7 restaurants, 9 pools including a 300m river pool, Blossom Spa, Kids Club (4–12), casino and conventi",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "nombreBars": {
-        "value": 12,
-        "quote": "Our 24h All-Inclusive experience gives you unlimited drinks at 12 bars",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": 11,
+        "quote": "11 Bars",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "qualitePlage": {
-        "value": "Sur les berges de la magnifique plage Arena Gorda – sable blanc et eaux turquoise.",
-        "quote": "On the shores of the wonderful Arena Gorda beach – with white sands and turquoise waters",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": "Plage de Punta Cana, sable blanc et eau claire.",
+        "quote": "Private Beachfront - Arena Gorda Beach",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "ia"
       }
     },
     "extras": {
       "noteGenerale": {
-        "value": 3.9,
-        "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 11 646 avis",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": 4.8,
+        "quote": "le site du resort : 4,8/5, 26 331 avis",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "nombreAvis": {
-        "value": 11646,
-        "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 11 646 avis",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": 26331,
+        "quote": "le site du resort : 4,8/5, 26 331 avis",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "etoiles": {
         "value": 5,
         "quote": "5 étoiles, indiquées par le site du resort",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
-        "methode": "regle"
-      },
-      "lienTripadvisor": {
-        "value": "https://www.tripadvisor.com/Hotel_Review-d2399068",
-        "quote": "Lien TripAdvisor donné par le site du resort",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       },
       "siteOfficiel": {
-        "value": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
+        "value": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "quote": "Page officielle du resort",
-        "url": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-bavaro",
-        "methode": "regle"
-      }
-    },
-    "rejected": [],
-    "conflicts": []
-  },
-  "riu-negril-negril": {
-    "generatedAt": "2026-10-06T12:00:53.244Z",
-    "model": "qwen3:8b",
-    "officiel": true,
-    "pages": [
-      {
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "status": "ok",
-        "chars": 14635
-      },
-      {
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril/gastronomy",
-        "status": "ok",
-        "chars": 4240
-      },
-      {
-        "url": "https://en.wikipedia.org/wiki/Negril",
-        "status": "ce n’est pas la page de ce resort (« Negril »)",
-        "chars": 17251
-      }
-    ],
-    "facts": {
-      "clubEnfants": {
-        "value": true,
-        "quote": "Entretenimiento para niños, RIULand",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "spaSurPlace": {
-        "value": true,
-        "quote": "Spa & Wellness",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "qualiteWifi": {
-        "value": "gratuit",
-        "quote": "WiFi gratuito en todo el hotel",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "qualitePlage": {
-        "value": "Sable blanc et calme, eaux turquoise.",
-        "quote": "Relax on one of Jamaica's most special beaches, where the sea and nature create a unique environment.",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "ia"
-      },
-      "nombreRestaurants": {
-        "value": 8,
-        "quote": "La page gastronomie du resort liste 8 restaurants",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril/gastronomy",
-        "methode": "regle",
-        "evidence": "liste"
-      }
-    },
-    "extras": {
-      "noteGenerale": {
-        "value": 3.9,
-        "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 9 138 avis",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "nombreAvis": {
-        "value": 9138,
-        "quote": "TripAdvisor, affiché sur le site du resort : 3,9/5, 9 138 avis",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "etoiles": {
-        "value": 5,
-        "quote": "5 étoiles, indiquées par le site du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "lienTripadvisor": {
-        "value": "https://www.tripadvisor.com/Hotel_Review-d478349",
-        "quote": "Lien TripAdvisor donné par le site du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "methode": "regle"
-      },
-      "siteOfficiel": {
-        "value": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
-        "quote": "Page officielle du resort",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana",
         "methode": "regle"
       }
     },
@@ -595,40 +98,182 @@
       {
         "field": "parcAquatique",
         "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Dive into the fun at our swimming pool areas, including a lively spot with a pool bar for that zero-hassle vacation feel",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril"
-      },
+        "quote": "Non-motorized Water Sports (kayaking, windsurfing, snorkelling, catamaran, pedal boats)",
+        "url": "https://www.majestic-resorts.com/punta-cana/resorts/majestic-elegance-punta-cana"
+      }
+    ],
+    "conflicts": []
+  },
+  "grand-bavaro-princess-punta-cana": {
+    "generatedAt": "2026-10-06T22:14:22.005Z",
+    "model": "qwen3:8b",
+    "officiel": true,
+    "pages": [
       {
-        "field": "serviceChambre24h",
-        "reason": "la citation ne parle pas du bon sujet",
-        "quote": "24-hour all-inclusive",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril"
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "status": "ok",
+        "chars": 39536
+      }
+    ],
+    "facts": {
+      "clubEnfants": {
+        "value": true,
+        "quote": "we have activity groups and a Miniclub",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "methode": "ia"
       },
+      "spaSurPlace": {
+        "value": true,
+        "quote": "We have the best Spa facilities so that you can forget about everything for a few days.",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "methode": "ia"
+      },
+      "nombreRestaurants": {
+        "value": 11,
+        "quote": "a total of eleven themed restaurants",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "methode": "ia"
+      },
+      "qualiteWifi": {
+        "value": "gratuit",
+        "quote": "Free Wifi",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "methode": "ia"
+      }
+    },
+    "extras": {
+      "siteOfficiel": {
+        "value": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "quote": "Page officielle du resort",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess",
+        "methode": "regle"
+      }
+    },
+    "rejected": [
       {
         "field": "nombrePiscines",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "Outdoor swimming pool with a swim-up bar",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril"
-      },
-      {
-        "field": "nombreRestaurants",
-        "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "themed restaurants",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril"
+        "reason": "citation trop courte ou absente",
+        "quote": "Pool (x3)",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess"
       },
       {
         "field": "nombreBars",
         "reason": "le nombre n’apparaît pas dans la citation",
-        "quote": "multiple bars where the party never has to stop",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril"
+        "quote": "one snack bar, a food trucks area, one coffee shop and fifteen bars",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess"
       },
       {
-        "field": "parcAquatique",
+        "field": "qualitePlage",
         "reason": "la citation ne parle pas du bon sujet",
-        "quote": "Los más pequeños se lo pasarán en grande en RIU Land",
-        "url": "https://www.riu.com/en/hotel/jamaica/negril/hotel-riu-negril/gastronomy"
+        "quote": "First line of the sea",
+        "url": "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess"
       }
     ],
+    "conflicts": []
+  },
+  "bahia-principe-explore-jamaica-runaway-bay": {
+    "generatedAt": "2026-10-06T22:14:44.336Z",
+    "model": "qwen3:8b",
+    "officiel": true,
+    "pages": [
+      {
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "status": "ok",
+        "chars": 12816
+      }
+    ],
+    "facts": {
+      "nombrePiscines": {
+        "value": 3,
+        "quote": "3 Pools",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "regle"
+      },
+      "nombreRestaurants": {
+        "value": 7,
+        "quote": "7 Restaurants",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "regle"
+      },
+      "nombreBars": {
+        "value": 9,
+        "quote": "9 Bars",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "regle"
+      },
+      "clubEnfants": {
+        "value": true,
+        "quote": "a dedicated Kids Club",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "ia"
+      },
+      "parcAquatique": {
+        "value": true,
+        "quote": "Children’s Water Park",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "ia"
+      },
+      "qualiteWifi": {
+        "value": "gratuit",
+        "quote": "Premium WIFI",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "ia"
+      },
+      "qualitePlage": {
+        "value": "Plage de sable, eau turquoise, face à la mer.",
+        "quote": "Located in Runaway Bay on Jamaica’s north coast, facing turquoise-water beaches",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "ia"
+      }
+    },
+    "extras": {
+      "siteOfficiel": {
+        "value": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica/",
+        "quote": "Page officielle du resort",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica",
+        "methode": "regle"
+      }
+    },
+    "rejected": [
+      {
+        "field": "spaSurPlace",
+        "reason": "citation trop courte ou absente",
+        "quote": "Spa",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica"
+      },
+      {
+        "field": "serviceChambre24h",
+        "reason": "la citation ne parle pas du bon sujet",
+        "quote": "24-HOUR ALL INCLUSIVE",
+        "url": "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica"
+      }
+    ],
+    "conflicts": []
+  },
+  "finest-punta-cana-by-excellence-collection-punta-cana": {
+    "generatedAt": "2026-10-06T22:15:30.662Z",
+    "model": "qwen3:8b",
+    "officiel": false,
+    "pages": [
+      {
+        "url": "https://www.finestresorts.com/punta-cana/finest-punta-cana/rooms",
+        "status": "ce n’est pas la page de ce resort (« Luxury Resort Suites in Punta Cana »)",
+        "chars": 2713
+      },
+      {
+        "url": "https://www.finestresorts.com/punta-cana/finest-punta-cana/dining",
+        "status": "erreur : HTTP 404",
+        "chars": 0
+      },
+      {
+        "url": "https://www.finestresorts.com/punta-cana/finest-punta-cana/spa",
+        "status": "erreur : HTTP 404",
+        "chars": 0
+      }
+    ],
+    "facts": {},
+    "extras": {},
+    "rejected": [],
     "conflicts": []
   }
 }

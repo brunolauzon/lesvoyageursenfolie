@@ -1,3 +1,14 @@
 {
-  "_aide": "Optionnel : pages web que l'IA doit lire pour un resort, par exemple { \"riu-negril\": [\"https://…\"] }. Une adresse de site (sans chemin) suffit : le script cherche alors la page du resort dans le plan du site. Sans entrée, il cherche tout seul (OpenStreetMap, Wikipédia, site de la même marque)."
+  "_aide": "Optionnel : pages web que l'IA doit lire pour un resort, par exemple { \"riu-negril\": [\"https://…\"] }. Une adresse de site (sans chemin) suffit : le script cherche alors la page du resort dans le plan du site. Sans entrée, il cherche tout seul (OpenStreetMap, Wikipédia, site de la même marque).",
+  "grand-bavaro-princess-punta-cana": [
+    "https://www.princess-hotels.com/en/punta-cana/grand-bavaro-princess/"
+  ],
+  "bahia-principe-explore-jamaica-runaway-bay": [
+    "https://www.bahia-principe.com/en/jamaica/runaway-bay/resort-jamaica/"
+  ],
+  "finest-punta-cana-by-excellence-collection-punta-cana": [
+    "https://www.finestresorts.com/punta-cana/finest-punta-cana/rooms/",
+    "https://www.finestresorts.com/punta-cana/finest-punta-cana/dining/",
+    "https://www.finestresorts.com/punta-cana/finest-punta-cana/spa/"
+  ]
 }

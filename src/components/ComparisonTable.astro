@@ -66,7 +66,8 @@ const groups: { title: string; rows: Row[] }[] = [
         label: 'Dernier coup de neuf',
         help: 'Depuis l’ouverture ou la dernière rénovation, au moment du départ',
         kind: 'num',
-        get: (r) => fresh(r)?.age,
+        get: (r) => (fresh(r)?.planned ? null : fresh(r)?.age),
+        empty: (r) => (r.etat?.prevu ? 'Réouverture prévue, à confirmer' : null),
         fmt: agoLabel,
         best: 'min',
         sub: (r) => {
@@ -78,11 +79,11 @@ const groups: { title: string; rows: Row[] }[] = [
       {
         label: 'Dernière rénovation',
         kind: 'num',
-        get: (r) => r.etat?.renovationAnnee,
+        get: (r) => (r.etat?.prevu ? null : r.etat?.renovationAnnee),
         fmt: (v) => String(v),
         best: 'max',
         sub: (r) => monthYear(r.etat?.renovationAnnee, r.etat?.renovationMois),
-        empty: (r) => (r.etat ? 'Aucune depuis l’ouverture' : null),
+        empty: (r) => (r.etat?.prevu ? `Prévue : ${monthYear(r.etat.renovationAnnee, r.etat.renovationMois)}` : r.etat ? 'Aucune depuis l’ouverture' : null),
       },
       { label: 'Ce qui a été refait', kind: 'text', small: true, get: (r) => r.etat?.renovationNote, empty: (r) => (r.etat ? 'Rien à signaler' : null) },
     ],
@@ -167,7 +168,8 @@ const wins = ordered.map((r) => visibleGroups.flatMap((g) => g.rows).filter((row
               <span class="t-small block font-normal text-muted">{countryOf(r) ?? 'Pays à confirmer'}</span>
               <a href={href(`hotel/${r.id}/`)} class="h-sub mt-1 block text-ink no-underline hover:underline">{r.nom}</a>
               {cityOf(r) && <span class="t-small font-normal text-muted">{cityOf(r)}</span>}
-              {fresh(r) && <span class:list={['t-small mt-2 inline-block rounded-full border px-2.5 py-0.5 font-bold', fresh(r)!.label === 'Très récent' ? 'border-sun text-sun' : 'border-line text-ink']}>{chipLabel(fresh(r)!)}</span>}
+              {fresh(r) && <span class:list={['t-small mt-2 inline-block rounded-full border px-2.5 py-0.5 font-bold', fresh(r)!.label === 'Très récent' || fresh(r)!.planned ? 'border-sun text-sun' : 'border-line text-ink']}>{chipLabel(fresh(r)!)}</span>}
+              {fresh(r)?.alerte && <span class="t-tiny mt-1.5 block font-bold text-sun">À confirmer : voir la fiche</span>}
               {wins[i] > 0 && <span class="t-tiny mt-1.5 block font-normal text-muted">Meilleur sur {wins[i]} ligne{wins[i] > 1 ? 's' : ''}</span>}
             </th>
           ))}

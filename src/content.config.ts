@@ -96,6 +96,10 @@ const resorts = defineCollection({
         renovationMois: num,
         renovationNote: str,
         note: str,
+        /** A renovation that has not happened yet (planned reopening). */
+        prevu: bool,
+        /** Something to check before booking (closure, reopening date…). */
+        alerte: str,
         sources: z.array(z.object({ label: z.string(), url: z.string() })).default([]),
       })
       .nullish(),

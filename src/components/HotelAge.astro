@@ -11,7 +11,7 @@ interface Props {
 const rows = Astro.props.resorts
   .map((r) => ({ r, f: freshnessOf(r) }))
   .filter((x): x is { r: Resort; f: NonNullable<typeof x.f> } => x.f != null)
-  .sort((a, b) => a.f.age - b.f.age);
+  .sort((a, b) => (a.f.planned ? 99 : a.f.age) - (b.f.planned ? 99 : b.f.age));
 
 const first = Math.min(...rows.map((x) => x.f.open ?? x.f.lastYear));
 const minY = first - 1;
@@ -51,8 +51,9 @@ const ticks = [2000, 2005, 2010, 2015, 2020, 2025].filter((t) => t > minY);
 
           <div>
             <p class:list={['figure-num text-[1.7rem]', f.label === 'Très récent' ? 'text-sun' : 'text-ink']}>{chipLabel(f)}</p>
-            <p class="t-small text-muted">{f.label}, {agoLabel(f.age)}</p>
+            <p class="t-small text-muted">{f.planned ? 'À confirmer avant de réserver' : `${f.label}, ${agoLabel(f.age)}`}</p>
             {f.works && <p class="t-small mt-2 text-ink">{f.works}</p>}
+            {f.alerte && <p class="t-small mt-2 rounded-md border border-sun px-3 py-2 font-bold text-sun" role="note">{f.alerte}</p>}
           </div>
 
           {r.chambres?.photos?.length ? (
@@ -66,7 +67,9 @@ const ticks = [2000, 2005, 2010, 2015, 2020, 2025].filter((t) => t > minY);
                 </li>
               ))}
             </ul>
-          ) : null}
+          ) : (
+            <p class="t-small text-muted lg:col-span-3">Pas encore de photo de chambre pour cet hôtel : son site officiel bloque la lecture automatique.</p>
+          )}
         </li>
       ))}
     </ol>
