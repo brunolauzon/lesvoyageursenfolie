@@ -1,0 +1,55 @@
+{
+  "slug": "iberostar-selection-varadero",
+  "inputHash": "bd91ace9fd0b",
+  "fetchedAt": "2026-10-06T13:22:00.464Z",
+  "provider": "nominatim",
+  "confidence": 1,
+  "resolved": {
+    "name": "Iberostar Selection Varadero",
+    "lat": 23.1969187,
+    "lon": -81.1604885,
+    "address": "Iberostar Selection Varadero, Km 17 ½, Carretera Las Morlas, Varadero, Matanzas, 42200, Cuba",
+    "country": "Cuba",
+    "website": "https://www.ibercuba.com/en/hotels/varadero/iberostar-varadero/",
+    "googlePlaceId": null,
+    "wikidataId": "Q111414851"
+  },
+  "fields": {
+    "name": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "lat": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "lon": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "address": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "country": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "website": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    },
+    "wikidataId": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:00.464Z"
+    }
+  },
+  "alternatives": []
+}

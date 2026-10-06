@@ -1,0 +1,45 @@
+{
+  "slug": "paradisus-cancun",
+  "inputHash": "a5a495a271d0",
+  "fetchedAt": "2026-10-06T13:22:02.090Z",
+  "provider": "nominatim",
+  "confidence": 1,
+  "resolved": {
+    "name": "Paradisus Cancún",
+    "lat": 21.0836112,
+    "lon": -86.7720585,
+    "address": "Paradisus Cancún, Retorno Itzaes, Zona Hotelera, Cancún, Benito Juárez, Distrito 8, Quintana Roo, 77500, México",
+    "country": "México",
+    "website": null,
+    "googlePlaceId": null,
+    "wikidataId": null
+  },
+  "fields": {
+    "name": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:02.090Z"
+    },
+    "lat": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:02.090Z"
+    },
+    "lon": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:02.090Z"
+    },
+    "address": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:02.090Z"
+    },
+    "country": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:02.090Z"
+    }
+  },
+  "alternatives": []
+}

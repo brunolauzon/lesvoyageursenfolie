@@ -15,5 +15,13 @@
   },
   "footer": {
     "disclaimer": "Les données peuvent être périmées : vérifiez avant de réserver."
+  },
+  "resort": {
+    "back": "← Retour à la comparaison",
+    "officialName": "Nom officiel",
+    "address": "Adresse",
+    "country": "Pays",
+    "website": "Site officiel",
+    "unknown": "?"
   }
 }

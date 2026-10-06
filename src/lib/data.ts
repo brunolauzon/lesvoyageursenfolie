@@ -1,8 +1,9 @@
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { parse } from 'yaml';
 import { TripSchema, type Trip } from '../schema/trip';
 import { ResortInputListSchema, type ResortInput } from '../schema/resort-input';
+import { MetaSchema, type Meta } from '../schema/meta';
 import { slugify } from './slugify';
 
 // Astro bundles this module into dist/, so resolve from the project root, not import.meta.url.
@@ -25,8 +26,17 @@ export function loadResortInputs(): ResortEntry[] {
   }));
   const seen = new Set<string>();
   for (const { slug, name } of list) {
-    if (seen.has(slug)) throw new Error(`Doublon dans resorts.yml : « ${name} » (${slug})`);
+    if (seen.has(slug)) throw new Error(`Duplicate entry in resorts.yml: "${name}" (${slug})`);
     seen.add(slug);
   }
   return list;
+}
+
+export const cacheRoot = join(process.cwd(), 'data', 'cache');
+
+/** Reads data/cache/<slug>/meta.json. Null when the resort has not been resolved yet. */
+export function loadMeta(slug: string): Meta | null {
+  const file = join(cacheRoot, slug, 'meta.json');
+  if (!existsSync(file)) return null;
+  return MetaSchema.parse(JSON.parse(readFileSync(file, 'utf8')));
 }

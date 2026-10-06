@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { loadResortInputs } from '../../lib/data';
+import { loadMeta, loadResortInputs } from '../../lib/data';
+import { t } from '../../lib/i18n';
 import { url } from '../../lib/url';
 
 export function getStaticPaths() {
@@ -8,9 +9,29 @@ export function getStaticPaths() {
 }
 
 const { resort } = Astro.props;
+const resolved = loadMeta(resort.slug)?.resolved ?? null;
+const rows = [
+  { label: t('resort.officialName'), value: resolved?.name },
+  { label: t('resort.address'), value: resolved?.address },
+  { label: t('resort.country'), value: resolved?.country },
+];
 ---
 <Base title={resort.name}>
-  <p><a href={url()}>← Retour à la comparaison</a></p>
+  <p><a href={url()}>{t('resort.back')}</a></p>
   <h1>{resort.name}</h1>
   {resort.location && <p class="muted">{resort.location}</p>}
+  <dl class="facts">
+    {rows.map((r) => (
+      <>
+        <dt>{r.label}</dt>
+        <dd>{r.value ?? <abbr title="Donnée manquante">{t('resort.unknown')}</abbr>}</dd>
+      </>
+    ))}
+    <dt>{t('resort.website')}</dt>
+    <dd>
+      {resolved?.website
+        ? <a href={resolved.website} rel="noopener noreferrer">{resolved.website}</a>
+        : <abbr title="Donnée manquante">{t('resort.unknown')}</abbr>}
+    </dd>
+  </dl>
 </Base>

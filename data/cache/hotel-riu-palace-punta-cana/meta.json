@@ -1,0 +1,55 @@
+{
+  "slug": "hotel-riu-palace-punta-cana",
+  "inputHash": "347f3632d3b3",
+  "fetchedAt": "2026-10-06T13:22:01.414Z",
+  "provider": "nominatim",
+  "confidence": 1,
+  "resolved": {
+    "name": "Hotel Riu Palace Punta Cana",
+    "lat": 18.7233057,
+    "lon": -68.4596046,
+    "address": "Hotel Riu Palace Punta Cana, Avenida Esmeralda, Higüey, La Altagracia, 23000, República Dominicana",
+    "country": "República Dominicana",
+    "website": "https://www.riu.com/en/hotel/dominican-republic/punta-cana/hotel-riu-palace-punta-cana/",
+    "googlePlaceId": null,
+    "wikidataId": "Q111414801"
+  },
+  "fields": {
+    "name": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "lat": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "lon": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "address": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "country": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "website": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    },
+    "wikidataId": {
+      "source": "nominatim",
+      "confidence": 1,
+      "fetchedAt": "2026-10-06T13:22:01.414Z"
+    }
+  },
+  "alternatives": []
+}
