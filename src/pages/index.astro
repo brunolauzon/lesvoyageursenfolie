@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import { loadTrip, loadResortInputs } from '../lib/data';
+import { formatDate } from '../lib/format';
+import { t } from '../lib/i18n';
+import { url } from '../lib/url';
+
+const trip = loadTrip();
+const resorts = loadResortInputs();
+---
+<Base title={t('home.heading')}>
+  <h1>{t('home.heading')}</h1>
+  <p class="muted">
+    {t('home.trip', {
+      start: formatDate(trip.stay.start),
+      end: formatDate(trip.stay.end),
+      travelers: trip.travelers,
+      airport: trip.origin.airport,
+    })}
+  </p>
+  <p>{t('home.resortCount', { count: resorts.length })}</p>
+  <ul class="resort-list">
+    {resorts.map((r) => (
+      <li class="resort-card">
+        <h2><a href={url(`resorts/${r.slug}/`)}>{r.name}</a></h2>
+        {r.location && <p class="muted">{r.location}</p>}
+      </li>
+    ))}
+  </ul>
+  <p class="muted">{t('home.pending')}</p>
+</Base>

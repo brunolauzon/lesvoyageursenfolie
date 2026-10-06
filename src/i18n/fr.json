@@ -1,0 +1,19 @@
+{
+  "site": {
+    "title": "Les voyageurs en folie",
+    "tagline": "Comparateur de forfaits soleil"
+  },
+  "nav": {
+    "compare": "Comparaison",
+    "attribution": "Sources"
+  },
+  "home": {
+    "heading": "Comparaison des hôtels",
+    "trip": "{start} au {end} · {travelers} voyageurs · départ de {airport}",
+    "resortCount": "{count} hôtels à comparer",
+    "pending": "Les données météo, de voyage et d'installations arrivent dans les prochaines phases."
+  },
+  "footer": {
+    "disclaimer": "Les données peuvent être périmées : vérifiez avant de réserver."
+  }
+}

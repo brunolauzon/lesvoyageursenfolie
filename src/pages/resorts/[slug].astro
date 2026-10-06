@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadResortInputs } from '../../lib/data';
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return loadResortInputs().map((resort) => ({ params: { slug: resort.slug }, props: { resort } }));
+}
+
+const { resort } = Astro.props;
+---
+<Base title={resort.name}>
+  <p><a href={url()}>← Retour à la comparaison</a></p>
+  <h1>{resort.name}</h1>
+  {resort.location && <p class="muted">{resort.location}</p>}
+</Base>

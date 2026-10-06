@@ -1,0 +1,6 @@
+# Une ligne `name` suffit. Les autres champs sont des indices optionnels.
+- name: "Iberostar Selection Varadero"
+- name: "Hotel Riu Palace Punta Cana"
+  location: "Punta Cana, Dominican Republic"
+- name: "Paradisus Cancun"
+  location: "Cancún, Mexico"

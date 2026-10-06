@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import { t } from '../lib/i18n';
+import { url } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title, description = t('site.tagline') } = Astro.props;
+const fullTitle = title ? `${title} · ${t('site.title')}` : t('site.title');
+---
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" href={url('favicon.svg')} type="image/svg+xml" />
+    <title>{fullTitle}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="site-header">
+      <div class="container">
+        <a class="brand" href={url()}>{t('site.title')}</a>
+        <nav class="site-nav" aria-label="Principale">
+          <a href={url()}>{t('nav.compare')}</a>
+        </nav>
+      </div>
+    </header>
+    <main id="contenu" class="container">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="container">{t('footer.disclaimer')}</div>
+    </footer>
+  </body>
+</html>

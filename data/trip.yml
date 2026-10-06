@@ -1,0 +1,11 @@
+origin:
+  airport: YUL # Montréal-Trudeau
+  lat: 45.4706
+  lon: -73.7408
+travelers: 2
+stay:
+  start: 2027-01-16 # samedi
+  end: 2027-01-23 # 7 nuits (hypothèse : « semaine du 16 janvier » = 16 au 22 janvier inclus)
+currency: CAD
+locale: fr-CA
+weather_history_years: 10
