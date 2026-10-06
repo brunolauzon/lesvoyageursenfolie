@@ -4,6 +4,7 @@ import { parse } from 'yaml';
 import { TripSchema, type Trip } from '../schema/trip';
 import { ResortInputListSchema, type ResortInput } from '../schema/resort-input';
 import { MetaSchema, type Meta } from '../schema/meta';
+import { WeatherSchema, type Weather } from '../schema/weather';
 import { slugify } from './slugify';
 
 // Astro bundles this module into dist/, so resolve from the project root, not import.meta.url.
@@ -40,3 +41,10 @@ export function loadMeta(slug: string): Meta | null {
   if (!existsSync(file)) return null;
   return MetaSchema.parse(JSON.parse(readFileSync(file, 'utf8')));
 }
+
+function loadCache<T>(slug: string, file: string, schema: { parse(x: unknown): T }): T | null {
+  const path = join(cacheRoot, slug, file);
+  return existsSync(path) ? schema.parse(JSON.parse(readFileSync(path, 'utf8'))) : null;
+}
+
+export const loadWeather = (slug: string): Weather | null => loadCache(slug, 'weather.json', WeatherSchema);

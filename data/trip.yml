@@ -9,3 +9,8 @@ stay:
 currency: CAD
 locale: fr-CA
 weather_history_years: 10
+travel:
+  home_to_airport_min: 0 # chez soi -> YUL, à ajuster
+  checkin_buffer_min: 120 # enregistrement international
+  arrival_buffer_min: 60 # douane + bagages
+  transfer_margin_pct: 15 # marge de sécurité sur le trajet aéroport -> hôtel

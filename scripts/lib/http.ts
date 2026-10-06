@@ -35,6 +35,8 @@ export interface HttpOptions {
   body?: string;
   /** How long a cached response counts as fresh. Default 24 h. */
   ttlMs?: number;
+  /** false for responses that carry secrets (tokens): never read from or written to disk. */
+  cache?: boolean;
 }
 
 export class HttpError extends Error {
@@ -66,6 +68,8 @@ function waitTurn(host: string): Promise<void> {
 }
 
 async function once(url: URL, opts: HttpOptions): Promise<string> {
+  // OFFLINE=1 simulates a missing network: only the on-disk cache can answer.
+  if (process.env.OFFLINE) throw new HttpError(`Offline mode: ${url.host} not reachable`, null, false);
   await waitTurn(url.host);
   const label = `${url.host}${url.pathname}`; // never log the query string
   let res: Response;
@@ -113,14 +117,17 @@ export async function http(rawUrl: string, opts: HttpOptions = {}): Promise<stri
   // Headers (API keys) are deliberately not part of the key or the stored entry.
   const key = createHash('sha256').update(`${opts.method ?? 'GET'} ${url.href} ${opts.body ?? ''}`).digest('hex');
   const file = join(cacheDir, `${key}.json`);
-  const cached = await readEntry(file);
+  const useCache = opts.cache !== false;
+  const cached = useCache ? await readEntry(file) : null;
   if (cached && !state.force && Date.now() - cached.fetchedAt < (opts.ttlMs ?? DEFAULT_TTL_MS)) {
     return cached.body;
   }
   try {
     const body = await withRetries(url, opts);
-    await mkdir(cacheDir, { recursive: true });
-    await writeFile(file, JSON.stringify({ fetchedAt: Date.now(), body } satisfies CacheEntry));
+    if (useCache) {
+      await mkdir(cacheDir, { recursive: true });
+      await writeFile(file, JSON.stringify({ fetchedAt: Date.now(), body } satisfies CacheEntry));
+    }
     return body;
   } catch (err) {
     if (cached) {

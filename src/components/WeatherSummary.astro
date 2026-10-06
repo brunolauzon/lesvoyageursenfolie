@@ -1,0 +1,26 @@
+---
+import { formatNumber, formatPercent, formatUnit } from '../lib/format';
+import { t } from '../lib/i18n';
+import type { WeatherSummary } from '../schema/weather';
+
+interface Props { summary: WeatherSummary }
+const { summary: s } = Astro.props;
+const tiles = [
+  { label: t('weather.tiles.avgHigh'), value: formatUnit(s.avgHigh, 'celsius') },
+  { label: t('weather.tiles.avgLow'), value: formatUnit(s.avgLow, 'celsius') },
+  { label: t('weather.tiles.rainyDayPct'), value: formatPercent(s.rainyDayPct) },
+  { label: t('weather.tiles.sunshine'), value: formatUnit(s.sunshineHoursPerDay, 'hour') },
+  { label: t('weather.tiles.wind'), value: formatUnit(s.windKmh, 'kilometer-per-hour', 0) },
+  { label: t('weather.tiles.uv'), value: s.uvIndex == null ? '?' : formatNumber(s.uvIndex, 1) },
+  { label: t('weather.tiles.sea'), value: formatUnit(s.seaTemp, 'celsius') },
+  { label: t('weather.tiles.humidity'), value: formatPercent(s.humidityPct) },
+];
+---
+<dl class="tiles">
+  {tiles.map((tile) => (
+    <div class="tile">
+      <dt>{tile.label}</dt>
+      <dd>{tile.value === '?' ? <abbr title="Donnée manquante">?</abbr> : tile.value}</dd>
+    </div>
+  ))}
+</dl>

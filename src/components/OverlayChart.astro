@@ -1,0 +1,87 @@
+---
+/** All resorts on one chart per metric. The metric toggle is CSS-only (radio inputs), so it works without JS. */
+import ChartAxes from './ChartAxes.astro';
+import { M, H, W, bandX, finite, linePath, niceTicks, scaleLinear, tripRange } from '../lib/chart';
+import { formatDayMonth, formatNumber } from '../lib/format';
+import { t } from '../lib/i18n';
+import type { Weather } from '../schema/weather';
+
+interface Props { resorts: { slug: string; name: string; weather: Weather | null }[] }
+const { resorts } = Astro.props;
+const withData = resorts.filter((r): r is { slug: string; name: string; weather: Weather } => r.weather !== null);
+const ref = withData[0]?.weather;
+
+const metrics = [
+  { key: 'tmax', label: t('weather.high'), unit: '°C', digits: 1 },
+  { key: 'tmin', label: t('weather.low'), unit: '°C', digits: 1 },
+  { key: 'precip', label: t('weather.precip'), unit: 'mm', digits: 1 },
+  { key: 'sunshine_h', label: t('weather.sunshine'), unit: 'h', digits: 1 },
+  { key: 'sst', label: t('weather.sea'), unit: '°C', digits: 1 },
+] as const;
+
+const series = (w: Weather, key: string) => w.daily.map((d) => d.stats[key]?.mean ?? null);
+const panels = metrics
+  .map((m) => {
+    const lines = withData.map((r) => ({ ...r, values: series(r.weather, m.key) }));
+    const all = finite(lines.flatMap((l) => l.values));
+    if (!all.length) return null;
+    const lo = m.key === 'precip' || m.key === 'sunshine_h' ? 0 : Math.min(...all);
+    return { ...m, lines, scale: niceTicks(lo, Math.max(...all)) };
+  })
+  .filter((p): p is NonNullable<typeof p> => p !== null);
+const dash = ['', '6 3', '2 3', '8 3 2 3', '10 4', '1 4', '4 2 1 2', '12 3 2 3'];
+---
+{ref && (
+  <section class="section overlay" aria-labelledby="overlay-h">
+    <h2 id="overlay-h">{t('weather.overlayHeading')}</h2>
+    <fieldset class="metric-switch">
+      <legend>{t('weather.overlayMetric')}</legend>
+      {panels.map((p, i) => (
+        <>
+          <input type="radio" name="ov-metric" id={`ov-${p.key}`} class="ov-radio" checked={i === 0} />
+          <label for={`ov-${p.key}`}>{p.label}</label>
+        </>
+      ))}
+      <div class="ov-panels">
+        {panels.map((p) => {
+          const y = scaleLinear([p.scale.min, p.scale.max], [H - M.b, M.t]);
+          const x = (i: number) => bandX(i, ref.window.days.length);
+          return (
+            <figure class="chart ov-panel" data-metric={p.key}>
+              <figcaption class="chart-title">{p.label} ({p.unit})</figcaption>
+              <ul class="legend">
+                {p.lines.map((l, i) => (
+                  <li>
+                    <svg class="key" viewBox="0 0 28 10" aria-hidden="true"><line x1="0" x2="28" y1="5" y2="5" stroke={`var(--s${(i % 8) + 1})`} stroke-width="2.5" stroke-dasharray={dash[i % 8]} /></svg>
+                    {l.name}
+                  </li>
+                ))}
+              </ul>
+              <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`ov-${p.key}-t`} class="chart-svg">
+                <title id={`ov-${p.key}-t`}>{p.label} ({p.unit}) : {p.lines.map((l) => l.name).join(', ')}</title>
+                <ChartAxes days={ref.window.days} yTicks={p.scale.ticks} yMin={p.scale.min} yMax={p.scale.max} trip={tripRange(ref.window.days, ref.tripDays)} tripLabel={t('weather.tripWeek')} />
+                {p.lines.map((l, i) => (
+                  <path d={linePath(l.values, x, y)} fill="none" stroke={`var(--s${(i % 8) + 1})`} stroke-width="2.5" stroke-dasharray={dash[i % 8]} />
+                ))}
+              </svg>
+              <details>
+                <summary>{t('weather.showData')}</summary>
+                <div class="table-scroll">
+                  <table>
+                    <thead><tr><th scope="col">{t('weather.day')}</th>{p.lines.map((l) => <th scope="col">{l.name}</th>)}</tr></thead>
+                    <tbody>
+                      {ref.window.days.map((md, di) => (
+                        <tr><th scope="row">{formatDayMonth(md)}</th>{p.lines.map((l) => <td>{l.values[di] == null ? '?' : formatNumber(l.values[di]!, p.digits)}</td>)}</tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </details>
+            </figure>
+          );
+        })}
+      </div>
+    </fieldset>
+    <p class="muted small">{t('weather.caption', { years: ref.summary.yearsUsed })} {t('weather.attribution')}</p>
+  </section>
+)}

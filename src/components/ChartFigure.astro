@@ -1,0 +1,24 @@
+---
+/** Shared frame: title, SVG with text alternative, legend, and the data as a table. */
+interface Props {
+  id: string;
+  title: string;
+  desc: string;
+  showData: string;
+}
+const { id, title, desc, showData } = Astro.props;
+import { H, W } from '../lib/chart';
+---
+<figure class="chart">
+  <figcaption class="chart-title">{title}</figcaption>
+  <ul class="legend"><slot name="legend" /></ul>
+  <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-labelledby={`${id}-t ${id}-d`} class="chart-svg">
+    <title id={`${id}-t`}>{title}</title>
+    <desc id={`${id}-d`}>{desc}</desc>
+    <slot />
+  </svg>
+  <details>
+    <summary>{showData}</summary>
+    <div class="table-scroll"><slot name="table" /></div>
+  </details>
+</figure>

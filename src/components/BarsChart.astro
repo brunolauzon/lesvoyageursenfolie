@@ -1,0 +1,57 @@
+---
+/** Daily mean bars, optionally with a 0-100 % line on a right-hand axis. */
+import ChartFigure from './ChartFigure.astro';
+import ChartAxes from './ChartAxes.astro';
+import { M, H, bandWidth, bandX, finite, linePath, niceTicks, scaleLinear, tripRange } from '../lib/chart';
+import { formatDayMonth, formatNumber } from '../lib/format';
+import { t } from '../lib/i18n';
+import type { Weather } from '../schema/weather';
+
+interface Props {
+  weather: Weather;
+  id: string;
+  variable: 'precip' | 'sunshine_h';
+  title: string;
+  desc: string;
+  valueLabel: string;
+  /** daily key holding a 0-1 share to draw as a line */
+  share?: 'rainyShare' | 'sunnyShare';
+  shareLabel?: string;
+  barClass: string;
+  minMax?: number;
+}
+const { weather, id, variable, title, desc, valueLabel, share, shareLabel, barClass, minMax = 0 } = Astro.props;
+const days = weather.window.days;
+const n = days.length;
+const values = weather.daily.map((d) => d.stats[variable]?.mean ?? null);
+const shares = share ? weather.daily.map((d) => d[share]) : [];
+const scale = niceTicks(0, Math.max(minMax, ...finite(values)));
+const y = scaleLinear([scale.min, scale.max], [H - M.b, M.t]);
+// The share line uses the same grid: 0-100 % is mapped onto the left axis range.
+const yShare = (v: number) => y(scale.min + v * (scale.max - scale.min));
+const bw = bandWidth(n);
+const trip = tripRange(days, weather.tripDays);
+---
+<ChartFigure id={id} title={title} desc={desc} showData={t('weather.showData')}>
+  <Fragment slot="legend">
+    <li><svg class="key" viewBox="0 0 28 10" aria-hidden="true"><rect width="28" height="10" class={barClass} /></svg>{valueLabel}</li>
+    {share && <li><svg class="key" viewBox="0 0 28 10" aria-hidden="true"><line x1="0" x2="28" y1="5" y2="5" class="line-share" stroke-dasharray="6 3" /></svg>{shareLabel}</li>}
+  </Fragment>
+  <ChartAxes days={days} yTicks={scale.ticks} yMin={scale.min} yMax={scale.max} trip={trip} tripLabel={t('weather.tripWeek')} digits={scale.max < 10 ? 1 : 0} percentRight={Boolean(share)} />
+  {values.map((v, i) => v != null && (
+    <rect class={barClass} x={bandX(i, n) - bw * 0.35} width={bw * 0.7} y={y(v)} height={Math.max(0, H - M.b - y(v))} />
+  ))}
+  {share && <path class="line-share" d={linePath(shares, (i) => bandX(i, n), yShare)} fill="none" stroke-dasharray="6 3" />}
+  <table slot="table">
+    <thead><tr><th scope="col">{t('weather.day')}</th><th scope="col">{valueLabel}</th>{share && <th scope="col">{shareLabel}</th>}</tr></thead>
+    <tbody>
+      {days.map((md, i) => (
+        <tr>
+          <th scope="row">{formatDayMonth(md)}</th>
+          <td>{values[i] == null ? '?' : formatNumber(values[i]!, 1)}</td>
+          {share && <td>{shares[i] == null ? '?' : formatNumber(shares[i]! * 100, 0)}</td>}
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</ChartFigure>

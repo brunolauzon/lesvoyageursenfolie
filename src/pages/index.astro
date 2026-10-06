@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
-import { loadTrip, loadResortInputs } from '../lib/data';
+import OverlayChart from '../components/OverlayChart.astro';
+import { loadTrip, loadResortInputs, loadWeather } from '../lib/data';
 import { formatDate } from '../lib/format';
 import { t } from '../lib/i18n';
 import { url } from '../lib/url';
@@ -27,5 +28,5 @@ const resorts = loadResortInputs();
       </li>
     ))}
   </ul>
-  <p class="muted">{t('home.pending')}</p>
+  <OverlayChart resorts={resorts.map((r) => ({ slug: r.slug, name: r.name, weather: loadWeather(r.slug) }))} />
 </Base>

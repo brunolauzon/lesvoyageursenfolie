@@ -23,5 +23,43 @@
     "country": "Pays",
     "website": "Site officiel",
     "unknown": "?"
+  },
+  "weather": {
+    "heading": "Météo historique",
+    "caption": "Moyenne historique sur {years} ans (réanalyse ERA5). Ce n'est pas une prévision.",
+    "attribution": "Données météo : Open-Meteo.com, licence CC BY 4.0.",
+    "tripWeek": "Semaine du séjour",
+    "showData": "Voir les données",
+    "day": "Jour",
+    "tempTitle": "Températures quotidiennes",
+    "tempDesc": "Températures maximales et minimales moyennes pour chaque jour du {start} au {end}, avec la plage entre le 10e et le 90e centile. Le séjour est du {tripStart} au {tripEnd}.",
+    "precipTitle": "Précipitations",
+    "precipDesc": "Précipitations moyennes en millimètres par jour (barres) et probabilité d'une journée pluvieuse de plus de 1 mm (ligne).",
+    "sunTitle": "Ensoleillement",
+    "sunDesc": "Heures moyennes d'ensoleillement par jour.",
+    "seaTitle": "Température de la mer",
+    "seaDesc": "Température moyenne de la surface de la mer par jour.",
+    "seaMissing": "Température de la mer : données non disponibles pour ce site.",
+    "high": "Max moyenne",
+    "low": "Min moyenne",
+    "range": "Plage 10e–90e centile",
+    "forecast": "Prévision",
+    "precip": "Précipitations (mm)",
+    "rainProb": "Jours pluvieux (%)",
+    "sunshine": "Soleil (h)",
+    "sea": "Mer (°C)",
+    "tiles": {
+      "avgHigh": "Max moyen",
+      "avgLow": "Min moyen",
+      "rainyDayPct": "Jours pluvieux",
+      "sunshine": "Soleil par jour",
+      "wind": "Vent max",
+      "uv": "Indice UV",
+      "sea": "Mer",
+      "humidity": "Humidité"
+    },
+    "overlayHeading": "Météo comparée",
+    "overlayMetric": "Indicateur",
+    "noData": "Aucune donnée météo pour le moment."
   }
 }

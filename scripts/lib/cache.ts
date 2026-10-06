@@ -6,5 +6,8 @@ import { cacheRoot } from '../../src/lib/data';
 export function writeCacheJson(slug: string, file: string, data: unknown): void {
   const dir = join(cacheRoot, slug);
   mkdirSync(dir, { recursive: true });
-  writeFileSync(join(dir, file), `${JSON.stringify(data, null, 2)}\n`);
+  const pretty = JSON.stringify(data, null, 2)
+    // Scalar arrays on one line: raw weather years would otherwise be thousands of lines.
+    .replace(/\[\s*((?:-?[\d.e+-]+|null|"[^"\n]*")(?:,\s*(?:-?[\d.e+-]+|null|"[^"\n]*"))*)\s*\]/g, (_, inner: string) => `[${inner.replace(/\s+/g, ' ')}]`);
+  writeFileSync(join(dir, file), `${pretty}\n`);
 }
