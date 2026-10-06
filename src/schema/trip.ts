@@ -21,6 +21,20 @@ export const TripSchema = z.object({
       transfer_margin_pct: z.number().nonnegative().default(15),
     })
     .prefault({}),
+  /** Default 0-10 weights of the "which one should we pick" score. */
+  score_weights: z
+    .object({
+      weather: z.number().min(0).max(10).default(8),
+      travel: z.number().min(0).max(10).default(5),
+      beach: z.number().min(0).max(10).default(6),
+      food: z.number().min(0).max(10).default(5),
+      pool: z.number().min(0).max(10).default(5),
+      kids: z.number().min(0).max(10).default(0),
+      price: z.number().min(0).max(10).default(6),
+      rating: z.number().min(0).max(10).default(6),
+      activities: z.number().min(0).max(10).default(3),
+    })
+    .prefault({}),
 });
 
 export type Trip = z.infer<typeof TripSchema>;

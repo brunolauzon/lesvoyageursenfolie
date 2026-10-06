@@ -1,0 +1,31 @@
+---
+import { findCountry, loadCountries } from '../lib/countries';
+import { t } from '../lib/i18n';
+import type { ResortView } from '../lib/resorts';
+
+interface Props { view: ResortView }
+const { view } = Astro.props;
+const country = findCountry(loadCountries(), view.travel?.airport.country);
+const checklist = [
+  t('destination.check.passport'),
+  t('destination.check.entry'),
+  country ? t('destination.check.plug', { plugs: country.plugs.join(', '), voltage: country.voltage }) : t('destination.check.plugUnknown'),
+  country ? t('destination.check.currency', { currency: country.currency }) : t('destination.check.currencyUnknown'),
+  t('destination.check.insurance'),
+  t('destination.check.tips'),
+];
+---
+<section class="section" aria-labelledby={`dest-${view.entry.slug}`}>
+  <h2 id={`dest-${view.entry.slug}`}>{t('destination.heading')}</h2>
+  {country ? (
+    <dl class="facts">
+      <dt>{t('fields.d_currency')}</dt><dd>{country.currency}</dd>
+      <dt>{t('fields.d_plug')}</dt><dd>{country.plugs.join(', ')}</dd>
+      <dt>{t('fields.d_voltage')}</dt><dd>{country.voltage}</dd>
+      <dt>{t('fields.d_language')}</dt><dd>{country.language}</dd>
+      <dt>{t('destination.advisory')}</dt><dd><a href={country.advisory} rel="noopener noreferrer">{t('destination.advisoryLink')}</a></dd>
+    </dl>
+  ) : <p class="muted">{t('destination.unknown')}</p>}
+  <h3>{t('destination.checklist')}</h3>
+  <ul class="checklist">{checklist.map((c) => <li><span aria-hidden="true">☐</span> {c}</li>)}</ul>
+</section>

@@ -1,0 +1,64 @@
+---
+import { FIELDS, GROUPS } from '../schema/facility-fields';
+import { facilityCell } from '../lib/rows';
+import { googleMapsUrl } from '../lib/facilities';
+import { t } from '../lib/i18n';
+import type { ResortView } from '../lib/resorts';
+
+interface Props { view: ResortView }
+const { view } = Astro.props;
+const { facts } = view;
+const groups = GROUPS.map((g) => ({
+  key: g,
+  rows: FIELDS.filter((f) => f.group === g).flatMap((def) => {
+    const f = facts.fields[def.key];
+    return f ? [{ def, cell: facilityCell(def, f), url: f.url }] : [];
+  }),
+})).filter((g) => g.rows.length);
+const missing = FIELDS.filter((f) => !facts.fields[f.key]).map((f) => t(`fields.${f.key}`));
+const gmaps = view.meta?.resolved.googlePlaceId ? googleMapsUrl(view.meta.resolved.googlePlaceId) : null;
+const photos = facts.photos;
+const note = [view.entry.notes, facts.note].filter(Boolean);
+---
+<section class="section" aria-labelledby={`fac-${view.entry.slug}`}>
+  <h2 id={`fac-${view.entry.slug}`}>{t('facilities.heading')}</h2>
+  {note.length > 0 && <p class="note"><strong>{t('facilities.note')} :</strong> {note.join(' · ')}</p>}
+  {gmaps && <p><a href={gmaps} rel="noopener noreferrer">{t('facilities.googleReviews')}</a></p>}
+  {groups.length === 0 && <p class="muted">{t('facilities.empty')}</p>}
+  {groups.map((g) => (
+    <>
+      <h3>{t(`groups.${g.key}`)}</h3>
+      <dl class="facts">
+        {g.rows.map(({ def, cell }) => (
+          <>
+            <dt>{t(`fields.${def.key}`)}</dt>
+            <dd title={cell.title}>
+              {cell.text}
+              {cell.badge === 'override' && <> <span class="badge b-hand" title={t('badge.override')}>✎ {t('badge.override')}</span></>}
+              {cell.badge === 'verify' && <> <span class="badge b-verify">{t('badge.verify')}</span></>}
+            </dd>
+          </>
+        ))}
+      </dl>
+    </>
+  ))}
+  {missing.length > 0 && <details><summary class="muted">{missing.length} {t('badge.missing').toLowerCase()}s</summary><p class="muted small">{missing.join(', ')}</p></details>}
+  {photos.length > 0 && (
+    <>
+      <h3>{t('facilities.photos')}</h3>
+      <ul class="photos">
+        {photos.map((p) => (
+          <li>
+            <img src={p.url} alt={p.title ?? view.entry.name} width="400" height="260" loading="lazy" decoding="async" referrerpolicy="no-referrer" />
+            <small>
+              {p.source === 'wikimedia' ? (
+                <a href={p.pageUrl ?? '#'} rel="noopener noreferrer">{t('facilities.photoBy', { author: p.author ?? '?', license: p.license ?? '?' })}</a>
+              ) : <a href={p.pageUrl ?? '#'} rel="noopener noreferrer">{t('sources.official')}</a>}
+              {!p.verified && <> · {t('facilities.photoUnverified')}</>}
+            </small>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+</section>

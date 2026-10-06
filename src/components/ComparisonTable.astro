@@ -1,0 +1,71 @@
+---
+import { rank } from '../lib/compare';
+import { buildSections } from '../lib/rows';
+import { t } from '../lib/i18n';
+import { url } from '../lib/url';
+import type { ResortView } from '../lib/resorts';
+import type { Trip } from '../schema/trip';
+
+interface Props { views: ResortView[]; trip: Trip }
+const { views, trip } = Astro.props;
+const sections = buildSections(views, trip);
+---
+<section class="section" aria-labelledby="cmp-h">
+  <h2 id="cmp-h">{t('compare.heading')}</h2>
+  <div class="cmp-controls">
+    <label class="check"><input type="checkbox" id="diff-toggle" /> {t('compare.onlyDiff')}</label>
+    <p class="muted small legend-inline">{t('compare.legend')}
+      <span class="mark mark-best">✔ {t('compare.legendBest')}</span>
+      <span class="mark mark-worst">✖ {t('compare.legendWorst')}</span>
+    </p>
+  </div>
+  <div id="removed" class="removed" hidden><span class="small muted">{t('compare.removed')}</span> <span id="removed-list"></span></div>
+  <p class="muted small">{t('compare.share')}</p>
+  <div class="cmp-wrap" tabindex="0" role="region" aria-label={t('compare.heading')}>
+    <table class="cmp" id="cmp-table">
+      <thead>
+        <tr>
+          <th scope="col" class="corner">{t('compare.corner')}</th>
+          {views.map((v) => (
+            <th scope="col" data-slug={v.entry.slug}>
+              <div class="cmp-photo">
+                {v.facts.photos[0] ? <img src={v.facts.photos[0].url} alt="" width="160" height="100" loading="lazy" decoding="async" referrerpolicy="no-referrer" /> : <span class="ph" aria-hidden="true">🏝</span>}
+              </div>
+              <a href={url(`resorts/${v.entry.slug}/`)} class="cmp-name">{v.entry.name}</a>
+              <div class="cmp-ctrl" data-ctrl></div>
+            </th>
+          ))}
+        </tr>
+      </thead>
+      {sections.map((sec) => (
+        <tbody data-section={sec.key}>
+          <tr class="group-row">
+            <th colspan={views.length + 1} scope="colgroup">
+              <button type="button" class="group-btn" aria-expanded="true" data-toggle={sec.key} aria-label={t('compare.toggleSection', { name: sec.label })}>
+                <span class="chev" aria-hidden="true">▾</span> {sec.label}
+              </button>
+            </th>
+          </tr>
+          {sec.rows.map((row) => {
+            const r = rank(row.cells.map((c) => c.score), row.dir);
+            return (
+              <tr data-row={row.id} data-dir={row.dir ?? ''}>
+                <th scope="row">{row.label}</th>
+                {row.cells.map((c, i) => (
+                  <td data-slug={views[i]!.entry.slug} data-score={c.score ?? ''} data-sig={c.sig} class:list={[{ best: r.best.has(i), worst: r.worst.has(i) }]} title={c.title}>
+                    {c.missing ? <abbr title={t('badge.missing')}>?</abbr> : <span class="val">{c.text}</span>}
+                    {c.badge === 'override' && <span class="badge b-hand" title={t('badge.override')}><span aria-hidden="true">✎</span><span class="sr-only">{t('badge.override')}</span></span>}
+                    {c.badge === 'verify' && <span class="badge b-verify">{t('badge.verify')}</span>}
+                    {c.badge === 'estimate' && <span class="badge b-verify">{t('badge.estimate')}</span>}
+                    <span class="mark mark-best" hidden={!r.best.has(i)}><span aria-hidden="true">✔</span><span class="sr-only">{t('badge.best')}</span></span>
+                    <span class="mark mark-worst" hidden={!r.worst.has(i)}><span aria-hidden="true">✖</span><span class="sr-only">{t('badge.worst')}</span></span>
+                  </td>
+                ))}
+              </tr>
+            );
+          })}
+        </tbody>
+      ))}
+    </table>
+  </div>
+</section>

@@ -37,6 +37,8 @@ export interface HttpOptions {
   ttlMs?: number;
   /** false for responses that carry secrets (tokens): never read from or written to disk. */
   cache?: boolean;
+  /** Minimum gap between calls to this host, overriding the per-host default (official sites: 1000). */
+  intervalMs?: number;
 }
 
 export class HttpError extends Error {
@@ -56,8 +58,8 @@ const sleep = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve,
 const gates = new Map<string, Promise<void>>();
 const lastCall = new Map<string, number>();
 
-function waitTurn(host: string): Promise<void> {
-  const interval = HOST_INTERVAL_MS[host] ?? DEFAULT_INTERVAL_MS;
+function waitTurn(host: string, intervalMs?: number): Promise<void> {
+  const interval = intervalMs ?? HOST_INTERVAL_MS[host] ?? DEFAULT_INTERVAL_MS;
   const next = (gates.get(host) ?? Promise.resolve()).then(async () => {
     const wait = (lastCall.get(host) ?? 0) + interval - Date.now();
     if (wait > 0) await sleep(wait);
@@ -70,7 +72,7 @@ function waitTurn(host: string): Promise<void> {
 async function once(url: URL, opts: HttpOptions): Promise<string> {
   // OFFLINE=1 simulates a missing network: only the on-disk cache can answer.
   if (process.env.OFFLINE) throw new HttpError(`Offline mode: ${url.host} not reachable`, null, false);
-  await waitTurn(url.host);
+  await waitTurn(url.host, opts.intervalMs);
   const label = `${url.host}${url.pathname}`; // never log the query string
   let res: Response;
   try {

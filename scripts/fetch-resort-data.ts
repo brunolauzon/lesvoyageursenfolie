@@ -13,7 +13,8 @@ import type { Meta } from '../src/schema/meta';
 import { writeCacheJson } from './lib/cache';
 import { configureHttp } from './lib/http';
 import type { CacheProvider, ProviderCtx } from './lib/provider';
-import { writeReport } from './lib/report';
+import { writeOverrideTemplate, writeReport } from './lib/report';
+import { facilitiesProvider } from './providers/facilities';
 import { travelProvider } from './providers/travel';
 import { weatherProvider } from './providers/weather';
 import { TTL_DAYS, isFresh } from './lib/ttl';
@@ -35,7 +36,7 @@ function readPrevious(slug: string): Meta | null {
   }
 }
 
-const PROVIDERS: CacheProvider<any>[] = [weatherProvider, travelProvider];
+const PROVIDERS: CacheProvider<any>[] = [weatherProvider, travelProvider, facilitiesProvider];
 
 function readCache<T extends { fetchedAt: string; fingerprint: string }>(slug: string, p: CacheProvider<T>): T | null {
   const file = join(cacheRoot, slug, p.file);
@@ -111,6 +112,7 @@ async function main() {
     }
   }
   writeReport(all, failures);
+  writeOverrideTemplate();
 
   if (failures.size) {
     for (const [slug, message] of failures) console.error(`\n[fetch] ${slug} FAILED\n${message}`);

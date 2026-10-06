@@ -1,7 +1,7 @@
 {
   "slug": "iberostar-selection-varadero",
   "inputHash": "bd91ace9fd0b",
-  "fetchedAt": "2026-10-06T13:22:00.464Z",
+  "fetchedAt": "2026-10-06T13:39:19.554Z",
   "provider": "nominatim",
   "confidence": 1,
   "resolved": {
@@ -18,37 +18,37 @@
     "name": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "lat": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "lon": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "address": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "country": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "website": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     },
     "wikidataId": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:22:00.464Z"
+      "fetchedAt": "2026-10-06T13:39:19.554Z"
     }
   },
   "alternatives": []

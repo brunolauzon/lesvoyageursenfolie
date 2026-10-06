@@ -11,7 +11,7 @@ describe('buildMeta', () => {
   it('fills missing fields from other providers near the winner', () => {
     const meta = buildMeta(entry, [
       cand({ address: 'Blvd Kukulcan' }),
-      cand({ provider: 'wikidata', wikidataId: 'Q42', website: 'https://x.test', lat: 21.101, confidence: 0.8 }),
+      cand({ provider: 'wikidata', wikidataId: 'Q42', website: 'https://x.test', lat: 21.101, confidence: 0.9 }),
     ], now);
     expect(meta.provider).toBe('nominatim');
     expect(meta.resolved).toMatchObject({ address: 'Blvd Kukulcan', wikidataId: 'Q42', website: 'https://x.test', lat: 21.1 });
@@ -30,6 +30,10 @@ describe('buildMeta', () => {
     expect(meta.resolved.googlePlaceId).toBe('g1');
     expect(meta.resolved.lat).toBe(21.1);
     expect(meta.fields.lat?.source).toBe('nominatim');
+  });
+  it('never stores Google text content; keeps the place id and the input name', () => {
+    const meta = buildMeta(entry, [cand({ provider: 'google', name: 'Paradisus Cancun All Inclusive', googlePlaceId: 'g1', address: 'G addr', website: 'https://g.test', confidence: 0.95 })], now);
+    expect(meta.resolved).toMatchObject({ name: 'Paradisus Cancun', googlePlaceId: 'g1', address: null, website: null });
   });
   it('throws low-confidence with the fix hint', () => {
     expect(() => buildMeta(entry, [cand({ confidence: 0.4 })], now)).toThrow(/location:/);

@@ -1,34 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-import TravelCompare from '../components/TravelCompare.astro';
+import ComparisonTable from '../components/ComparisonTable.astro';
 import OverlayChart from '../components/OverlayChart.astro';
-import { loadTrip, loadResortInputs, loadWeather } from '../lib/data';
+import ScorePanel from '../components/ScorePanel.astro';
+import TravelCompare from '../components/TravelCompare.astro';
+import { loadResortViews, loadTrip } from '../lib/resorts';
 import { formatDate } from '../lib/format';
 import { t } from '../lib/i18n';
-import { url } from '../lib/url';
 
 const trip = loadTrip();
-const resorts = loadResortInputs();
+const views = loadResortViews();
 ---
 <Base title={t('home.heading')}>
   <h1>{t('home.heading')}</h1>
   <p class="muted">
-    {t('home.trip', {
-      start: formatDate(trip.stay.start),
-      end: formatDate(trip.stay.end),
-      travelers: trip.travelers,
-      airport: trip.origin.airport,
-    })}
+    {t('home.trip', { start: formatDate(trip.stay.start), end: formatDate(trip.stay.end), travelers: trip.travelers, airport: trip.origin.airport })}
   </p>
-  <p>{t('home.resortCount', { count: resorts.length })}</p>
-  <ul class="resort-list">
-    {resorts.map((r) => (
-      <li class="resort-card">
-        <h2><a href={url(`resorts/${r.slug}/`)}>{r.name}</a></h2>
-        {r.location && <p class="muted">{r.location}</p>}
-      </li>
-    ))}
-  </ul>
-  <TravelCompare resorts={resorts} trip={trip} />
-  <OverlayChart resorts={resorts.map((r) => ({ slug: r.slug, name: r.name, weather: loadWeather(r.slug) }))} />
+  <ScorePanel views={views} trip={trip} />
+  <ComparisonTable views={views} trip={trip} />
+  <TravelCompare resorts={views.map((v) => ({ slug: v.entry.slug, name: v.entry.name }))} trip={trip} />
+  <OverlayChart resorts={views.map((v) => ({ slug: v.entry.slug, name: v.entry.name, weather: v.weather }))} />
+  <script>import '../scripts/compare';</script>
 </Base>

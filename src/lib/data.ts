@@ -4,6 +4,7 @@ import { parse } from 'yaml';
 import { TripSchema, type Trip } from '../schema/trip';
 import { ResortInputListSchema, type ResortInput } from '../schema/resort-input';
 import { MetaSchema, type Meta } from '../schema/meta';
+import { FacilitiesCacheSchema, type FacilitiesCache } from '../schema/facilities';
 import { TravelSchema, type Travel } from '../schema/travel';
 import { WeatherSchema, type Weather } from '../schema/weather';
 import { slugify } from './slugify';
@@ -50,3 +51,4 @@ function loadCache<T>(slug: string, file: string, schema: { parse(x: unknown): T
 
 export const loadWeather = (slug: string): Weather | null => loadCache(slug, 'weather.json', WeatherSchema);
 export const loadTravel = (slug: string): Travel | null => loadCache(slug, 'travel.json', TravelSchema);
+export const loadFacilitiesCache = (slug: string): FacilitiesCache | null => loadCache(slug, 'facilities.json', FacilitiesCacheSchema);

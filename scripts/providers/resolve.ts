@@ -15,6 +15,8 @@ import type { Candidate, SearchInput } from './resolve/types';
 export const MIN_CONFIDENCE = 0.6;
 /** Candidates from other providers within this radius of the winner are treated as the same place. */
 const MERGE_RADIUS_KM = 5;
+/** Enriching from another provider is stricter than accepting a match: a near-miss name may be the neighbouring hotel. */
+const MERGE_CONFIDENCE = 0.85;
 
 export type Scored = Candidate & { confidence: number };
 
@@ -59,7 +61,7 @@ export function buildMeta(entry: ResortEntry, scored: Scored[], now: string, pro
     );
   }
 
-  const same = sorted.filter((c) => c !== best && c.confidence >= MIN_CONFIDENCE && haversineKm(best, c) <= MERGE_RADIUS_KM);
+  const same = sorted.filter((c) => c !== best && c.confidence >= MERGE_CONFIDENCE && haversineKm(best, c) <= MERGE_RADIUS_KM);
   const sources = [best, ...same];
 
   // Google only allows short-lived caching of coordinates: prefer an open source for lat/lon when one agrees.
@@ -71,13 +73,15 @@ export function buildMeta(entry: ResortEntry, scored: Scored[], now: string, pro
     fields[key] = { source: from.provider, confidence: from.confidence, fetchedAt: now };
     return value;
   };
+  // Google's terms forbid storing its content beyond the place id and (30 days) coordinates:
+  // text fields come from open sources only.
   const first = <K extends 'address' | 'country' | 'website' | 'googlePlaceId' | 'wikidataId'>(key: K) => {
-    const from = sources.find((c) => c[key] != null);
+    const from = sources.find((c) => c[key] != null && (key === 'googlePlaceId' || c.provider !== 'google'));
     return take(key, from, from?.[key]);
   };
 
   const resolved: Resolved = {
-    name: take('name', best, best.name)!,
+    name: best.provider === 'google' ? take('name', best, entry.name)! : take('name', best, best.name)!,
     lat: take('lat', coordSource, coordSource.lat)!,
     lon: take('lon', coordSource, coordSource.lon)!,
     address: first('address'),

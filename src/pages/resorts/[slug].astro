@@ -1,44 +1,47 @@
 ---
 import Base from '../../layouts/Base.astro';
-import WeatherSection from '../../components/WeatherSection.astro';
+import DestinationSection from '../../components/DestinationSection.astro';
+import FacilitiesSection from '../../components/FacilitiesSection.astro';
 import TravelSection from '../../components/TravelSection.astro';
-import { loadMeta, loadResortInputs, loadTrip, loadTravel, loadWeather } from '../../lib/data';
+import WeatherSection from '../../components/WeatherSection.astro';
+import { loadResortViews, loadTrip } from '../../lib/resorts';
 import { t } from '../../lib/i18n';
 import { url } from '../../lib/url';
 
 export function getStaticPaths() {
-  return loadResortInputs().map((resort) => ({ params: { slug: resort.slug }, props: { resort } }));
+  return loadResortViews().map((view) => ({ params: { slug: view.entry.slug }, props: { view } }));
 }
 
-const { resort } = Astro.props;
-const resolved = loadMeta(resort.slug)?.resolved ?? null;
-const weather = loadWeather(resort.slug);
+const { view } = Astro.props;
+const { entry, meta, travel, weather } = view;
+const resolved = meta?.resolved ?? null;
 const trip = loadTrip();
-const travel = loadTravel(resort.slug);
 const rows = [
   { label: t('resort.officialName'), value: resolved?.name },
   { label: t('resort.address'), value: resolved?.address },
   { label: t('resort.country'), value: resolved?.country },
 ];
 ---
-<Base title={resort.name}>
+<Base title={entry.name}>
   <p><a href={url()}>{t('resort.back')}</a></p>
-  <h1>{resort.name}</h1>
-  {resort.location && <p class="muted">{resort.location}</p>}
+  <h1>{entry.name}</h1>
+  {entry.location && <p class="muted">{entry.location}</p>}
   <dl class="facts">
     {rows.map((r) => (
       <>
         <dt>{r.label}</dt>
-        <dd>{r.value ?? <abbr title="Donnée manquante">{t('resort.unknown')}</abbr>}</dd>
+        <dd>{r.value ?? <abbr title={t('badge.missing')}>{t('resort.unknown')}</abbr>}</dd>
       </>
     ))}
     <dt>{t('resort.website')}</dt>
     <dd>
       {resolved?.website
         ? <a href={resolved.website} rel="noopener noreferrer">{resolved.website}</a>
-        : <abbr title="Donnée manquante">{t('resort.unknown')}</abbr>}
+        : <abbr title={t('badge.missing')}>{t('resort.unknown')}</abbr>}
     </dd>
   </dl>
-  <TravelSection travel={travel} trip={trip} slug={resort.slug} name={resort.name} />
-  <WeatherSection weather={weather} slug={resort.slug} />
+  <FacilitiesSection view={view} />
+  <TravelSection travel={travel} trip={trip} slug={entry.slug} name={entry.name} />
+  <WeatherSection weather={weather} slug={entry.slug} />
+  <DestinationSection view={view} />
 </Base>

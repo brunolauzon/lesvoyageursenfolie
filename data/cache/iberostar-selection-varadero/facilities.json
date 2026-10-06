@@ -1,0 +1,63 @@
+{
+  "fetchedAt": "2026-10-06T13:39:19.555Z",
+  "fingerprint": "[\"23.197\",\"-81.160\",\"https://www.ibercuba.com/en/hotels/varadero/iberostar-varadero/\",\"Q111414851\",false]",
+  "providers": {
+    "wikidata": {
+      "fetchedAt": "2026-10-06T13:39:19.555Z",
+      "fields": {
+        "stars": {
+          "value": 4,
+          "confidence": 0.8,
+          "url": "https://www.wikidata.org/wiki/Q111414851"
+        }
+      }
+    },
+    "osm": {
+      "fetchedAt": "2026-10-06T13:39:19.555Z",
+      "fields": {
+        "stars": {
+          "value": 5,
+          "confidence": 0.7,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "wifiFree": {
+          "value": true,
+          "confidence": 0.7,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "roomCount": {
+          "value": 386,
+          "confidence": 0.7,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "beachDistanceM": {
+          "value": 150,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "beachfront": {
+          "value": false,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "poolCount": {
+          "value": 4,
+          "confidence": 0.4,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "hasPool": {
+          "value": true,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "nearestTownKm": {
+          "value": 6.6,
+          "confidence": 0.6,
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      }
+    }
+  },
+  "photos": [],
+  "pages": []
+}

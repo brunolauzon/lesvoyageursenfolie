@@ -14,3 +14,13 @@ travel:
   checkin_buffer_min: 120 # enregistrement international
   arrival_buffer_min: 60 # douane + bagages
   transfer_margin_pct: 15 # marge de sécurité sur le trajet aéroport -> hôtel
+score_weights: # 0 à 10, modifiables en direct sur la page
+  weather: 8
+  travel: 5
+  beach: 6
+  food: 5
+  pool: 5
+  kids: 0 # voyage à 2 adultes : à monter si des enfants viennent
+  price: 6
+  rating: 6
+  activities: 3

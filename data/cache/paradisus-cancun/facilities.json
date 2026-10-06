@@ -1,0 +1,82 @@
+{
+  "fetchedAt": "2026-10-06T13:40:15.730Z",
+  "fingerprint": "[\"21.084\",\"-86.772\",null,null,false]",
+  "providers": {
+    "official": {
+      "fetchedAt": "2026-10-06T13:40:15.730Z",
+      "fields": {}
+    },
+    "osm": {
+      "fetchedAt": "2026-10-06T13:40:15.730Z",
+      "fields": {
+        "beachDistanceM": {
+          "value": 790,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "beachfront": {
+          "value": false,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "beachType": {
+          "value": "sand",
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "poolCount": {
+          "value": 1,
+          "confidence": 0.4,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "hasPool": {
+          "value": true,
+          "confidence": 0.5,
+          "url": "https://www.openstreetmap.org/copyright"
+        },
+        "nearestTownKm": {
+          "value": 7.7,
+          "confidence": 0.6,
+          "url": "https://www.openstreetmap.org/copyright"
+        }
+      }
+    },
+    "wikidata": {
+      "fetchedAt": "2026-10-06T13:40:15.730Z",
+      "fields": {}
+    }
+  },
+  "photos": [
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6d/Caribbean_beach.JPG/960px-Caribbean_beach.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "wikimedia",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Caribbean_beach.JPG",
+      "title": "Caribbean beach.JPG",
+      "author": "María de las Nieves Sande",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "verified": false
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e9/Cancun_-_panoramio_%281%29.jpg/960px-Cancun_-_panoramio_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "wikimedia",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Cancun_-_panoramio_(1).jpg",
+      "title": "Cancun - panoramio (1).jpg",
+      "author": "runt35",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "verified": false
+    },
+    {
+      "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a1/Fiesta_Americana_Condesa_Cancun_-_panoramio.jpg/960px-Fiesta_Americana_Condesa_Cancun_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "wikimedia",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Fiesta_Americana_Condesa_Cancun_-_panoramio.jpg",
+      "title": "Fiesta Americana Condesa Cancun - panoramio.jpg",
+      "author": "runt35",
+      "license": "CC BY 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+      "verified": false
+    }
+  ],
+  "pages": []
+}

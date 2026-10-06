@@ -1,7 +1,7 @@
 {
   "slug": "paradisus-cancun",
   "inputHash": "a5a495a271d0",
-  "fetchedAt": "2026-10-06T13:28:21.134Z",
+  "fetchedAt": "2026-10-06T13:40:15.729Z",
   "provider": "nominatim",
   "confidence": 1,
   "resolved": {
@@ -18,27 +18,27 @@
     "name": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:28:21.134Z"
+      "fetchedAt": "2026-10-06T13:40:15.729Z"
     },
     "lat": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:28:21.134Z"
+      "fetchedAt": "2026-10-06T13:40:15.729Z"
     },
     "lon": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:28:21.134Z"
+      "fetchedAt": "2026-10-06T13:40:15.729Z"
     },
     "address": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:28:21.134Z"
+      "fetchedAt": "2026-10-06T13:40:15.729Z"
     },
     "country": {
       "source": "nominatim",
       "confidence": 1,
-      "fetchedAt": "2026-10-06T13:28:21.134Z"
+      "fetchedAt": "2026-10-06T13:40:15.729Z"
     }
   },
   "alternatives": []

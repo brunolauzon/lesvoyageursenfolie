@@ -1,0 +1,11 @@
+# Stable facts per destination, hand-maintained. Entry requirements, visas and health advice change:
+# we only link to the Government of Canada advisory page ("advisory"), never restate them.
+CU: { name: Cuba, currency: "Peso cubain (CUP)", plugs: [A, B, C, L], voltage: "110 V et 220 V selon l'hôtel, 60 Hz", language: Espagnol, advisory: "https://voyage.gc.ca/destinations/cuba" }
+DO: { name: "République dominicaine", currency: "Peso dominicain (DOP)", plugs: [A, B], voltage: "110 V, 60 Hz", language: Espagnol, advisory: "https://voyage.gc.ca/destinations/republique-dominicaine" }
+MX: { name: Mexique, currency: "Peso mexicain (MXN)", plugs: [A, B], voltage: "127 V, 60 Hz", language: Espagnol, advisory: "https://voyage.gc.ca/destinations/mexique" }
+JM: { name: Jamaïque, currency: "Dollar jamaïcain (JMD)", plugs: [A, B], voltage: "110 V, 50 Hz", language: Anglais, advisory: "https://voyage.gc.ca/destinations/jamaique" }
+BS: { name: Bahamas, currency: "Dollar bahaméen (BSD)", plugs: [A, B], voltage: "120 V, 60 Hz", language: Anglais, advisory: "https://voyage.gc.ca/destinations/bahamas" }
+CR: { name: "Costa Rica", currency: "Colón costaricien (CRC)", plugs: [A, B], voltage: "120 V, 60 Hz", language: Espagnol, advisory: "https://voyage.gc.ca/destinations/costa-rica" }
+AW: { name: Aruba, currency: "Florin arubais (AWG)", plugs: [A, B, F], voltage: "127 V, 60 Hz", language: "Néerlandais, papiamento, anglais", advisory: "https://voyage.gc.ca/destinations/aruba" }
+BB: { name: Barbade, currency: "Dollar de la Barbade (BBD)", plugs: [A, B], voltage: "115 V, 50 Hz", language: Anglais, advisory: "https://voyage.gc.ca/destinations/barbade" }
+KY: { name: "Îles Caïmans", currency: "Dollar des îles Caïmans (KYD)", plugs: [A, B], voltage: "120 V, 60 Hz", language: Anglais, advisory: "https://voyage.gc.ca/destinations/iles-caimans" }
